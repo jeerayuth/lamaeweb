@@ -74,7 +74,7 @@
                         <ul class="nav navbar-nav">
                             <!-- Home -->
                             <li class="active">
-                                <a href="<?php echo  base_url(); ?>">
+                                <a href="<?php echo base_url(); ?>">
                                     หน้าหลัก
                                 </a>
 
@@ -143,11 +143,7 @@
                                     <li class="">
                                         <a href="#">เอกสารทางราชการทั่วไป</a>
 
-                                    </li>
-                                    <li class="">
-                                        <a href="#">เอกสารทางราชการ ภายใน</a>
-
-                                    </li>
+                                    </li>                                 
                                     <li class="">
                                         <a href="#">เอกสารคู่มือ-แบบฟอร์ม</a>
 
@@ -178,9 +174,11 @@
 
                             <!-- Demo Pages -->
                             <li class="">
-                                <a href="<?php echo  base_url('user/login'); ?>" class="dropdown-toggle" data-toggle="">
+
+                                <a href="<?php echo base_url('user/login'); ?>" class="dropdown-toggle" data-toggle="">
                                     เข้าสู่ระบบ
                                 </a>
+
 
                             </li>
                             <!-- End Demo Pages -->

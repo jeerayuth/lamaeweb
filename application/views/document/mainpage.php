@@ -22,11 +22,14 @@
             <div class="box-body">
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <a class="btn btn-success" href="<?php echo  base_url('document/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มข้อมูล</a>
-                            <a class="btn btn-default" href="<?php echo  base_url('document'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                        <div class="col-sm-8">
+                            <a class="btn btn-default" href="<?php echo  base_url('document'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> รายการไฟล์</a>
+                            <a class="btn btn-info" href="<?php echo  base_url('document/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มไฟล์</a>
+                            <a class="btn btn-info" href="<?php echo  base_url('categorie'); ?>" role="button"><i class="fa fa-fw fa-info-circle"></i> รายการหมวดหมู่</a>
+                            <a class="btn btn-info" href="<?php echo  base_url('categorie/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มหมวดหมู่</a>
+                            
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div id="" class="dataTables_filter">
                             <form action="" method="GET" name="search">
                             	<label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหาชื่อเอกสาร"></label>

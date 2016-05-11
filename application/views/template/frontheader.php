@@ -163,13 +163,6 @@
                             <!-- End Portfolio -->
 
 
-                            <!-- Shortcodes -->
-                            <li class="">
-                                <a href="#" class="dropdown-toggle" data-toggle="">
-                                    สมัครสมาชิก
-                                </a>
-
-                            </li>
                             <!-- End Shortcodes -->
 
                             <!-- Demo Pages -->

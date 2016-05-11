@@ -15,13 +15,14 @@ class Document_model extends CI_Model
 		return $this->db->count_all_results();
 	}
 
-	public function fetch_document($limit, $start, $keryword)
+	public function fetch_document($limit, $start, $keryword, $sort = null, $type=null)
 	{
 		$this->db->select('documents.*,categories.name,users.display_name');
 		$this->db->from('documents');
 		$this->db->join('categories','categories.id=documents.categorie_id');
 		$this->db->join('users','users.id=documents.created_by');
 		$this->db->like('topic', $keryword);
+                $this->db->order_by($sort, $type);
 		$this->db->limit($limit, $start);
 		$query = $this->db->get();
 		if($query->num_rows() > 0)

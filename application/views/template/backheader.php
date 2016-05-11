@@ -55,8 +55,8 @@
                     <!-- logo for regular state and mobile devices -->
                     <span class="logo-lg">
                         <b>
-                            Admin
-                        </b>LTE
+                            Back
+                        </b>Office
                     </span>
                 </a>
 
@@ -88,9 +88,7 @@
                                         <img src="<?php echo base_url() ?>adminlte/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             <?php echo $this->session->userdata('username'); ?>
-                                            <small>
-                                                itoffside.com
-                                            </small>
+                                          
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
@@ -173,22 +171,13 @@
                         <li class="header">
                             MENU
                         </li>
-                        <!-- Optionally, you can add icons to the links -->
-                        <li class="<?php echo activate_menu('categorie'); ?>">
-                            <a href="<?php echo base_url('categorie'); ?>">
-                                <i class="fa fa-link">
-                                </i>
-                                <span>
-                                    จัดการหมวดหมู่เอกสาร
-                                </span>
-                            </a>
-                        </li>
+
                         <li class="<?php echo activate_menu('document'); ?>">
                             <a href="<?php echo base_url('document'); ?>">
                                 <i class="fa fa-link">
                                 </i>
                                 <span>
-                                    จัดการเอกสาร
+                                    ระบบเอกสารดาวน์โหลด
                                 </span>
                             </a>
                         </li>

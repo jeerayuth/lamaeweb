@@ -1,165 +1,165 @@
 
-            <!--=== Slider ===-->
-            <div class="tp-banner-container">
-                <div class="tp-banner">
-                    <ul>
-                        <!-- SLIDE -->
-                        <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 1">
-                            <!-- MAIN IMAGE -->
-                            <img src="<?php echo base_url(); ?>bootstrap//img/sliders/1.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+<!--=== Slider ===-->
+<div class="tp-banner-container">
+    <div class="tp-banner">
+        <ul>
+            <!-- SLIDE -->
+            <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 1">
+                <!-- MAIN IMAGE -->
+                <img src="<?php echo base_url(); ?>bootstrap//img/sliders/1.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
 
-                            <div class="tp-caption revolution-ch1 sft start"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="100"
-                                 data-speed="1500"
-                                 data-start="500"
-                                 data-easing="Back.easeInOut"
-                                 data-endeasing="Power1.easeIn"
-                                 data-endspeed="300">
-                                Introducing Unify Template
-                            </div>
-
-                            <!-- LAYER -->
-                            <div class="tp-caption revolution-ch2 sft"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="190"
-                                 data-speed="1400"
-                                 data-start="2000"
-                                 data-easing="Power4.easeOut"
-                                 data-endspeed="300"
-                                 data-endeasing="Power1.easeIn"
-                                 data-captionhidden="off"
-                                 style="z-index: 6">
-                                We are creative technology company providing <br/>
-                                key digital services on web and mobile.
-                            </div>
-
-                            <!-- LAYER -->
-                            <div class="tp-caption sft"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="310"
-                                 data-speed="1600"
-                                 data-start="2800"
-                                 data-easing="Power4.easeOut"
-                                 data-endspeed="300"
-                                 data-endeasing="Power1.easeIn"
-                                 data-captionhidden="off"
-                                 style="z-index: 6">
-                                <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a>
-                                <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a>
-                            </div>
-                        </li>
-                        <!-- END SLIDE -->
-
-                        <!-- SLIDE -->
-                        <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 2">
-                            <!-- MAIN IMAGE -->
-                            <img src="<?php echo base_url(); ?>bootstrap/img/sliders/2.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-
-                            <div class="tp-caption revolution-ch1 sft start"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="100"
-                                 data-speed="1500"
-                                 data-start="500"
-                                 data-easing="Back.easeInOut"
-                                 data-endeasing="Power1.easeIn"
-                                 data-endspeed="300">
-                                Includes 300+ Template Pages
-                            </div>
-
-                            <!-- LAYER -->
-                            <div class="tp-caption revolution-ch2 sft"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="190"
-                                 data-speed="1400"
-                                 data-start="2000"
-                                 data-easing="Power4.easeOut"
-                                 data-endspeed="300"
-                                 data-endeasing="Power1.easeIn"
-                                 data-captionhidden="off"
-                                 style="z-index: 6">
-                                We are creative technology company providing <br/>
-                                key digital services on web and mobile.
-                            </div>
-
-                            <!-- LAYER -->
-                            <div class="tp-caption sft"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="310"
-                                 data-speed="1600"
-                                 data-start="2800"
-                                 data-easing="Power4.easeOut"
-                                 data-endspeed="300"
-                                 data-endeasing="Power1.easeIn"
-                                 data-captionhidden="off"
-                                 style="z-index: 6">
-                                <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a>
-                                <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a>
-                            </div>
-                        </li>
-                        <!-- END SLIDE -->
-
-                        <!-- SLIDE -->
-                        <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 3">
-                            <!-- MAIN IMAGE -->
-                            <img src="<?php echo base_url(); ?>bootstrap/img/sliders/3.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-
-                            <div class="tp-caption revolution-ch1 sft start"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="100"
-                                 data-speed="1500"
-                                 data-start="500"
-                                 data-easing="Back.easeInOut"
-                                 data-endeasing="Power1.easeIn"
-                                 data-endspeed="300">
-                                Over 25000+ Satisfied Users
-                            </div>
-
-                            <!-- LAYER -->
-                            <div class="tp-caption revolution-ch2 sft"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="190"
-                                 data-speed="1400"
-                                 data-start="2000"
-                                 data-easing="Power4.easeOut"
-                                 data-endspeed="300"
-                                 data-endeasing="Power1.easeIn"
-                                 data-captionhidden="off"
-                                 style="z-index: 6">
-                                We are creative technology company providing <br/>
-                                key digital services on web and mobile.
-                            </div>
-
-                            <!-- LAYER -->
-                            <div class="tp-caption sft"
-                                 data-x="center"
-                                 data-hoffset="0"
-                                 data-y="310"
-                                 data-speed="1600"
-                                 data-start="2800"
-                                 data-easing="Power4.easeOut"
-                                 data-endspeed="300"
-                                 data-endeasing="Power1.easeIn"
-                                 data-captionhidden="off"
-                                 style="z-index: 6">
-                                <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a>
-                                <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a>
-                            </div>
-                        </li>
-                        <!-- END SLIDE -->
-                    </ul>
-                    <div class="tp-bannertimer tp-bottom"></div>
+                <div class="tp-caption revolution-ch1 sft start"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="100"
+                     data-speed="1500"
+                     data-start="500"
+                     data-easing="Back.easeInOut"
+                     data-endeasing="Power1.easeIn"
+                     data-endspeed="300">
+                    Introducing Unify Template
                 </div>
-            </div>
-            <!--=== End Slider ===-->
+
+                <!-- LAYER -->
+                <div class="tp-caption revolution-ch2 sft"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="190"
+                     data-speed="1400"
+                     data-start="2000"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="300"
+                     data-endeasing="Power1.easeIn"
+                     data-captionhidden="off"
+                     style="z-index: 6">
+                    We are creative technology company providing <br/>
+                    key digital services on web and mobile.
+                </div>
+
+                <!-- LAYER -->
+                <div class="tp-caption sft"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="310"
+                     data-speed="1600"
+                     data-start="2800"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="300"
+                     data-endeasing="Power1.easeIn"
+                     data-captionhidden="off"
+                     style="z-index: 6">
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a>
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a>
+                </div>
+            </li>
+            <!-- END SLIDE -->
+
+            <!-- SLIDE -->
+            <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 2">
+                <!-- MAIN IMAGE -->
+                <img src="<?php echo base_url(); ?>bootstrap/img/sliders/2.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+
+                <div class="tp-caption revolution-ch1 sft start"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="100"
+                     data-speed="1500"
+                     data-start="500"
+                     data-easing="Back.easeInOut"
+                     data-endeasing="Power1.easeIn"
+                     data-endspeed="300">
+                    Includes 300+ Template Pages
+                </div>
+
+                <!-- LAYER -->
+                <div class="tp-caption revolution-ch2 sft"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="190"
+                     data-speed="1400"
+                     data-start="2000"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="300"
+                     data-endeasing="Power1.easeIn"
+                     data-captionhidden="off"
+                     style="z-index: 6">
+                    We are creative technology company providing <br/>
+                    key digital services on web and mobile.
+                </div>
+
+                <!-- LAYER -->
+                <div class="tp-caption sft"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="310"
+                     data-speed="1600"
+                     data-start="2800"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="300"
+                     data-endeasing="Power1.easeIn"
+                     data-captionhidden="off"
+                     style="z-index: 6">
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a>
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a>
+                </div>
+            </li>
+            <!-- END SLIDE -->
+
+            <!-- SLIDE -->
+            <li class="revolution-mch-1" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Title 3">
+                <!-- MAIN IMAGE -->
+                <img src="<?php echo base_url(); ?>bootstrap/img/sliders/3.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+
+                <div class="tp-caption revolution-ch1 sft start"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="100"
+                     data-speed="1500"
+                     data-start="500"
+                     data-easing="Back.easeInOut"
+                     data-endeasing="Power1.easeIn"
+                     data-endspeed="300">
+                    Over 25000+ Satisfied Users
+                </div>
+
+                <!-- LAYER -->
+                <div class="tp-caption revolution-ch2 sft"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="190"
+                     data-speed="1400"
+                     data-start="2000"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="300"
+                     data-endeasing="Power1.easeIn"
+                     data-captionhidden="off"
+                     style="z-index: 6">
+                    We are creative technology company providing <br/>
+                    key digital services on web and mobile.
+                </div>
+
+                <!-- LAYER -->
+                <div class="tp-caption sft"
+                     data-x="center"
+                     data-hoffset="0"
+                     data-y="310"
+                     data-speed="1600"
+                     data-start="2800"
+                     data-easing="Power4.easeOut"
+                     data-endspeed="300"
+                     data-endeasing="Power1.easeIn"
+                     data-captionhidden="off"
+                     style="z-index: 6">
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Learn More</a>
+                    <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Our Work</a>
+                </div>
+            </li>
+            <!-- END SLIDE -->
+        </ul>
+        <div class="tp-bannertimer tp-bottom"></div>
+    </div>
+</div>
+<!--=== End Slider ===-->
 
 
 <div class="container content">
@@ -350,59 +350,27 @@
                             <th align="center">วันที่โพสต์</th>
                             <th>ชื่อรายการโหลด</th>
                             <th>ประเภท</th>
+                            <th>จำนวนครั้ง</th>
                             <th align="center">ดาวน์โหลด</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-05-04 10:52:55</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  ClinicMINI Version 59.4.22b</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=23"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-05-04 14:18:16</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  IPD_Easy เวอร์ชั่น 59.5.4</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=22"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-29 11:03:06</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  โปรแกรม TBKMh Version 59.04.29</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=21"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-29 04:23:32</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  ClinicMINI Version 59.4.22 </td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=20"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-20 09:43:40</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  คู่มือมาตรฐานการดำเนินงานทางสาธารณสุข  </td>
-                            <td>เอกสารคู่มือ/แบบฟอร์ม</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=19"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-20 03:48:40</td>
-                            <td><img src="<?php echo base_url(); ?>assets/<?php echo base_url(); ?>assets/images/doc.png">  IPD_Easy เวอร์ชั่น 59.4.18</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=18"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
+                        <?php if (!empty($download1)) {
+                            foreach ($download1 as $data) { ?>
+                                <tr>
+                                    <td>#</td>
+                                    <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($data->register_date)); ?></td>
+                                    <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  <?php echo $data->topic; ?></td>
+                                    <td><?php echo $data->name; ?></td>
+                                    <td><?php echo $data->stat; ?></td>
+                                   <!-- <td><span class="label rounded label-success">1</span></td>-->
+                                    <td><a href="<?php echo base_url('assets/doc_uploads/' . $data->filename); ?>" target="_blank"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
+                                </tr>
+
+                            <?php }
+                        } ?>
+
 
                     </tbody>
 
@@ -426,59 +394,26 @@
                             <th align="center">วันที่โพสต์</th>
                             <th>ชื่อรายการโหลด</th>
                             <th>ประเภท</th>
+                            <th>จำนวนครั้ง</th>
                             <th align="center">ดาวน์โหลด</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-20 03:49:20</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  สื่อประชาสัมพันธ์ โรคไม่ติดต่อ</td>
-                            <td>เอกสารคู่มือ/แบบฟอร์ม</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=17"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-12 12:29:27</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  โปรแกรม IPD-Easy 59.4.12</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=16"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-11 10:55:31</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  โปรแกรม IPD-Easy Version 59.4.11</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=15"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-06 15:59:14</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">   โปรแกรม ASUPro Version 58.09.23</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=14"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-06 15:54:31</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  โปรแกรม RMh59.3.6  Edite 6-3-2559</td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=13"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/date.png">  2016-04-06 15:52:39</td>
-                            <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  โปรแกรม TBKMh Version 58.08.04   </td>
-                            <td>โปรแกรมต่าง ๆ</td>
-                           <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            <td><a href="index.php?r=download/views&amp;id=12"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                        </tr>
+                    <?php if (!empty($download2)) {
+                            foreach ($download2 as $data) { ?>
+                                <tr>
+                                    <td>#</td>
+                                    <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($data->register_date)); ?></td>
+                                    <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  <?php echo $data->topic; ?></td>
+                                    <td><?php echo $data->name; ?></td>
+                                    <td><?php echo $data->stat; ?></td>
+                                   <!-- <td><span class="label rounded label-success">1</span></td>-->
+                                    <td><a href="<?php echo base_url('assets/doc_uploads/' . $data->filename); ?>" target="_blank"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
+                                </tr>
+
+                            <?php }
+                    } ?>
 
                     </tbody>
 

@@ -38,9 +38,9 @@ class News extends CI_Controller
         
 	public function newdata()
 	{
-		$data['results'] = $this->Categorie_model->fetch_categorie(0,0,'');
+		$data['results'] = $this->News_Categorie_model->fetch_categorie(0,0,'');
 		$this->load->view('template/backheader');
-		$this->load->view('document/newdata',$data);
+		$this->load->view('news/newdata',$data);
 		$this->load->view('template/backfooter');
 	}
 

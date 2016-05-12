@@ -171,6 +171,16 @@
                         <li class="header">
                             MENU
                         </li>
+                        
+                        <li class="<?php echo activate_menu('news'); ?>">
+                            <a href="<?php echo base_url('news'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบข่าวประชาสัมพันธ์
+                                </span>
+                            </a>
+                        </li>
 
                         <li class="<?php echo activate_menu('document'); ?>">
                             <a href="<?php echo base_url('document'); ?>">
@@ -181,6 +191,9 @@
                                 </span>
                             </a>
                         </li>
+                        
+
+                        
                     </ul><!-- /.sidebar-menu -->
                 </section>
                 <!-- /.sidebar -->

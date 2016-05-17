@@ -51,11 +51,11 @@
                                 <tbody>
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">                  
-                                            <td><?php echo  $data->topic; ?></td>                                 
+                                            <td><a href="<?php echo base_url('news/edit/'.$data->id); ?>"><?php echo  $data->topic; ?></a></td>                                 
                                             <td><?php echo  $data->display_name; ?></td>
                                             <td><?php echo $data->name; ?></td>
                                             <td>
-                                            	<a class="btn btn-info btn-xs" target="_blank" href="<?php echo  base_url('assets/doc_uploads/'.$data->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> เอกสารแนบ</a>
+                                            	<a class="btn btn-info btn-xs" target="_blank" href="<?php echo  base_url('assets/news_uploads/'.$data->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> เอกสารแนบ</a>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('news/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

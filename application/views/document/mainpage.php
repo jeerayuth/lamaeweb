@@ -55,9 +55,9 @@
                                     <?php if(!empty($results)){ foreach ($results as $data) { ?>
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('document/edit/'.$data->id); ?>"><?php echo  $data->document_code; ?></a>
+                                            <?php echo  $data->document_code; ?>
                                             </td>
-                                            <td><?php echo  $data->topic; ?></td>
+                                            <td><a href="<?php echo base_url('document/edit/'.$data->id); ?>"><?php echo  $data->topic; ?></a></td>
                                             <td><?php echo  date('d/m/Y',strtotime($data->register_date)); ?></td>
                                             <td><?php echo  $data->store; ?></td>
                                             <td><?php echo  $data->display_name; ?></td>

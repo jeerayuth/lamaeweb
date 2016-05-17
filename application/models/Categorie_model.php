@@ -47,6 +47,7 @@ class Categorie_model extends CI_Model
 			$this->db->update('categories', $this, array('id'=> $id));
 		}
 	}
+        
 	public function read_categorie($id){
 		$this->db->where('id',$id);
 		$query = $this->db->get('categories');

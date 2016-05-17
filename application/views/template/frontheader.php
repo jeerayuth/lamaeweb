@@ -53,8 +53,8 @@
             <div class="header">
                 <div class="container">
                     <!-- Logo -->
-                    <a class="logo" href="index.html">
-                        <img src="<?php echo base_url(); ?>bootstrap/img/logo1-default.png" alt="Logo">
+                    <a href="index.html">
+                        <h1>โรงพยาบาลละแม</h1>
                     </a>
                     <!-- End Logo -->
 

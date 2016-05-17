@@ -140,7 +140,7 @@ class Document extends CI_Controller
 	public function remove($id)
 	{
 		$result = $this->Document_model->read_document($id);
-		@unlink('./uploads/' . $result->filename);
+		@unlink('./assets/doc_uploads/' . $result->filename);
 		$this->Document_model->remove_document($id);
 		redirect('document','refresh');
 	}

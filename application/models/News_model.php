@@ -37,40 +37,34 @@ class News_model extends CI_Model
 	}
 
         
-        
-        
-	public function entry_document($id,$filename = '')
+	public function entry_news($id,$filename = '')
 	{
-		$data = array(
-			'document_code'=> $this->input->post('document_code'),
-			'register_date'=> $this->input->post('register_date'),
-			'reference'    => $this->input->post('reference'),
+		$data = array(			
 			'topic'        => $this->input->post('topic'),
-			'store'        => $this->input->post('store'),
+                        'description'        => $this->input->post('description'),
 			'filename'     => $filename,
 			'modified_date'=> date('Y-m-d H:i:s'),
 			'modified_by'  => $this->session->userdata('login_id'),
-			'categorie_id' => $this->input->post('categorie_id'),
-			'description'  => $this->input->post('description')
+			'news_categorie_id' => $this->input->post('news_categorie_id'),		
 		);
 		if($id == NULL)
 		{
 			$data['created_by'] = $this->session->userdata('login_id');
 			$data['created_date'] = date('Y-m-d H:i:s');
-			$this->db->insert('documents', $data);
+			$this->db->insert('news', $data);
 		}
 		else
 		{
-			$this->db->update('documents', $data, array('id'=> $id));
+			$this->db->update('news', $data, array('id'=> $id));
 		}
 	}
 
-	public function read_document($id)
+	public function read_news($id)
 	{
-		$this->db->select('documents.*,categories.name');
-		$this->db->from('documents');
-		$this->db->join('categories','categories.id=documents.categorie_id');
-		$this->db->where('documents.id', $id);
+		$this->db->select('news.*,news_categories.name');
+		$this->db->from('news');
+		$this->db->join('news_categories','news_categories.id = news.news_categorie_id');
+		$this->db->where('news.id', $id);
 		$query = $this->db->get();
 		if($query->num_rows() > 0)
 		{
@@ -80,9 +74,9 @@ class News_model extends CI_Model
 		return FALSE;
 	}
 
-	public function remove_document($id)
+	public function remove_news($id)
 	{
-		$this->db->delete('documents', array('id'=> $id));
+		$this->db->delete('news', array('id'=> $id));
 	}
 
 }

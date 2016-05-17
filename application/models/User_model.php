@@ -1,6 +1,7 @@
 <?php
 class User_model extends CI_Model
 {
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -39,4 +40,7 @@ class User_model extends CI_Model
 		$data = array('display_name' => $this->input->post('display_name'));
 			$this->db->update('users', $data, array('id'=> $id));
 	}
+        
+
+ 
 }

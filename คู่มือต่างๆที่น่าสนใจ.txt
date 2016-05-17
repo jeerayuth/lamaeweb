@@ -1,0 +1,15 @@
+ทำระบบ Gallery ภาพ ด้วย CI3
+http://the-amazing-php.blogspot.com/2015/05/codeigniter-image-gallery-crud.html
+
+ทำระบบ Gallery Photo CI3
+https://www.youtube.com/playlist?list=PLpg84To1lBJ0McgRa-h0cxPdbimdyNKji
+
+วิดีโอ สอนระบบ Upload ภาพ
+https://www.youtube.com/watch?v=wy6dPp3ZGR8
+
+วิดีโอสอน ระบบ uploads multiple picture and resize picture
+https://www.youtube.com/watch?v=f7qsww-G8Ho
+
+
+สอนระบบต่างๆใน codigniter ดีมากๆ
+https://www.formget.com/codeigniter-mvc/

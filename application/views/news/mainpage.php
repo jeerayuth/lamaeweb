@@ -42,24 +42,25 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">                                     
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 200px;">ชื่อข่าวสาร</th>                                                
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 200px;">เรื่อง</th>                                                
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">สร้างโดย</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">หมวดหมู่</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  80px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                      <?php foreach ($query->result() as $row): ?>
+                                   
                                         <tr role="row">                  
-                                            <td><a href="<?php echo base_url('news/edit/'.$data->id); ?>"><?php echo  $data->topic; ?></a></td>                                 
-                                            <td><?php echo  $data->display_name; ?></td>
-                                            <td><?php echo $data->name; ?></td>
+                                            <td><a href="<?php echo base_url('news/edit/'.$row->id); ?>"><?php echo  $row->topic; ?></a></td>                                 
+                                            <td><?php echo  $row->display_name; ?></td>
+                                            <td><?php echo $row->name; ?></td>
                                             <td>
-                                            	<a class="btn btn-info btn-xs" target="_blank" href="<?php echo  base_url('assets/news_uploads/'.$data->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> เอกสารแนบ</a>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('news/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-info btn-xs" target="_blank" href="<?php echo  base_url('assets/news_uploads/'.$row->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> เอกสารแนบ</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('news/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                    <?php endforeach; ?>
                                 </tbody>
 
                             </table>
@@ -67,11 +68,11 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-5">
-                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo  $total_rows; ?> entries</div>
+                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo  $results; ?> entries</div>
                         </div>
                         <div class="col-sm-7">
                             <div id="example1_paginate" class="dataTables_paginate paging_simple_numbers">
-                                <?php echo $link; ?>
+                                <?php //echo $link; ?>
                             </div>
 
                         </div>

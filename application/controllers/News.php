@@ -3,35 +3,27 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class News extends CI_Controller {
+    
+     private $limit = 5;
 
     public function __construct() {
         parent::__construct();
         $this->load->library('pagination');
         $this->load->model('News_Categorie_model');
-        $this->load->model('News_model');
+        $this->load->model('News_Model', 'news');
     }
 
-    public function index() {
-        $config = array();
-        $config['base_url'] = base_url('news/index');
-        $config['total_rows'] = $this->News_model->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
-        $config['uri_segment'] = 3;
-        $choice = $config['total_rows'] / $config['per_page'];
-        $config['num_links'] = round($choice);
-
-        $this->pagination->initialize($config);
-
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->News_model->fetch_news($config['per_page'], $page, $this->input->get('keyword'));
-        $data['link'] = $this->pagination->create_links();
-        $data['total_rows'] = $config['total_rows'];
-
+    public function index() { 
+        $query = $this->news->all($this->limit);
+        $results = $this->news->count();
+        $links = pagination($results, $this->limit);
+       
         $this->load->view('template/backheader');
-        $this->load->view('news/mainpage', $data);
+        $this->load->view('news/mainpage', compact('query', 'results', 'links'));
         $this->load->view('template/backfooter');
     }
 
+    
     public function newdata() {
         $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
         $this->load->view('template/backheader');
@@ -65,7 +57,7 @@ class News extends CI_Controller {
 
                 $data = $this->upload->data();
                 $datafile = ($this->input->post('datafile') == '') ? $data['file_name'] : $this->input->post('datafile');
-                $this->News_model->entry_news($this->input->post('id'), $datafile);
+                $this->news->entry_news($this->input->post('id'), $datafile);
                 redirect('news', 'refresh');
             } else {
                 $data = array(
@@ -94,7 +86,7 @@ class News extends CI_Controller {
 
     public function edit($id) {
         $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
-        $data['doc'] = $this->News_model->read_news($id);
+        $data['doc'] = $this->news->read_news($id);
         $this->load->view('template/backheader');
         $this->load->view('news/edit', $data);
         $this->load->view('template/backfooter');
@@ -119,9 +111,9 @@ class News extends CI_Controller {
     }
 
     public function remove($id) {
-        $result = $this->News_model->read_news($id);
+        $result = $this->news->read_news($id);
         @unlink('./assets/news_uploads/' . $result->filename);
-        $this->News_model->remove_news($id);
+        $this->news->remove_news($id);
         redirect('news', 'refresh');
     }
 

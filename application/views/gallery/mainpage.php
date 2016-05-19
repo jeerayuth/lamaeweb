@@ -49,7 +49,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>                                 	
-                                    <?php foreach ($query->result() as $row): ?>
+                                    <?php foreach ($query as $row): ?>
 
                                         <tr >
                                             <td>
@@ -57,8 +57,6 @@
                                                     <?php $thumbnail = empty($row->thumbnail) ? $row->filename : $row->thumbnail; ?>
                                                     <img width="200" src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $thumbnail; ?>" alt="Image 1">
                                                 </div>
-
-
 
                                             </td>
                                             <td>
@@ -88,19 +86,15 @@
                             <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo $total_rows; ?> entries</div>
                         </div>
                         <div class="col-sm-7">
-
+                            <div id="example1_paginate" class="dataTables_paginate paging_simple_numbers">
+                                <?php echo $links; ?>
+                            </div>
 
                         </div>
                     </div>
                 </div>
             </div><!-- /.box-body -->          
         </div>
-
-        <nav class='text-center'>
-            <?php echo $links; ?>
-        </nav>
-
-
     </section><!-- /.content -->
 </div><!-- /.content-wrapper -->
 

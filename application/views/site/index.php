@@ -350,26 +350,26 @@
                             <th align="center">วันที่โพสต์</th>
                             <th>ชื่อรายการโหลด</th>
                             <th>ประเภท</th>
-                            <th>จำนวนครั้ง</th>
+                            <th>ดาวน์โหลด</th>
                             <th align="center">ดาวน์โหลด</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        <?php if (!empty($download1)) {
-                            foreach ($download1 as $data) { ?>
-                                <tr>
-                                    <td>#</td>
-                                    <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($data->register_date)); ?></td>
-                                    <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  <?php echo $data->topic; ?></td>
-                                    <td><?php echo $data->name; ?></td>
-                                    <td><?php echo $data->stat; ?></td>
-                                   <!-- <td><span class="label rounded label-success">1</span></td>-->
-                                    <td><a href="<?php echo base_url('assets/doc_uploads/' . $data->filename); ?>" target="_blank"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                                </tr>
 
-                            <?php }
-                        } ?>
+                        <?php foreach ($doc_new as $row) { ?>
+                            <tr>
+                                <td>#</td>
+                                <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
+                                <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  <?php echo $row->topic; ?></td>
+                                <td><?php echo $row->name; ?></td>
+                                <td><?php echo $row->stat; ?></td>
+                               <!-- <td><span class="label rounded label-success">1</span></td>-->
+                                <td><a href="<?php echo base_url('assets/doc_uploads/' . $row->filename); ?>" target="_blank"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
+                            </tr>
+
+                        <?php } ?>
+
 
 
                     </tbody>
@@ -399,22 +399,17 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                    <?php if (!empty($download2)) {
-                            foreach ($download2 as $data) { ?>
-                                <tr>
-                                    <td>#</td>
-                                    <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($data->register_date)); ?></td>
-                                    <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  <?php echo $data->topic; ?></td>
-                                    <td><?php echo $data->name; ?></td>
-                                    <td><?php echo $data->stat; ?></td>
-                                   <!-- <td><span class="label rounded label-success">1</span></td>-->
-                                    <td><a href="<?php echo base_url('assets/doc_uploads/' . $data->filename); ?>" target="_blank"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
-                                </tr>
-
-                            <?php }
-                    } ?>
-
+                        <?php foreach ($doc_hit as $row) { ?>
+                            <tr>
+                                <td>#</td>
+                                <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
+                                <td><img src="<?php echo base_url(); ?>assets/images/doc.png">  <?php echo $row->topic; ?></td>
+                                <td><?php echo $row->name; ?></td>
+                                <td><?php echo $row->stat; ?></td>
+                               <!-- <td><span class="label rounded label-success">1</span></td>-->
+                                <td><a href="<?php echo base_url('assets/doc_uploads/' . $row->filename); ?>" target="_blank"><img src="<?php echo base_url(); ?>assets/images/load2.png">More..</a></td>
+                            </tr>
+                        <?php } ?>
                     </tbody>
 
                 </table>

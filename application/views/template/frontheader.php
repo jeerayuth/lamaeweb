@@ -169,7 +169,7 @@
                             <li class="">
 
                                 <a href="<?php echo base_url('user/login'); ?>" class="dropdown-toggle" data-toggle="">
-                                    เข้าสู่ระบบ
+                                    ผู้ดูแลระบบ
                                 </a>
 
 

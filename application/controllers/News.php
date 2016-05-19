@@ -3,27 +3,25 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class News extends CI_Controller {
-    
-     private $limit = 5;
+
+    private $limit = 2;
 
     public function __construct() {
         parent::__construct();
-        $this->load->library('pagination');
         $this->load->model('News_Categorie_model');
         $this->load->model('News_Model', 'news');
     }
 
-    public function index() { 
-        $query = $this->news->all($this->limit);
-        $results = $this->news->count();
-        $links = pagination($results, $this->limit);
-       
+    public function index() {
+        $query = $this->news->all($this->limit, $this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
+        $results = $this->news->count($this->input->get('keyword')); // จำนวน record ที่นับได้
+        $links = pagination($results, $this->limit); // สร้างลิงค์ pagination
+
         $this->load->view('template/backheader');
         $this->load->view('news/mainpage', compact('query', 'results', 'links'));
         $this->load->view('template/backfooter');
     }
 
-    
     public function newdata() {
         $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
         $this->load->view('template/backheader');
@@ -40,7 +38,7 @@ class News extends CI_Controller {
             $config['file_name'] = ($this->input->post('datafile') == '') ? uniqid() : $this->input->post('datafile');
             $this->load->library('upload', $config);
 
-            $this->form_validation->set_rules('news_categorie_id', 'หมวดหมู่ข่าวประกาศ', 'required', array('required' => 'ค่าห้ามว่าง!'));         
+            $this->form_validation->set_rules('news_categorie_id', 'หมวดหมู่ข่าวประกาศ', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $this->form_validation->set_rules('topic', 'ชื่อข่าว', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $no_file_error = "<p>You did not select a file to upload.</p>";
             if (!$this->upload->do_upload('userfile') && $this->upload->display_errors() != $no_file_error) {
@@ -85,11 +83,13 @@ class News extends CI_Controller {
     }
 
     public function edit($id) {
+    
         $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
         $data['doc'] = $this->news->read_news($id);
         $this->load->view('template/backheader');
         $this->load->view('news/edit', $data);
         $this->load->view('template/backfooter');
+
     }
 
     public function read($id) {

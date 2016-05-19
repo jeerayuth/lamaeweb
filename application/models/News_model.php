@@ -10,51 +10,26 @@ class News_model extends CI_Model {
         parent::__construct();
     }
 
-    public function all($limit = 8) /* function เพิ่มเข้ามาทดสอบ */ {
-
-        $this->db->select('*');
+    public function all($limit = 10, $keryword, $field = null, $order = 'asc') { /* function query ข้อมูล */
+        // param1 = limit, param2 = keyword search
+        // param3 = field for order by, param4 = order by type
+        $this->db->select('news.*,nc.name,us.display_name');
         $this->db->from($this->table);
-        $this->db->join('news_categories', 'news_categories.id = news.news_categorie_id');
-        $this->db->join('users', 'users.id = news.created_by');
+        $this->db->join('news_categories nc', 'nc.id = news.news_categorie_id', 'left');
+        $this->db->join('users us', 'us.id = news.created_by', 'left');
+        $this->db->like('topic', $keryword);
+        $this->db->order_by($field, $order);
         $this->db->limit($limit);
         $this->db->offset($this->uri->segment(3));
-        return $this->db->get();
+        $query = $this->db->get();
+        return $query->result();
     }
 
-    public function count() {
-        return $this->db->count_all_results($this->table);
+    public function count($keyword) { /* function  นับจำนวน record ข้อมูล */
+        $this->db->like('topic', $keyword);
+        $this->db->from($this->table);
+        return $this->db->count_all_results();
     }
-
-    /*
-      public function record_count($keyword)
-      {
-      $this->db->like('topic', $keyword);
-      $this->db->from('news');
-      return $this->db->count_all_results();
-      } */
-
-    /*
-      public function fetch_news($limit, $start, $keryword, $sort = null, $type=null)
-      {
-      $this->db->select('news.*,news_categories.name,users.display_name');
-      $this->db->from('news');
-      $this->db->join('news_categories','news_categories.id=news.news_categorie_id');
-      $this->db->join('users','users.id=news.created_by');
-      $this->db->like('topic', $keryword);
-      $this->db->order_by($sort, $type);
-      $this->db->limit($limit, $start);
-      $query = $this->db->get();
-      if($query->num_rows() > 0)
-      {
-      foreach($query->result() as $row)
-      {
-      $data[] = $row;
-      }
-      return $data;
-      }
-      return FALSE;
-      }
-     */
 
     public function entry_news($id, $filename = '') {
         $data = array(

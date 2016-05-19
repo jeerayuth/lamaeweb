@@ -21,14 +21,9 @@
         <?php echo link_tag('adminlte/assets/plugins/datatables/dataTables.bootstrap.css'); ?>
         <!--My Custom-->
         <?php echo link_tag('adminlte/assets/dist/css/mycustom.css'); ?>
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <!-- REQUIRED JS SCRIPTS -->
-
+  
+        
+        
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo base_url(); ?>adminlte/assets/plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
         </script>

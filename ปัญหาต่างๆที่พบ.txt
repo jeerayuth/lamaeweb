@@ -1,0 +1,9 @@
+1. pagination ไม่แสดงเป็นแบบ bootstrap แต่แสดงเป็นแบบลิงค์ธรรมดา
+แก้โดย copy ไฟล์ pagination.php ไปใส่ในโฟลเดอร์ application/config/
+แหล่งอ้างอิง : https://www.codeigniter.com/userguide3/libraries/pagination.html#example
+
+
+2. pagination ที่ใช้ในโปรเจ็คนี้ ได้มีการปรับแต่งแล้ว ก่อนใช้อย่าลืม copy ไฟล์  app_helper.php ไปใส่ไว้ใน
+helpers/app_helper.php และต้องไป config ให้โหลดอัตโนมัติที่ไฟล์ config/autoload.php ตามนี้
+$autoload['helper'] = array('app');
+

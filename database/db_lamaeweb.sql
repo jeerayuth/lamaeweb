@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-05-17 22:39:31
+Date: 2016-05-19 15:28:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -58,6 +58,36 @@ CREATE TABLE `documents` (
 -- Records of documents
 -- ----------------------------
 INSERT INTO documents VALUES ('6', 'D544343534', '2016-05-17 00:00:00', 'ไม่มี', 'คู่มือนักศึกษาฝึกงาน', 'ตู้เก็บเอกสาร1', '573b26a01533b', 'รายละเอียด', '2016-05-17 16:11:44', '2016-05-17 16:12:09', '1', '1', '1', null);
+
+-- ----------------------------
+-- Table structure for `gallery`
+-- ----------------------------
+DROP TABLE IF EXISTS `gallery`;
+CREATE TABLE `gallery` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `filename` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `thumbnail` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `visible` tinyint(1) NOT NULL DEFAULT '1',
+  `view_count` int(11) NOT NULL DEFAULT '0',
+  `download_count` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of gallery
+-- ----------------------------
+INSERT INTO gallery VALUES ('1', 'กิจกรรมรดน้ำ ดำหัว ผู้ใหญ่ 2559', 'Image+1.jpg', '', '2015-10-05 03:18:03', '0', '6', '5');
+INSERT INTO gallery VALUES ('2', 'กิจกรรม รณรงค์ฉัดวัคซีน เด็กประถม 2', 'Image+2.jpg', '', '2015-10-05 03:18:03', '1', '9', '9');
+INSERT INTO gallery VALUES ('3', 'เจ้าหน้าที่ รพ.ละแม ร่วมกันทำกิจกรรม 5ส', 'Image+3.jpg', '', '2015-10-05 03:18:03', '1', '10', '2');
+INSERT INTO gallery VALUES ('4', 'ชาวบ้านพักร่วมแรงร่วมใจ กำจัดลูกน้ำยุงลาย', 'Image+4.jpg', '', '2015-10-05 03:20:03', '1', '5', '2');
+INSERT INTO gallery VALUES ('5', 'Image 5', 'Image+5.jpg', '', '2015-10-05 03:21:03', '1', '9', '3');
+INSERT INTO gallery VALUES ('6', 'Image 6', 'Image+6.jpg', '', '2015-10-05 03:18:03', '1', '8', '5');
+INSERT INTO gallery VALUES ('7', 'Image 7', 'Image+7.jpg', '', '2015-10-05 03:18:03', '1', '11', '10');
+INSERT INTO gallery VALUES ('8', 'Image 8', 'Image+8.jpg', '', '2015-10-05 03:18:03', '1', '12', '2');
+INSERT INTO gallery VALUES ('9', 'First Image', '', '', '2015-10-07 01:31:52', '1', '1', '0');
+INSERT INTO gallery VALUES ('10', 'The second Image', '', '', '2015-10-07 01:41:17', '0', '0', '0');
 
 -- ----------------------------
 -- Table structure for `news`

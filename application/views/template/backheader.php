@@ -192,6 +192,16 @@
                             </a>
                         </li>
                         
+                         <li class="<?php echo activate_menu('gallery'); ?>">
+                            <a href="<?php echo base_url('gallery'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบแกลอรี่รูปภาพ
+                                </span>
+                            </a>
+                        </li>
+                        
 
                         
                     </ul><!-- /.sidebar-menu -->

@@ -4,10 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class News extends CI_Controller {
 
+    public $layout_view = 'layout/admin';
     private $limit = 2;
 
     public function __construct() {
         parent::__construct();
+        $this->load->library('layout');
         $this->load->model('News_Categorie_model');
         $this->load->model('News_Model', 'news');
     }
@@ -15,18 +17,13 @@ class News extends CI_Controller {
     public function index() {
         $query = $this->news->all($this->limit, $this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
         $results = $this->news->count($this->input->get('keyword')); // จำนวน record ที่นับได้
-        $links = pagination($results, $this->limit); // สร้างลิงค์ pagination
-
-        $this->load->view('template/backheader');
-        $this->load->view('news/mainpage', compact('query', 'results', 'links'));
-        $this->load->view('template/backfooter');
+        $links = pagination($results, $this->limit); // สร้างลิงค์ pagination     
+        $this->layout->view('news/mainpage', compact('query', 'results', 'links'));
     }
 
     public function newdata() {
         $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
-        $this->load->view('template/backheader');
-        $this->load->view('news/newdata', $data);
-        $this->load->view('template/backfooter');
+        $this->layout->view('news/newdata', $data);
     }
 
     public function postdata() {
@@ -83,31 +80,26 @@ class News extends CI_Controller {
     }
 
     public function edit($id) {
-    
         $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
         $data['doc'] = $this->news->read_news($id);
-        $this->load->view('template/backheader');
-        $this->load->view('news/edit', $data);
-        $this->load->view('template/backfooter');
-
+        $this->layout->view('news/edit', $data);
     }
 
+    /*
     public function read($id) {
         $data['result'] = $this->Document_model->read_document($id);
         $this->load->view('template/frontheader');
         $this->load->view('document/read', $data);
         $this->load->view('template/frontfooter');
-    }
+    }*/
 
     public function confrm($id) {
         $data = array
             (
             'backlink' => 'news',
             'deletelink' => 'news/remove/' . $id
-        );
-        $this->load->view('template/backheader');
-        $this->load->view('confrm', $data);
-        $this->load->view('template/backfooter');
+        ); 
+        $this->layout->view('confrm', $data);
     }
 
     public function remove($id) {
@@ -117,6 +109,7 @@ class News extends CI_Controller {
         redirect('news', 'refresh');
     }
 
+    /*
     public function listview() {
         $config = array();
         $config['base_url'] = base_url('categorie/index');
@@ -136,5 +129,6 @@ class News extends CI_Controller {
         $this->load->view('document/listview', $data);
         $this->load->view('template/frontfooter');
     }
+     */
 
 }

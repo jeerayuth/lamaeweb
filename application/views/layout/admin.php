@@ -8,30 +8,30 @@
         <!-- tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- bootstrap 3.3.4-->
-        <?php echo link_tag('adminlte/css/bootstrap.min.css'); ?>
+        <link href="<?php echo base_url('themes/admin') ?>/css/bootstrap.min.css" rel="stylesheet">
         <!-- font awesome icons-->
-        <?php echo link_tag('adminlte/css/font-awesome.min.css'); ?>
+        <link href="<?php echo base_url('themes/admin') ?>/css/font-awesome.min.css" rel="stylesheet">
         <!-- ionicons-->
-        <?php echo link_tag('adminlte/css/ionicons.min.css'); ?>
+        <link href="<?php echo base_url('themes/admin') ?>/css/ionicons.min.css" rel="stylesheet">
         <!--Theme style-->
-        <?php echo link_tag('adminlte/assets/dist/css/AdminLTE.min.css'); ?>
+        <link href="<?php echo base_url('themes/admin') ?>/assets/dist/css/AdminLTE.min.css" rel="stylesheet">
         <!--Theme skin -->
-        <?php echo link_tag('adminlte/assets/dist/css/skins/skin-blue.min.css'); ?>
+        <link href="<?php echo base_url('themes/admin') ?>/assets/dist/css/skins/skin-blue.min.css" rel="stylesheet">
         <!--Theme skin -->
-        <?php echo link_tag('adminlte/assets/plugins/datatables/dataTables.bootstrap.css'); ?>
+        <link href="<?php echo base_url('themes/admin') ?>/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet">
         <!--My Custom-->
-        <?php echo link_tag('adminlte/assets/dist/css/mycustom.css'); ?>
-  
-        
-        
+        <link href="<?php echo base_url('themes/admin') ?>/assets/dist/css/mycustom.css" rel="stylesheet">
+
+
+
         <!-- jQuery 2.1.4 -->
-        <script src="<?php echo base_url(); ?>adminlte/assets/plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
+        <script src="<?php echo base_url('themes/admin'); ?>/assets/plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
         </script>
         <!-- Bootstrap 3.3.2 JS -->
-        <script src="<?php echo base_url(); ?>adminlte/js/bootstrap.min.js" type="text/javascript">
+        <script src="<?php echo base_url('themes/admin'); ?>/js/bootstrap.min.js" type="text/javascript">
         </script>
         <!-- AdminLTE App -->
-        <script src="<?php echo base_url(); ?>adminlte/assets/dist/js/app.min.js" type="text/javascript">
+        <script src="<?php echo base_url('themes/admin'); ?>/assets/dist/js/app.min.js" type="text/javascript">
         </script>
     </head>
     <body class="skin-blue sidebar-mini">
@@ -71,7 +71,7 @@
                                 <!-- Menu Toggle Button -->
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <!-- The user image in the navbar-->
-                                    <img src="<?php echo base_url(); ?>adminlte/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image" />
+                                    <img src="<?php echo base_url('themes/admin'); ?>/assets/dist/img/user2-160x160.jpg" class="user-image" alt="User Image" />
                                     <!-- hidden-xs hides the username on small devices so only the image appears. -->
                                     <span class="hidden-xs">
                                         <?php echo $this->session->userdata('display_name') ?>
@@ -80,10 +80,10 @@
                                 <ul class="dropdown-menu">
                                     <!-- The user image in the menu -->
                                     <li class="user-header">
-                                        <img src="<?php echo base_url() ?>adminlte/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                        <img src="<?php echo base_url('themes/admin') ?>/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                                         <p>
                                             <?php echo $this->session->userdata('username'); ?>
-                                          
+
                                         </p>
                                     </li>
                                     <!-- Menu Body -->
@@ -101,12 +101,12 @@
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
                                         <div class="pull-left">
-                                            <a href="<?php echo base_url('user/profile'); ?>" class="btn btn-default btn-flat">
+                                            <a href="<?php echo site_url('user/profile'); ?>" class="btn btn-default btn-flat">
                                                 Profile
                                             </a>
                                         </div>
                                         <div class="pull-right">
-                                            <a href="<?php echo base_url('user/logout'); ?>" class="btn btn-default btn-flat">
+                                            <a href="<?php echo site_url('user/logout'); ?>" class="btn btn-default btn-flat">
                                                 Sign out
                                             </a>
                                         </div>
@@ -133,7 +133,7 @@
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo base_url(); ?>adminlte/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                            <img src="<?php echo base_url('themes/admin'); ?>/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
                             <p>
@@ -166,9 +166,9 @@
                         <li class="header">
                             MENU
                         </li>
-                        
+
                         <li class="<?php echo activate_menu('news'); ?>">
-                            <a href="<?php echo base_url('news'); ?>">
+                            <a href="<?php echo site_url('news'); ?>">
                                 <i class="fa fa-link">
                                 </i>
                                 <span>
@@ -178,7 +178,7 @@
                         </li>
 
                         <li class="<?php echo activate_menu('document'); ?>">
-                            <a href="<?php echo base_url('document'); ?>">
+                            <a href="<?php echo site_url('document'); ?>">
                                 <i class="fa fa-link">
                                 </i>
                                 <span>
@@ -186,9 +186,9 @@
                                 </span>
                             </a>
                         </li>
-                        
-                         <li class="<?php echo activate_menu('gallery'); ?>">
-                            <a href="<?php echo base_url('gallery'); ?>">
+
+                        <li class="<?php echo activate_menu('gallery'); ?>">
+                            <a href="<?php echo site_url('gallery'); ?>">
                                 <i class="fa fa-link">
                                 </i>
                                 <span>
@@ -196,10 +196,34 @@
                                 </span>
                             </a>
                         </li>
-                        
 
-                        
                     </ul><!-- /.sidebar-menu -->
                 </section>
                 <!-- /.sidebar -->
             </aside>
+
+
+            <!-- display content -->
+            <?php echo $content_for_layout; ?>
+
+
+            <!-- Main Footer -->
+            <footer class="main-footer">
+                <!-- To the right -->
+                <div class="pull-right hidden-xs">
+                    Back Office Version 1.0 by <a href="http://www.jeerayuth.com">jeerayuth.com</a>
+                </div>
+                <!-- Default to the left -->
+                <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+            </footer>
+        </div><!-- ./wrapper -->
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+

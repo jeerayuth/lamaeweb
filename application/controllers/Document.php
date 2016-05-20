@@ -4,10 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Document extends CI_Controller {
 
+    public $layout_view = 'layout/admin';
     private $limit = 1;
 
     public function __construct() {
         parent::__construct();
+         $this->load->library('layout');
         $this->load->model('Categorie_model');
         $this->load->model('Document_model', 'document'); //โหลด model และตั้งชื่อเล่นให้ model
     }
@@ -16,17 +18,13 @@ class Document extends CI_Controller {
         $query = $this->document->all($this->limit, $this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
         $results = $this->document->count($this->input->get('keyword')); // จำนวน record ที่นับได้
         $links = pagination($results, $this->limit); // สร้างลิงค์ pagination
+        $this->layout->view('document/mainpage', compact('query', 'results', 'links'));
 
-        $this->load->view('template/backheader');
-        $this->load->view('document/mainpage', compact('query', 'results', 'links'));
-        $this->load->view('template/backfooter');
     }
 
     public function newdata() {
         $data['results'] = $this->Categorie_model->fetch_categorie(0, 0, '');
-        $this->load->view('template/backheader');
-        $this->load->view('document/newdata', $data);
-        $this->load->view('template/backfooter');
+        $this->layout->view('document/newdata', $data);
     }
 
     public function postdata() {
@@ -89,17 +87,16 @@ class Document extends CI_Controller {
     public function edit($id) {
         $data['results'] = $this->Categorie_model->fetch_categorie(0, 0, '');
         $data['doc'] = $this->document->read_document($id);
-        $this->load->view('template/backheader');
-        $this->load->view('document/edit', $data);
-        $this->load->view('template/backfooter');
+        $this->layout->view('document/edit', $data);
     }
 
+    /*
     public function read($id) {
         $data['result'] = $this->document->read_document($id);
         $this->load->view('template/frontheader');
         $this->load->view('document/read', $data);
         $this->load->view('template/frontfooter');
-    }
+    }*/
 
     public function confrm($id) {
         $data = array
@@ -107,9 +104,7 @@ class Document extends CI_Controller {
             'backlink' => 'document',
             'deletelink' => 'document/remove/' . $id
         );
-        $this->load->view('template/backheader');
-        $this->load->view('confrm', $data);
-        $this->load->view('template/backfooter');
+        $this->layout->view('confrm', $data);
     }
 
     public function remove($id) {
@@ -118,7 +113,7 @@ class Document extends CI_Controller {
         $this->document->remove_document($id);
         redirect('document', 'refresh');
     }
-
+/*
     public function listview() {
         $config = array();
         $config['base_url'] = base_url('categorie/index');
@@ -138,5 +133,6 @@ class Document extends CI_Controller {
         $this->load->view('document/listview', $data);
         $this->load->view('template/frontfooter');
     }
+ */
 
 }

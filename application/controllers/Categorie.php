@@ -8,6 +8,7 @@ class Categorie extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+             $this->load->library('layout');
         $this->load->library('pagination');
         $this->load->model('Categorie_model');
     }
@@ -33,9 +34,7 @@ class Categorie extends CI_Controller {
     }
 
     public function newdata() {
-        $this->load->view('template/backheader');
-        $this->load->view('categorie/newdata');
-        $this->load->view('template/backfooter');
+        $this->layout->view('categorie/newdata');
     }
 
     public function postdata() {
@@ -67,9 +66,7 @@ class Categorie extends CI_Controller {
 
     public function edit($id) {
         $data['result'] = $this->Categorie_model->read_categorie($id);
-        $this->load->view('template/backheader');
-        $this->load->view('categorie/edit', $data);
-        $this->load->view('template/backfooter');
+        $this->layout->view('categorie/edit', $data);
     }
 
     public function confrm($id) {
@@ -78,9 +75,7 @@ class Categorie extends CI_Controller {
             'backlink' => 'categorie',
             'deletelink' => 'categorie/remove/' . $id
         );
-        $this->load->view('template/backheader');
-        $this->load->view('confrm', $data);
-        $this->load->view('template/backfooter');
+        $this->layout->view('confrm', $data);
     }
 
     public function remove($id) {

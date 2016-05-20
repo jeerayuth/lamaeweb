@@ -86,19 +86,19 @@ class News extends CI_Controller {
     }
 
     /*
-    public function read($id) {
-        $data['result'] = $this->Document_model->read_document($id);
-        $this->load->view('template/frontheader');
-        $this->load->view('document/read', $data);
-        $this->load->view('template/frontfooter');
-    }*/
+      public function read($id) {
+      $data['result'] = $this->Document_model->read_document($id);
+      $this->load->view('template/frontheader');
+      $this->load->view('document/read', $data);
+      $this->load->view('template/frontfooter');
+      } */
 
     public function confrm($id) {
         $data = array
             (
             'backlink' => 'news',
             'deletelink' => 'news/remove/' . $id
-        ); 
+        );
         $this->layout->view('confrm', $data);
     }
 
@@ -110,25 +110,24 @@ class News extends CI_Controller {
     }
 
     /*
-    public function listview() {
-        $config = array();
-        $config['base_url'] = base_url('categorie/index');
-        $config['total_rows'] = $this->Document_model->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
-        $config['uri_segment'] = 3;
-        $choice = $config['total_rows'] / $config['per_page'];
-        $config['num_links'] = round($choice);
+      public function listview() {
+      $config = array();
+      $config['base_url'] = base_url('categorie/index');
+      $config['total_rows'] = $this->Document_model->record_count($this->input->get('keyword'));
+      $config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
+      $config['uri_segment'] = 3;
+      $choice = $config['total_rows'] / $config['per_page'];
+      $config['num_links'] = round($choice);
 
-        $this->pagination->initialize($config);
+      $this->pagination->initialize($config);
 
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->Document_model->fetch_document($config['per_page'], $page, $this->input->get('keyword'));
-        $data['link'] = $this->pagination->create_links();
-        $data['total_rows'] = $config['total_rows'];
-        $this->load->view('template/frontheader');
-        $this->load->view('document/listview', $data);
-        $this->load->view('template/frontfooter');
-    }
+      $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+      $data['results'] = $this->Document_model->fetch_document($config['per_page'], $page, $this->input->get('keyword'));
+      $data['link'] = $this->pagination->create_links();
+      $data['total_rows'] = $config['total_rows'];
+      $this->load->view('template/frontheader');
+      $this->load->view('document/listview', $data);
+      $this->load->view('template/frontfooter');
+      }
      */
-
 }

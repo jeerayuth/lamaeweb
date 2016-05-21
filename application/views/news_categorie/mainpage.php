@@ -45,17 +45,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(!empty($results)){ foreach ($results as $data) { ?>
+                                    <?php foreach ($query as $row): ?>  
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('news_categorie/edit/'.$data->id); ?>"><?php echo  $data->name; ?></a>
+                                            <a href="<?php echo base_url('news_categorie/edit/'.$row->id); ?>"><?php echo  $row->name; ?></a>
                                             </td>
-                                            <td><?php echo $data->description; ?></td>
+                                            <td><?php echo $row->description; ?></td>
                                             <td>
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('news_categorie/confrm/'.$data->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('news_categorie/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
-                                    <?php } } ?>
+                                      <?php endforeach; ?>
                                 </tbody>
 
                             </table>
@@ -63,11 +63,11 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-5">
-                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo  $total_rows; ?> entries</div>
+                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo  $results; ?> entries</div>
                         </div>
                         <div class="col-sm-7">
                             <div id="example1_paginate" class="dataTables_paginate paging_simple_numbers">
-                                <?php echo $link; ?>
+                              
                             </div>
 
                         </div>

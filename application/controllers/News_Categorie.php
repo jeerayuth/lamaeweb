@@ -9,28 +9,13 @@ class News_Categorie extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('layout');
-        $this->load->library('pagination');
-        $this->load->model('News_Categorie_model');
+        $this->load->model('News_Categorie_model', 'categorie');
     }
-
-    public function index() {
-        $config = array();
-        $config['base_url'] = base_url('news_categorie/index');
-        $config['total_rows'] = $this->News_Categorie_model->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
-        $config['uri_segment'] = 3;
-        $choice = $config['total_rows'] / $config['per_page'];
-        $config['num_links'] = round($choice);
-
-        $this->pagination->initialize($config);
-
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->News_Categorie_model->fetch_categorie($config['per_page'], $page, $this->input->get('keyword'));
-        $data['link'] = $this->pagination->create_links();
-        $data['total_rows'] = $config['total_rows'];
-  
-        $this->layout->view('news_categorie/mainpage', $data);
-  
+    
+       public function index() {
+        $query = $this->categorie->all($this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
+        $results = $this->categorie->count($this->input->get('keyword')); // จำนวน record ที่นับได้
+        $this->layout->view('news_categorie/mainpage', compact('query', 'results'));        
     }
 
     public function newdata() {
@@ -46,7 +31,7 @@ class News_Categorie extends CI_Controller {
                             'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                 );
-                $this->News_Categorie_model->entry_categorie($this->input->post('id'));
+                $this->categorie->entry_categorie($this->input->post('id'));
                 redirect('news_categorie', 'refresh');
             } else {
                 $data = array(
@@ -65,7 +50,7 @@ class News_Categorie extends CI_Controller {
     }
 
     public function edit($id) {
-        $data['result'] = $this->News_Categorie_model->read_categorie($id);
+        $data['result'] = $this->categorie->read_categorie($id);
         $this->layout->view('news_categorie/edit', $data);
     }
 
@@ -79,7 +64,7 @@ class News_Categorie extends CI_Controller {
     }
 
     public function remove($id) {
-        $this->News_Categorie_model->remove_categorie($id);
+        $this->categorie->remove_categorie($id);
         redirect('news_categorie', 'refresh');
     }
 

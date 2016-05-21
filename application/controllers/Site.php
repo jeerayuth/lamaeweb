@@ -17,7 +17,7 @@ class Site extends CI_Controller {
         $data = array();
         // param1 = limit, param2 = keyword search, param3 = field for order by, param4 = order by type
         $data['doc_new'] = $this->document->all(10,'','created_date', 'desc');
-        $data['doc_hit'] = $this->document->all(10,'','stat','desc');
+        $data['doc_hit'] = $this->document->all(10,'','download','desc');
 
         $this->load->view('template/frontheader');
         $this->load->view('site/index', $data);

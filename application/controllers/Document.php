@@ -5,24 +5,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Document extends CI_Controller {
 
     public $layout_view = 'layout/admin';
-    private $limit = 1;
+    private $limit = 2;
 
     public function __construct() {
         parent::__construct();
         $this->load->library('layout');
-        $this->load->model('Categorie_model');
+        $this->load->model('Categorie_model', 'categorie');
         $this->load->model('Document_model', 'document'); //โหลด model และตั้งชื่อเล่นให้ model
     }
 
     public function index() {
-        $query = $this->document->all($this->limit, $this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
+        $query = $this->document->all($this->limit, $this->input->get('keyword'), 'modified_date', 'desc'); //dataset ข้อมูลที่ถูกดึงออกมา
         $results = $this->document->count($this->input->get('keyword')); // จำนวน record ที่นับได้
         $links = pagination($results, $this->limit); // สร้างลิงค์ pagination
         $this->layout->view('document/mainpage', compact('query', 'results', 'links'));
     }
 
     public function newdata() {
-        $data['results'] = $this->Categorie_model->fetch_categorie(0, 0, '');
+        $data['results'] = $this->categorie->all();
         $this->layout->view('document/newdata', $data);
     }
 
@@ -84,7 +84,7 @@ class Document extends CI_Controller {
     }
 
     public function edit($id) {
-        $data['results'] = $this->Categorie_model->fetch_categorie(0, 0, '');
+        $data['results'] = $this->categorie->all();
         $data['doc'] = $this->document->read_document($id);
         $this->layout->view('document/edit', $data);
     }

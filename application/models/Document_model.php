@@ -19,16 +19,15 @@ class Document_model extends CI_Model {
     public function all($limit = 10, $keryword = null, $field = null, $order = 'asc') { /* function query ข้อมูล */
         // param1 = limit, param2 = keyword search
         // param3 = field for order by, param4 = order by type
-        $this->db->select('documents.*,categories.name,users.display_name');
-        $this->db->from('documents');
-        $this->db->join('categories', 'categories.id=documents.categorie_id');
-        $this->db->join('users', 'users.id=documents.created_by');
+        $this->db->select('documents.*,c.name,u.display_name');
+        $this->db->from($this->table);
+        $this->db->join('categories c', 'c.id=documents.categorie_id');
+        $this->db->join('users u', 'u.id=documents.created_by');
         $this->db->like('topic', $keryword);
         $this->db->order_by($field, $order);
         $this->db->limit($limit);
         $this->db->offset($this->uri->segment(3));
-        $query = $this->db->get();
-        return $query->result();
+        return $this->db->get()->result();
     }
 
     public function entry_document($id, $filename = '') {
@@ -47,27 +46,26 @@ class Document_model extends CI_Model {
         if ($id == NULL) {
             $data['created_by'] = $this->session->userdata('login_id');
             $data['created_date'] = date('Y-m-d H:i:s');
-            $this->db->insert('documents', $data);
+            $this->db->insert($this->table, $data);
         } else {
-            $this->db->update('documents', $data, array('id' => $id));
+            $this->db->update($this->table, $data, array('id' => $id));
         }
     }
 
     public function read_document($id) {
-        $this->db->select('documents.*,categories.name');
-        $this->db->from('documents');
-        $this->db->join('categories', 'categories.id=documents.categorie_id');
+        $this->db->select('documents.*,c.name');
+        $this->db->from($this->table);
+        $this->db->join('categories c', 'c.id=documents.categorie_id');
         $this->db->where('documents.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-            $data = $query->row();
-            return $data;
+            return $query->row();
         }
         return FALSE;
     }
 
     public function remove_document($id) {
-        $this->db->delete('documents', array('id' => $id));
+        $this->db->delete($this->table, array('id' => $id));
     }
 
 }

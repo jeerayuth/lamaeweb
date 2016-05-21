@@ -32,7 +32,7 @@
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
                                 <form action="" method="GET" name="search">
-                                    <label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหาชื่อหมวดหมู่"></label>
+                                    <label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ระบุชื่อกิจกรรม"></label>
                                 </form>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
                                             </td>
                                             <td>
                                                 <?php echo $row->title; ?>
-                                                <div>จำนวนผู้ชม <?php echo $row->view_count; ?></div>
+                                                <div>จำนวนผู้ชม <?php echo $row->view; ?></div>
                                                 <div>สถานะ เผยแพร่</div>
                                                 <div>สร้างเมื่อ <?php echo $row->created_at; ?></div>
 
@@ -83,7 +83,7 @@
 
                     <div class="row">
                         <div class="col-sm-5">
-                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo $total_rows; ?> entries</div>
+                            <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Total <?php echo $results; ?> entries</div>
                         </div>
                         <div class="col-sm-7">
                             <div id="example1_paginate" class="dataTables_paginate paging_simple_numbers">

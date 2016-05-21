@@ -32,7 +32,7 @@
                         <div class="col-sm-4">
                             <div id="" class="dataTables_filter">
                                 <form action="" method="GET" name="search">
-                                    <label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ค้นหาข่าวสาร"></label>
+                                    <label>ค้นหา</label>:<input type="search" name="keyword" class="form-control input-sm" placeholder="ระบุขื่อข่าวสาร"></label>
                                 </form>
                             </div>
                         </div>

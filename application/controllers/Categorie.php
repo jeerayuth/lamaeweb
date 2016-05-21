@@ -8,12 +8,18 @@ class Categorie extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-             $this->load->library('layout');
+        $this->load->library('layout');
         $this->load->library('pagination');
-        $this->load->model('Categorie_model');
+        $this->load->model('Categorie_model', 'category');
     }
 
     public function index() {
+        $query = $this->category->all($this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
+        $results = $this->category->count($this->input->get('keyword')); // จำนวน record ที่นับได้
+      //  $links = pagination($results, $this->limit); // สร้างลิงค์ pagination
+        $this->layout->view('categorie/mainpage', compact('query', 'results'));
+        
+        /*
         $config = array();
         $config['base_url'] = base_url('categorie/index');
         $config['total_rows'] = $this->Categorie_model->record_count($this->input->get('keyword'));
@@ -28,9 +34,9 @@ class Categorie extends CI_Controller {
         $data['results'] = $this->Categorie_model->fetch_categorie($config['per_page'], $page, $this->input->get('keyword'));
         $data['link'] = $this->pagination->create_links();
         $data['total_rows'] = $config['total_rows'];
-   
-        $this->layout->view('categorie/mainpage', $data);
-  
+
+        $this->layout->view('categorie/mainpage', $data);*/
+        
     }
 
     public function newdata() {

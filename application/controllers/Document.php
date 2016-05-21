@@ -9,7 +9,7 @@ class Document extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-         $this->load->library('layout');
+        $this->load->library('layout');
         $this->load->model('Categorie_model');
         $this->load->model('Document_model', 'document'); //โหลด model และตั้งชื่อเล่นให้ model
     }
@@ -19,7 +19,6 @@ class Document extends CI_Controller {
         $results = $this->document->count($this->input->get('keyword')); // จำนวน record ที่นับได้
         $links = pagination($results, $this->limit); // สร้างลิงค์ pagination
         $this->layout->view('document/mainpage', compact('query', 'results', 'links'));
-
     }
 
     public function newdata() {
@@ -91,12 +90,12 @@ class Document extends CI_Controller {
     }
 
     /*
-    public function read($id) {
-        $data['result'] = $this->document->read_document($id);
-        $this->load->view('template/frontheader');
-        $this->load->view('document/read', $data);
-        $this->load->view('template/frontfooter');
-    }*/
+      public function read($id) {
+      $data['result'] = $this->document->read_document($id);
+      $this->load->view('template/frontheader');
+      $this->load->view('document/read', $data);
+      $this->load->view('template/frontfooter');
+      } */
 
     public function confrm($id) {
         $data = array
@@ -113,26 +112,26 @@ class Document extends CI_Controller {
         $this->document->remove_document($id);
         redirect('document', 'refresh');
     }
-/*
-    public function listview() {
-        $config = array();
-        $config['base_url'] = base_url('categorie/index');
-        $config['total_rows'] = $this->document->record_count($this->input->get('keyword'));
-        $config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
-        $config['uri_segment'] = 3;
-        $choice = $config['total_rows'] / $config['per_page'];
-        $config['num_links'] = round($choice);
 
-        $this->pagination->initialize($config);
+    /*
+      public function listview() {
+      $config = array();
+      $config['base_url'] = base_url('categorie/index');
+      $config['total_rows'] = $this->document->record_count($this->input->get('keyword'));
+      $config['per_page'] = $this->input->get('keyword') == NULL ? 14 : 999;
+      $config['uri_segment'] = 3;
+      $choice = $config['total_rows'] / $config['per_page'];
+      $config['num_links'] = round($choice);
 
-        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['results'] = $this->document->fetch_document($config['per_page'], $page, $this->input->get('keyword'));
-        $data['link'] = $this->pagination->create_links();
-        $data['total_rows'] = $config['total_rows'];
-        $this->load->view('template/frontheader');
-        $this->load->view('document/listview', $data);
-        $this->load->view('template/frontfooter');
-    }
- */
+      $this->pagination->initialize($config);
 
+      $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+      $data['results'] = $this->document->fetch_document($config['per_page'], $page, $this->input->get('keyword'));
+      $data['link'] = $this->pagination->create_links();
+      $data['total_rows'] = $config['total_rows'];
+      $this->load->view('template/frontheader');
+      $this->load->view('document/listview', $data);
+      $this->load->view('template/frontfooter');
+      }
+     */
 }

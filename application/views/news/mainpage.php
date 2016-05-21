@@ -51,7 +51,10 @@
                                 <tbody>
                                     <?php foreach ($query as $row): ?>                                                               
                                         <tr role="row">                  
-                                            <td><a href="<?php echo base_url('news/edit/' . $row->id); ?>"><?php echo $row->topic; ?></a></td>                                 
+                                            <td>
+                                                <div><a href="<?php echo base_url('news/edit/' . $row->id); ?>"><?php echo $row->topic; ?></a></div>
+                                                <div>อัพเดตล่าสุด <?php echo $row->modified_date; ?></div>
+                                            </td>                                 
                                             <td><?php echo $row->display_name; ?></td>
                                             <td><?php echo $row->name; ?></td>
                                             <td>

@@ -10,19 +10,19 @@ class News extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('layout');
-        $this->load->model('News_Categorie_model');
+        $this->load->model('News_Categorie_model', 'news_cat');
         $this->load->model('News_Model', 'news');
     }
 
     public function index() {
-        $query = $this->news->all($this->limit, $this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
+        $query = $this->news->all($this->limit, $this->input->get('keyword'), 'modified_date', 'desc'); //dataset ข้อมูลที่ถูกดึงออกมา
         $results = $this->news->count($this->input->get('keyword')); // จำนวน record ที่นับได้
         $links = pagination($results, $this->limit); // สร้างลิงค์ pagination     
         $this->layout->view('news/mainpage', compact('query', 'results', 'links'));
     }
 
     public function newdata() {
-        $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
+        $data['results'] = $this->news_cat->all();
         $this->layout->view('news/newdata', $data);
     }
 
@@ -80,7 +80,7 @@ class News extends CI_Controller {
     }
 
     public function edit($id) {
-        $data['results'] = $this->News_Categorie_model->fetch_categorie(0, 0, '');
+        $data['results'] = $this->news_cat->all();
         $data['doc'] = $this->news->read_news($id);
         $this->layout->view('news/edit', $data);
     }

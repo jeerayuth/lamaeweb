@@ -21,8 +21,7 @@ class News_model extends CI_Model {
         $this->db->order_by($field, $order);
         $this->db->limit($limit);
         $this->db->offset($this->uri->segment(3));
-        $query = $this->db->get();
-        return $query->result();
+        return $this->db->get()->result();
     }
 
     public function count($keyword) { /* function  นับจำนวน record ข้อมูล */
@@ -43,27 +42,27 @@ class News_model extends CI_Model {
         if ($id == NULL) {
             $data['created_by'] = $this->session->userdata('login_id');
             $data['created_date'] = date('Y-m-d H:i:s');
-            $this->db->insert('news', $data);
+            $this->db->insert($this->table, $data);
         } else {
-            $this->db->update('news', $data, array('id' => $id));
+            $this->db->update($this->table, $data, array('id' => $id));
         }
     }
 
     public function read_news($id) {
-        $this->db->select('news.*,news_categories.name');
-        $this->db->from('news');
-        $this->db->join('news_categories', 'news_categories.id = news.news_categorie_id');
+        $this->db->select('news.*,nc.name');
+        $this->db->from($this->table);
+        $this->db->join('news_categories nc', 'nc.id = news.news_categorie_id');
         $this->db->where('news.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-            $data = $query->row();
-            return $data;
+            return $query->row();
         }
         return FALSE;
     }
 
     public function remove_news($id) {
-        $this->db->delete('news', array('id' => $id));
+        $this->db->delete($this->table, array('id' => $id));
     }
 
+    
 }

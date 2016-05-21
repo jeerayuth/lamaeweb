@@ -4,8 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Categorie_model extends CI_Model {
 
-    //public $name;
-    //public $description;
     private $table = "categories";
 
     public function __construct() {
@@ -13,31 +11,16 @@ class Categorie_model extends CI_Model {
     }
 
     public function count($keyword = null) { /* function  นับจำนวน record ข้อมูล */
-        $this->db->like('name', $keyword);
         $this->db->from($this->table);
+        $this->db->like('name', $keyword);
         return $this->db->count_all_results();
     }
 
     public function all($keyword = null) { /* function query ข้อมูล */
         $this->db->select('categories.*');
-        $this->db->from('categories');
+        $this->db->from($this->table);
         $this->db->like('name', $keyword);
-        //  $this->db->offset($this->uri->segment(3));
-        $query = $this->db->get();
-        return $query->result();
-    }
-
-    public function fetch_categorie($limit, $start, $keryword) {
-        $this->db->like('name', $keryword);
-        $this->db->limit($limit, $start);
-        $query = $this->db->get('categories');
-        if ($query->num_rows() > 0) {
-            foreach ($query->result() as $row) {
-                $data[] = $row;
-            }
-            return $data;
-        }
-        return FALSE;
+        return $this->db->get()->result();
     }
 
     public function entry_categorie($id) {

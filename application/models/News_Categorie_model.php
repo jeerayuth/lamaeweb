@@ -1,7 +1,8 @@
 <?php
 
 class News_Categorie_model extends CI_Model {
-
+    public $name;
+    public $description;
     private $table = "news_categories";
 
     public function __construct() {
@@ -15,7 +16,7 @@ class News_Categorie_model extends CI_Model {
     }
 
     public function all($keyword = null) { /* function query ข้อมูล */
-        $this->db->select('news_categories.*');
+        $this->db->select('*');
         $this->db->from($this->table);
         $this->db->like('name', $keyword);
         return $this->db->get()->result();
@@ -25,24 +26,23 @@ class News_Categorie_model extends CI_Model {
         $this->name = $this->input->post('name');
         $this->description = $this->input->post('description');
         if ($id == NULL) {
-            $this->db->insert('news_categories', $this);
+            $this->db->insert($this->table, $this);
         } else {
-            $this->db->update('news_categories', $this, array('id' => $id));
+            $this->db->update($this->table, $this, array('id' => $id));
         }
     }
 
     public function read_categorie($id) {
         $this->db->where('id', $id);
-        $query = $this->db->get('news_categories');
+        $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
-            $data = $query->row();
-            return $data;
+            return $query->row();
         }
         return FALSE;
     }
 
     public function remove_categorie($id) {
-        $this->db->delete('news_categories', array('id' => $id));
+        $this->db->delete($this->table, array('id' => $id));
     }
 
 }

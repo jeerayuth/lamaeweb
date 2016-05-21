@@ -3,7 +3,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class News_Categorie extends CI_Controller {
-
     public $layout_view = 'layout/admin';
 
     public function __construct() {
@@ -11,11 +10,11 @@ class News_Categorie extends CI_Controller {
         $this->load->library('layout');
         $this->load->model('News_Categorie_model', 'categorie');
     }
-    
-       public function index() {
+
+    public function index() {
         $query = $this->categorie->all($this->input->get('keyword')); //dataset ข้อมูลที่ถูกดึงออกมา
         $results = $this->categorie->count($this->input->get('keyword')); // จำนวน record ที่นับได้
-        $this->layout->view('news_categorie/mainpage', compact('query', 'results'));        
+        $this->layout->view('news_categorie/mainpage', compact('query', 'results'));
     }
 
     public function newdata() {

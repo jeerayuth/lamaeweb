@@ -25,4 +25,21 @@ class Gallery_model extends CI_Model {
         return $this->db->count_all_results();
     }
 
+    public function entry_gallery($id, $filename = '') {
+        $data = array(
+            'title' => $this->input->post('title'),
+            'description' => $this->input->post('description'),
+            'filename' => $filename,
+            'modified_date' => date('Y-m-d H:i:s'),
+            'modified_by' => $this->session->userdata('login_id'),
+        );
+        if ($id == NULL) {
+            $data['created_by'] = $this->session->userdata('login_id');
+            $data['created_date'] = date('Y-m-d H:i:s');
+            $this->db->insert($this->table, $data);
+        } else {
+            $this->db->update($this->table, $data, array('id' => $id));
+        }
+    }
+
 }

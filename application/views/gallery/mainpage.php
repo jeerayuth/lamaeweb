@@ -27,7 +27,7 @@
                         <div class="col-sm-6">
 
                             <a class="btn btn-default" href="" role="button"><i class="fa fa-fw fa-refresh"></i> รายการกิจกรรม</a>
-                            <a class="btn btn-info" href="<?php echo base_url('gellery/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มภาพกิจกรรมใหม่</a>
+                            <a class="btn btn-info" href="<?php echo base_url('gallery/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มภาพกิจกรรมใหม่</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
@@ -63,7 +63,7 @@
                                                 <?php echo $row->title; ?>
                                                 <div>จำนวนผู้ชม <?php echo $row->view; ?></div>
                                                 <div>สถานะ เผยแพร่</div>
-                                                <div>สร้างเมื่อ <?php echo $row->created_at; ?></div>
+                                                <div>สร้างเมื่อ <?php echo $row->created_date; ?></div>
 
                                             </td>
                                             <td>

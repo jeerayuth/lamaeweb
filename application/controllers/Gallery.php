@@ -39,6 +39,26 @@ class Gallery extends CI_Controller {
         $this->layout->view("gallery/form");
     }
 
+    public function update($id) {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("title", "ชื่อเรื่อง", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
+
+        if ($this->form_validation->run() == true) {
+            $status = $this->gallery->save($id);
+            if ($status) {
+                $this->session->set_flashdata(
+                        array(
+                            'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
+                        )
+                );
+                redirect("gallery");
+            }
+        }
+
+        $row = $this->gallery->find($id);
+        $this->layout->view("gallery/form", compact('row'));
+    }
+
     public function confrm($id) {
         $data = array
             (

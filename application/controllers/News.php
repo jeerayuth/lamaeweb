@@ -38,11 +38,13 @@ class News extends CI_Controller {
             $this->form_validation->set_rules('news_categorie_id', 'หมวดหมู่ข่าวประกาศ', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $this->form_validation->set_rules('topic', 'ชื่อข่าว', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $no_file_error = "<p>You did not select a file to upload.</p>";
+           
             if (!$this->upload->do_upload('userfile') && $this->upload->display_errors() != $no_file_error) {
                 $checkfile = FALSE;
             } else {
                 $checkfile = TRUE;
             }
+            
             if ($this->form_validation->run() == TRUE && $checkfile == TRUE) {
                 $this->session->set_flashdata(
                         array(
@@ -60,7 +62,7 @@ class News extends CI_Controller {
                     'err_filename' => form_error('filename'),
                     'err_categorie_id' => form_error('news_categorie_id'),
                     'err_filename' => $this->upload->display_errors(),
-                    'topic' => set_value('topic'),
+                    'topic' => set_value('topic'), // set_value ทำให้ค่าที่อยู่ในฟอร์มยังค้างอยู่
                     'description' => set_value('description'),
                     'created_date' => set_value('created_date'),
                     'modified_date' => set_value('modified_date'),

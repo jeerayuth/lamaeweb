@@ -69,7 +69,7 @@
                                             <td>
                                                 <a class="btn btn-info btn-xs" href="" role="button"><i class="fa fa-fw fa-trash"></i> เพิ่มภาพ</a>
                                                 <a class="btn btn-info btn-xs" href="" role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>
-                                                <a class="btn btn-danger btn-xs" href="" role="button"><i class="fa fa-fw fa-trash"></i> ลบ</a>
+                                                <a href="<?php echo base_url('gallery/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบ</a>
                                             </td>
                                         </tr>
 

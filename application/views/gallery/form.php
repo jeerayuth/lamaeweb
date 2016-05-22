@@ -34,29 +34,43 @@
                 </h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo base_url('gallery/postdata'); ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?php echo base_url('gallery/newdata'); ?>" method="post" enctype="multipart/form-data">
+
                 <div class="box-body">
 
                     <div class="form-group">
                         <label for="title">
                             ชื่อเรื่อง
-                        </label> <?php echo $this->session->flashdata('err_title'); ?>
-                        <input type="text" id="title" class="form-control" name="title" value="<?php echo $this->session->flashdata('title'); ?>">
+                        </label>
+                        <input type="text" name="title" id="title" value="<?php echo isset($row->title) ? $row->title : '' ?>" class="form-control">
+                        <?php echo form_error("title"); ?>
                     </div>
 
 
                     <div class="form-group">
-                        <label for="exampleInputEmail1">
-                            ภาพประกอบ
-                        </label> <?php echo $this->session->flashdata('err_filename'); ?>
-                        <input type="file" name="userfile" id="userfile" >
+                        <label for="filename">
+                            ภาพตัวอย่าง
+                        </label>
+                        <div>
+                          <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo isset($row->thumbnail) ? $row->thumbnail : 'default.png' ?>" alt="Image 1">  
+                        </div>                       
+                        <div><input type="file" name="filename" id="filename"></div>
+                        <?php echo form_error("filename"); ?>
                     </div>
                     <div class="form-group">
                         <label>
                             รายละเอียด
                         </label>
-                        <textarea rows="3" class="form-control" id="description" name="description"><?php echo $this->session->flashdata('description'); ?></textarea>
+                        <textarea rows="3" class="form-control" id="description" name="description"><?php echo isset($row->description) ? $row->description : '' ?></textarea>
                     </div>
+
+                    <div class="form-group">
+                        <label>
+                            สถานะ
+                        </label>
+                        <?php echo form_dropdown("visible", array(1 => "เผยแพร่", 0 => "ไม่เผยแพร่"), isset($row->visible) ? $row->visible : '', 'class="form-control"'); ?>
+                    </div>
+
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">

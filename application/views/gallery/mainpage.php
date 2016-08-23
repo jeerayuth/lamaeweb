@@ -55,7 +55,7 @@
                                             <td>
                                                 <div class="thumbnail">
                                                     <?php $thumbnail = empty($row->thumbnail) ? $row->filename : $row->thumbnail; ?>
-                                                    <img width="200" src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $thumbnail; ?>" alt="Image 1">
+                                                    <img width="200px" src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $thumbnail; ?>" alt="Image 1">
                                                 </div>
 
                                             </td>
@@ -67,9 +67,9 @@
 
                                             </td>
                                             <td>
-                                                <a class="btn btn-info btn-xs" href="" role="button"><i class="fa fa-fw fa-trash"></i> เพิ่มภาพ</a>
+                                                <a class="btn btn-info btn-xs" href="<?php echo site_url("gallery/manage_photo/" . $row->id) ?>" role="button" target="_blank"><i class="fa fa-fw fa-trash"></i> เพิ่มภาพ</a>
                                                 <a href="<?php echo site_url("gallery/update/" . $row->id) ?>" class="btn btn-info btn-xs"  role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>
-                                                <a href="<?php echo site_url('gallery/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบ</a>
+                                                <a href="<?php echo site_url('gallery/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
 

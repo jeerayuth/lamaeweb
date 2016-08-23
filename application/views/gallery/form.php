@@ -52,7 +52,7 @@
                         ภาพตัวอย่าง
                     </label>
                     <div>
-                        <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo isset($row->thumbnail) ? $row->thumbnail : 'default.png' ?>" alt="Image 1">  
+                        <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo isset($row->thumbnail) ? $row->thumbnail : 'default.jpg' ?>" alt="Image 1">  
                     </div>                       
                     <div><input type="file" name="filename" id="filename"></div>
                     <?php echo form_error("filename"); ?>

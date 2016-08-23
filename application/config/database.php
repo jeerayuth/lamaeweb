@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost:3307',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => '192.168.1.253',
+	'username' => 'hospital',
+	'password' => 'lamae',
 	'database' => 'db_lamaeweb',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

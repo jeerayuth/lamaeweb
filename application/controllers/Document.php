@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Document extends CI_Controller {
 
     public $layout_view = 'layout/admin';
-    private $limit = 2;
+    private $limit = 8;
 
     public function __construct() {
         parent::__construct();
@@ -29,8 +29,8 @@ class Document extends CI_Controller {
     public function postdata() {
         if ($this->input->server('REQUEST_METHOD') == TRUE) {
             $config['upload_path'] = './assets/doc_uploads/';
-            $config['allowed_types'] = 'pdf';
-            $config['max_size'] = 1024 * 10;
+            $config['allowed_types'] = 'doc|docx|xls|xlsx|ppt|pptx|pdf|zip|rar';
+            $config['max_size'] = 1024 * 50;
             $config['overwrite'] = TRUE;
             $config['file_name'] = ($this->input->post('datafile') == '') ? uniqid() : $this->input->post('datafile');
             $this->load->library('upload', $config);

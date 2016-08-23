@@ -42,9 +42,10 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">                                     
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 200px;">เรื่อง</th>                                                
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" >เรื่อง</th>                                                
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">สร้างโดย</th>
                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">หมวดหมู่</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">ผู้ชม</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  80px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -54,11 +55,15 @@
                                             <td>
                                                 <div><a href="<?php echo base_url('news/edit/' . $row->id); ?>"><?php echo $row->topic; ?></a></div>
                                                 <div>อัพเดตล่าสุด <?php echo $row->modified_date; ?></div>
+                                                <div>
+                                                    <a class="btn btn-info btn-xs" target="_blank" href="<?php echo base_url('assets/news_uploads/' . $row->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> เอกสารแนบ</a>
+                                                </div>
                                             </td>                                 
                                             <td><?php echo $row->display_name; ?></td>
                                             <td><?php echo $row->name; ?></td>
+                                            <td><?php echo $row->view; ?></td>
                                             <td>
-                                                <a class="btn btn-info btn-xs" target="_blank" href="<?php echo base_url('assets/news_uploads/' . $row->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> เอกสารแนบ</a>
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('news/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>                               
                                                 <a class="btn btn-danger btn-xs" href="<?php echo base_url('news/confrm/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

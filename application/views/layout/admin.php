@@ -170,6 +170,26 @@
                         <li class="header">
                             MENU
                         </li>
+                        
+                         <li class="<?php echo activate_menu('config'); ?>">
+                            <a href="<?php echo site_url('configs/update'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบตั้งค่าพื้นฐาน
+                                </span>
+                            </a>
+                        </li>
+                        
+                         <li class="<?php echo activate_menu('pages'); ?>">
+                            <a href="<?php echo site_url('pages'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบจัดการหน้าเว็บเพจ
+                                </span>
+                            </a>
+                        </li>
 
                         <li class="<?php echo activate_menu('news'); ?>">
                             <a href="<?php echo site_url('news'); ?>">
@@ -200,6 +220,26 @@
                                 </span>
                             </a>
                         </li>
+                        
+                        <li class="<?php echo activate_menu('slideshow'); ?>">
+                            <a href="<?php echo site_url('slideshow'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบภาพสไลด์โชว์
+                                </span>
+                            </a>
+                        </li>
+                        
+                        <li class="<?php echo activate_menu('links'); ?>">
+                            <a href="<?php echo site_url('links'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบลิงค์เว็บไซต์
+                                </span>
+                            </a>
+                        </li>
 
                     </ul><!-- /.sidebar-menu -->
                 </section>
@@ -215,7 +255,7 @@
             <footer class="main-footer">
                 <!-- To the right -->
                 <div class="pull-right hidden-xs">
-                    Back Office Version 1.0 by <a href="http://www.jeerayuth.com">jeerayuth.com</a>
+                    Back Office Version 1.0 by จีระยุทธ ปิ่นสุวรรณ @รพ.ละแม
                 </div>
                 <!-- Default to the left -->
                 <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.

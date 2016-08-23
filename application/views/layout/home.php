@@ -1,10 +1,35 @@
-
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
     <head>
-        <title>โรงพยาบาลละแม จังหวัดชุมพร</title>
+        <?php
+        // Load Model
+        $CI = & get_instance();
+        // config ต่างๆ
+        $this->load->model('Configs_model', 'configs');
+        //หน้าเพจ static
+        $CI->load->model('Pages_model', 'pages');
+        //หมวดข่าว
+        $this->load->model('News_Categorie_model', 'news_cat');
+        //หมวดหมู่เอกสาร
+        $this->load->model('Categorie_model', 'doc_cat');
+        //ระบบลิงค์
+        $this->load->model('Links_model', 'links');
+        // Gallery ภาพกิจกรรม
+        $this->load->model('Gallery_model', 'gallery');
+
+
+        //หน้าเว็บเพจ
+        $configs = $CI->configs->find(1);
+        $pages = $CI->pages->all();
+        $news_cat = $CI->news_cat->all();
+        $doc_cat = $CI->doc_cat->all();
+        $links = $CI->links->all();
+        $gallery = $this->gallery->all(3, '', 'modified_date', 'desc');
+        ?>
+
+        <title><?php echo $configs->name; ?></title>
 
         <!-- Meta -->
         <meta charset="utf-8">
@@ -23,164 +48,228 @@
         <link href="<?php echo base_url('themes/bootstrap'); ?>/css/style.css" rel="stylesheet">
 
         <!-- CSS Header and Footer -->
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/css/headers/header-default.css" rel="stylesheet">
+        <link href="<?php echo base_url('themes/bootstrap'); ?>/css/headers/header-v4.css" rel="stylesheet">
         <link href="<?php echo base_url('themes/bootstrap'); ?>/css/footers/footer-v1.css" rel="stylesheet">
 
         <!-- CSS Implementing Plugins -->
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/animate.css" rel="stylesheet">
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/line-icons/line-icons.css" rel="stylesheet">
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/font-awesome/css/font-awesome.min.css">
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/fancybox/source/jquery.fancybox.css">
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/revolution-slider/rs-plugin/css/settings.css">
+        <link  href="<?php echo base_url('themes/bootstrap'); ?>/plugins/animate.css" rel="stylesheet">
+        <link  href="<?php echo base_url('themes/bootstrap'); ?>/plugins/line-icons/line-icons.css" rel="stylesheet">
+        <link  href="<?php echo base_url('themes/bootstrap'); ?>/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+
+        <!-- CSS Page Style -->
+        <link rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/css/pages/blog_magazine.css">
 
         <!-- CSS Theme -->
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/css/theme-colors/default.css">
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/css/theme-skins/dark.css">
+        <link rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/css/theme-colors/default.css">
+        <link rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/css/theme-skins/dark.css">
 
         <!-- CSS Customization -->
-        <link href="<?php echo base_url('themes/bootstrap'); ?>/css/custom.css">
+        <link rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/css/custom.css">
 
     </head>
 
     <body>
 
         <div class="wrapper">
-            <!--=== Header ===-->
-            <div class="header">
-                <div class="container">
-                    <!-- Logo -->
-                    <a href="index.html">
-                        <img src="<?php echo base_url('themes/bootstrap'); ?>/img/logo1-default.png" alt="Logo">
-                    </a>
-                    <!-- End Logo -->
-
-
-
-                    <!-- Toggle get grouped for better mobile display -->
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="fa fa-bars"></span>
-                    </button>
-                    <!-- End Toggle -->
-                </div><!--/end container-->
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse mega-menu navbar-responsive-collapse">
+            <!--=== Header v4 ===-->
+            <div class="header-v4">
+                <!-- Topbar -->
+                <div class="topbar-v1">
                     <div class="container">
-                        <ul class="nav navbar-nav">
-                            <!-- Home -->
-                            <li class="active">
-                                <a href="<?php echo base_url(); ?>">
-                                    หน้าหลัก
-                                </a>
-
-                            </li>
-                            <!-- End Home -->
-
-                            <!-- Department -->
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                    หน่วยงาน
-                                </a>
-                                <ul class="dropdown-menu">  
-
-                                    <li class="">
-                                        <a href="#">งานบริหาร</a>                                    
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-inline top-v1-contacts">
+                                    <li>
+                                        <i class="fa fa-envelope"></i> Email: <?php echo $configs->email; ?>
                                     </li>
-
-                                    <li class="">
-                                        <a href="#">กลุ่มการพยาบาล</a>                                    
+                                    <li>
+                                        <i class="fa fa-phone"></i> Contact: <?php echo $configs->telephone; ?>
                                     </li>
-
-                                    <li class="">
-                                        <a href="#">งานคุณภาพ</a>                                  
-                                    </li> 
-
-                                    <li class="">
-                                        <a href="#">องค์กรแพทย์</a>                                  
-                                    </li>   
-
-                                    <li class="">
-                                        <a href="#">งานส่งเสริม</a>                                  
-                                    </li> 
-
                                 </ul>
-                            </li>
-                            <!-- End Department -->
+                            </div>
 
-                            <!-- Blog -->
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                    ข่าวสาร
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="">
-                                        <a href="#">กิจกรรมโรงพยาบาล</a>
-
-                                    </li>
-                                    <li class="">
-                                        <a href="#">จัดซื้อจัดจ้าง</a>                                     
-                                    </li>
-                                    <li class="">
-                                        <a href="#">กิจกรรมอื่นๆ</a>
-
-                                    </li>
-
+                            <div class="col-md-6">
+                                <ul class="list-inline top-v1-data">
+                                    <li><a href="#"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-globe"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>                       
+                                    <li><a href="<?php echo base_url('user/login'); ?>">Login</a></li>
                                 </ul>
-                            </li>
-                            <!-- End Blog -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Topbar -->
 
-                            <!-- Portfolio -->
-                            <li class="dropdown">
-                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                    ดาวน์โหลด
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="">
-                                        <a href="#">เอกสารทางราชการทั่วไป</a>
+                <!-- Navbar -->
+                <div class="navbar navbar-default mega-menu" role="navigation">
+                    <div class="container">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <div class="row">
+                                <div class="col-md-2">
 
-                                    </li>                                 
-                                    <li class="">
-                                        <a href="#">เอกสารคู่มือ-แบบฟอร์ม</a>
+                                    <img src="<?php echo base_url(); ?>assets/configs_uploads/<?php echo $configs->filename; ?>" >
 
-                                    </li>
-                                    <li class="">
-                                        <a href="#">ไฟล์นำเสนอ</a>
+                                </div>
+                                <div class="col-md-10">
+                                    <!--<a href="#"><img class="header-banner img-responsive" src="<?php echo base_url('themes/bootstrap'); ?>/img/banners/adds.jpg" width="1000" alt=""></a>-->
+                                </div>
+                            </div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                                <span class="full-width-menu">Menu Bar</span>
+                                <span class="icon-toggle">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
 
-                                    </li>
-                                    <li class="">
-                                        <a href="#">โปรแกรมต่างๆ</a>
+                    <div class="clearfix"></div>
 
-                                    </li>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+
+                    <div class="collapse navbar-collapse navbar-responsive-collapse" style="background-color: #272727;">
+                        <div class="container" >
+                            <ul class="nav navbar-nav" >
+                                <!-- Home -->
+                                <li class="">
+                                    <a href="<?php echo site_url('site'); ?>" >หน้าหลัก</a>                                                                    
+                                </li>
+                                <!-- End Pages -->
+
+                                <!-- Blog -->
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        ข่าวสาร
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($news_cat as $row) { ?>
+                                            <li>
+                                                <a href="javascript:void(0);"><?php echo $row->name; ?></a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+
+                                </li>
+                                <!-- End Blog -->
+
+                                <!-- Portfolio -->
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        ภาพกิจกรรม
+                                    </a>
+
+                                </li>
+                                <!-- End Portfolio -->
+
+                                <!-- Features -->
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        ดาวน์โหลด
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($doc_cat as $row) { ?>
+                                            <li>
+                                                <a href="javascript:void(0);"><?php echo $row->name; ?></a>
+                                            </li>
+                                        <?php } ?>
+
+                                    </ul>
+                                </li>
+                                <!-- End Features -->
+
+                                <!-- Contact Us -->
+                                <li>
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        ติดต่อเรา
+                                    </a>                              
+                                </li>
 
 
-                                </ul>
-                            </li>
-                            <!-- End Portfolio -->
+                                <!-- End Demo Pages -->
+                            </ul>
 
-
-                            <!-- End Shortcodes -->
-
-                            <!-- Demo Pages -->
-                            <li class="">
-
-                                <a href="<?php echo base_url('user/login'); ?>" class="dropdown-toggle" data-toggle="">
-                                    ผู้ดูแลระบบ
-                                </a>
-
-
-                            </li>
-                            <!-- End Demo Pages -->
-
-
-                        </ul>
-                    </div><!--/end container-->
-                </div><!--/navbar-collapse-->
+                            <!-- Search Block -->
+                            <ul class="nav navbar-nav navbar-border-bottom navbar-right">
+                                <li class="no-border">
+                                    <i class="search fa fa-search search-btn"></i>
+                                    <div class="search-open">
+                                        <div class="input-group animated fadeInDown">
+                                            <input type="text" class="form-control" placeholder="Search">
+                                            <span class="input-group-btn">
+                                                <button class="btn-u" type="button">Go</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <!-- End Search Block -->
+                        </div><!--/end container-->
+                    </div><!--/navbar-collapse-->
+                </div>
+                <!-- End Navbar -->
             </div>
-            <!--=== End Header ===-->
+            <!--=== End Header v4 ===-->
 
-            <!-- display content -->
-            <?php echo $content_for_layout; ?>
+            <!--=== Content Part ===-->
+            <div class="container content">
+                <div class="row magazine-page">
+                    <!-- Begin Content -->
+                    <?php echo $content_for_layout; ?>
+                    <!-- End Content -->
+
+                    <!-- Begin Sidebar -->
+                    <div class="col-md-3">
+                        <!-- Magazine Posts -->
+                        <div class="row margin-bottom-40">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item active">M E N U - K M. Hospital </a>
+
+                                <?php foreach ($pages as $row) { ?>
+                                    <a href="index.php?r=work/index&amp;id=1" class="list-group-item">  <img src="<?php echo base_url(); ?>assets/images/save2.png">  <?php echo $row->name; ?> </a>
+                                <?php } ?>
+
+                            </div>
+
+                            <div class="magazine-posts col-md-12 col-sm-6">
+                                <center>
+                                    <img class="hover-effect" alt="" src="<?php echo base_url(); ?>assets/configs_uploads/<?php echo $configs->doctor_photo; ?>">
+                                    <span><i class="color-green"><?php echo $configs->director_name; ?></i> <br/> <?php echo $configs->director_position; ?></span>
+                                </center>
+                            </div>
+                        </div>
+                        <!-- End Magazine Posts -->
+
+
+                        <!-- Quick Links -->
+                        <div class="magazine-sb-categories margin-bottom-20">
+                            <div class="headline"><h2 class="heading-sm">ระบบงานที่เกี่ยวข้อง</h2></div>
+                            <div class="row">
+                                <ul class="list-unstyled col-xs-12">
+                                    <?php foreach ($links as $row) { ?>
+                                        <li>
+                                            &nbsp;&nbsp;<a href="<?php echo $row->link; ?>" target="_blank">  <?php echo $row->name; ?> </a>
+                                        <?php } ?>    
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <!-- End Quick Links -->
+
+
+
+                    </div>
+                    <!-- End Sidebar -->
+
+                </div>
+            </div><!--/container-->
+            <!-- End Content Part -->
 
             <!--=== Footer Version 1 ===-->
             <div class="footer-v1">
@@ -189,29 +278,25 @@
                         <div class="row">
                             <!-- About -->
                             <div class="col-md-3 md-margin-bottom-40">
-                                <a href="index.html"><img id="logo-footer" class="footer-logo" src="<?php echo base_url(); ?>bootstrap/img/logo2-default.png" alt=""></a>
-                                <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                                <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>
+                                <img id="logo-footer" class="footer-logo" src="<?php echo base_url(); ?>assets/configs_uploads/<?php echo $configs->filename; ?>" alt="">
+
+                                <p>เว็บไซต์นี้จัดทำขึ้นมาเพื่อใช้เป็นสื่อกลางในการเผยแพร่ข้อมูลข่าวสาร ประชาสัมพันธ์ทั้งภายในและภายนอกหน่วยงาน</p>
+                                <p>เพื่อให้เกิดประโยชน์สูงสุดต่อทั้งเจ้าหน้าที่ในหน่วยงานและผู้รับบริการ</p>
                             </div><!--/col-md-3-->
                             <!-- End About -->
 
                             <!-- Latest -->
                             <div class="col-md-3 md-margin-bottom-40">
                                 <div class="posts">
-                                    <div class="headline"><h2>ผู้ดูแลระบบ</h2></div>
+                                    <div class="headline"><h2>ภาพกิจกรรม</h2></div>
                                     <ul class="list-unstyled latest-list">
+                                        <?php foreach ($gallery as $row) { ?>
                                         <li>
-                                            <a href="#">นายจีระยุทธ ปิ่นสุวรรณ</a>
-                                            <small>manmakemoney@gmail.com</small>
+                                            <a href="#"><?php echo $row->title; ?></a>
+                                            <small><?php echo $row->modified_date; ?></small>
                                         </li>
-                                        <li>
-                                            <a href="#">นายสมโชค แบนเพชร</a>
-                                            <small>vaccine@gmail.com</small>
-                                        </li>
-                                        <li>
-                                            <a href="#">นายอิศเรศร์ นาครักสุด</a>
-                                            <small>it001@gmail.com</small>
-                                        </li>
+
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div><!--/col-md-3-->
@@ -219,13 +304,13 @@
 
                             <!-- Link List -->
                             <div class="col-md-3 md-margin-bottom-40">
-                                <div class="headline"><h2>ค่านิยม 7 ประการ</h2></div>
+                                <div class="headline"><h2>เมนูหลัก</h2></div>
                                 <ul class="list-unstyled link-list">
-                                    <li><a href="#">รับผิดชอบมอบคุณค่า</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">สามัคคี มีวินัย</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">ใฝ่เรียนรู้ อยู่อย่างพอเพียง</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">เคียงคู่ชุมชน</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">โรงพยาบาลละแม จ.ชุมพร</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="#">หน้าหลัก</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="#">ข่าวสาร</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="#">ภาพกิจกรรม</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="#">ดาวน์โหลด</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="#">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
                                 </ul>
                             </div><!--/col-md-3-->
                             <!-- End Link List -->
@@ -234,11 +319,12 @@
                             <div class="col-md-3 map-img md-margin-bottom-40">
                                 <div class="headline"><h2>ติดต่อเรา</h2></div>
                                 <address class="md-margin-bottom-40">
-                                    45ม.7 ถ.เพชรเกษม <br />
-                                    ต.ละแม อ.ละแม จ.ชุมพร <br />
-                                    โทร: 077-559116 <br />
-                                    Fax: 077-559117 <br />
-                                    Email: <a href="mailto:manmakemoney@gmail.com" class="">manmakemoney@gmail.com</a>
+                                    <?php echo $configs->name; ?><br />
+                                    <?php echo $configs->address; ?><br />
+                                    โทรศัพท์: <?php echo $configs->telephone; ?> <br />
+                                    แฟกซ์: <?php echo $configs->fax; ?> <br />
+                                    อีเมล์: <a href="mailto:<?php echo $configs->email; ?>" class=""><?php echo $configs->email; ?></a><br />
+                                    facebook: <?php echo $configs->facebook; ?> 
                                 </address>
                             </div><!--/col-md-3-->
                             <!-- End Address -->
@@ -304,6 +390,81 @@
             <!--=== End Footer Version 1 ===-->
         </div><!--/wrapper-->
 
+        <!--=== Style Switcher ===-->
+        <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
+        <div class="style-switcher animated fadeInRight">
+            <div class="style-swticher-header">
+                <div class="style-switcher-heading">Style Switcher</div>
+                <div class="theme-close"><i class="icon-close"></i></div>
+            </div>
+
+            <div class="style-swticher-body">
+                <!-- Theme Colors -->
+                <div class="style-switcher-heading">Theme Colors</div>
+                <ul class="list-unstyled">
+                    <li class="theme-default theme-active" data-style="default" data-header="light"></li>
+                    <li class="theme-blue" data-style="blue" data-header="light"></li>
+                    <li class="theme-orange" data-style="orange" data-header="light"></li>
+                    <li class="theme-red" data-style="red" data-header="light"></li>
+                    <li class="theme-light" data-style="light" data-header="light"></li>
+                    <li class="theme-purple last" data-style="purple" data-header="light"></li>
+                    <li class="theme-aqua" data-style="aqua" data-header="light"></li>
+                    <li class="theme-brown" data-style="brown" data-header="light"></li>
+                    <li class="theme-dark-blue" data-style="dark-blue" data-header="light"></li>
+                    <li class="theme-light-green" data-style="light-green" data-header="light"></li>
+                    <li class="theme-dark-red" data-style="dark-red" data-header="light"></li>
+                    <li class="theme-teal last" data-style="teal" data-header="light"></li>
+                </ul>
+
+                <!-- Theme Skins -->
+                <div class="style-switcher-heading">Theme Skins</div>
+                <div class="row no-col-space margin-bottom-20 skins-section">
+                    <div class="col-xs-6">
+                        <button data-skins="default" class="btn-u btn-u-xs btn-u-dark btn-block active-switcher-btn handle-skins-btn">Light</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button data-skins="dark" class="btn-u btn-u-xs btn-u-dark btn-block skins-btn">Dark</button>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Layout Styles -->
+                <div class="style-switcher-heading">Layout Styles</div>
+                <div class="row no-col-space margin-bottom-20">
+                    <div class="col-xs-6">
+                        <a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block active-switcher-btn wide-layout-btn">Wide</a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block boxed-layout-btn">Boxed</a>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Theme Type -->
+                <div class="style-switcher-heading">Theme Types and Versions</div>
+                <div class="row no-col-space margin-bottom-10">
+                    <div class="col-xs-6">
+                        <a href="E-Commerce/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">Shop UI <small class="dp-block">Template</small></a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="One-Pages/Classic/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">One Page <small class="dp-block">Template</small></a>
+                    </div>
+                </div>
+
+                <div class="row no-col-space">
+                    <div class="col-xs-6">
+                        <a href="Blog-Magazine/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">Blog <small class="dp-block">Template</small></a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a href="RTL/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">RTL <small class="dp-block">Version</small></a>
+                    </div>
+                </div>
+            </div>
+        </div><!--/style-switcher-->
+        <!--=== End Style Switcher ===-->
+
 
         <!-- JS Global Compulsory -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/jquery/jquery.min.js"></script>
@@ -313,26 +474,21 @@
         <!-- JS Implementing Plugins -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/back-to-top.js"></script>
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/smoothScroll.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/flexslider/jquery.flexslider-min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/fancybox/source/jquery.fancybox.pack.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+
 
         <!-- JS Customization -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/custom.js"></script>
+
         <!-- JS Page Level -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/app.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/plugins/fancy-box.js"></script>
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/plugins/style-switcher.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/plugins/revolution-slider.js"></script>
+
         <script type="text/javascript">
             jQuery(document).ready(function () {
                 App.init();
-                FancyBox.initFancybox();
                 StyleSwitcher.initStyleSwitcher();
-                RevolutionSlider.initRSfullWidth();
             });
-            s
         </script>
 
     </body>

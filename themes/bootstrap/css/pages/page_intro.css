@@ -5,6 +5,7 @@
 	margin: 60px auto 0;
 	position: relative;
 	left: 0;
+  min-height: 70px;
 }
 .page-intro .section-social {
 	display: table-cell;

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-05-21 21:58:42
+Date: 2016-05-23 08:29:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,7 +23,7 @@ CREATE TABLE `categories` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of categories
@@ -68,25 +68,36 @@ DROP TABLE IF EXISTS `gallery`;
 CREATE TABLE `gallery` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) CHARACTER SET utf8 NOT NULL,
+  `description` text CHARACTER SET utf8,
   `filename` varchar(100) CHARACTER SET utf8 NOT NULL,
   `thumbnail` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified_date` timestamp NULL DEFAULT NULL,
   `visible` tinyint(1) NOT NULL DEFAULT '1',
   `view` int(11) NOT NULL DEFAULT '0',
+  `created_by` int(11) NOT NULL,
+  `modified_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of gallery
 -- ----------------------------
-INSERT INTO gallery VALUES ('1', 'กิจกรรมรดน้ำ ดำหัว ผู้ใหญ่ 2559', 'Image+1.jpg', '', '2015-10-05 03:18:03', '0', '6');
-INSERT INTO gallery VALUES ('2', 'กิจกรรม รณรงค์ฉัดวัคซีน เด็กประถม 2', 'Image+2.jpg', '', '2015-10-05 03:18:03', '1', '9');
-INSERT INTO gallery VALUES ('3', 'เจ้าหน้าที่ รพ.ละแม ร่วมกันทำกิจกรรม 5ส', 'Image+3.jpg', '', '2015-10-05 03:18:03', '1', '10');
-INSERT INTO gallery VALUES ('4', 'ชาวบ้านพักร่วมแรงร่วมใจ กำจัดลูกน้ำยุงลาย', 'Image+4.jpg', '', '2015-10-05 03:20:03', '1', '5');
-INSERT INTO gallery VALUES ('5', 'Image 5', 'Image+5.jpg', '', '2015-10-05 03:21:03', '1', '9');
-INSERT INTO gallery VALUES ('6', 'Image 6', 'Image+6.jpg', '', '2015-10-05 03:18:03', '1', '8');
-INSERT INTO gallery VALUES ('7', 'Image 7', 'Image+7.jpg', '', '2015-10-05 03:18:03', '1', '11');
-INSERT INTO gallery VALUES ('8', 'Image 8', 'Image+8.jpg', '', '2015-10-05 03:18:03', '1', '12');
+INSERT INTO gallery VALUES ('1', 'กิจกรรมรดน้ำ ดำหัว ผู้ใหญ่ 2559', null, 'Image+1.jpg', '', '2015-10-05 03:18:03', null, '0', '6', '0', null);
+INSERT INTO gallery VALUES ('2', 'กิจกรรม รณรงค์ฉัดวัคซีน เด็กประถม 2', null, 'Image+2.jpg', '', '2015-10-05 03:18:03', null, '1', '9', '0', null);
+INSERT INTO gallery VALUES ('3', 'เจ้าหน้าที่ รพ.ละแม ร่วมกันทำกิจกรรม 5ส', null, 'Image+3.jpg', '', '2015-10-05 03:18:03', null, '1', '10', '0', null);
+INSERT INTO gallery VALUES ('4', 'ชาวบ้านพักร่วมแรงร่วมใจ กำจัดลูกน้ำยุงลาย', null, 'Image+4.jpg', '', '2015-10-05 03:20:03', null, '1', '5', '0', null);
+INSERT INTO gallery VALUES ('5', 'Image 5', null, 'Image+5.jpg', '', '2015-10-05 03:21:03', null, '1', '9', '0', null);
+INSERT INTO gallery VALUES ('6', 'Image 6', null, 'Image+6.jpg', '', '2015-10-05 03:18:03', null, '1', '8', '0', null);
+INSERT INTO gallery VALUES ('7', 'Image 7', null, 'Image+7.jpg', '', '2015-10-05 03:18:03', null, '1', '11', '0', null);
+INSERT INTO gallery VALUES ('8', 'Image 8', null, 'Image+8.jpg', '', '2015-10-05 03:18:03', null, '1', '12', '0', null);
+INSERT INTO gallery VALUES ('11', 'ทดสอบ 444', null, 'fumina11.jpg', 'fumina11_thumb.jpg', '2016-05-22 14:44:49', null, '1', '0', '0', null);
+INSERT INTO gallery VALUES ('12', 'test5555', null, 'fumina07.jpg', 'fumina07_thumb.jpg', '2016-05-22 14:48:05', null, '1', '0', '0', null);
+INSERT INTO gallery VALUES ('14', 'กิจกรรมถ่ายภาพ', 'กิจกรรมถ่ายภาพ รายละเอียด', 'fumina05.jpg', 'fumina05_thumb.jpg', '2016-05-22 14:50:33', null, '1', '0', '0', null);
+INSERT INTO gallery VALUES ('15', 'ถ่ายภาพนูด', 'ถ่ายภาพนูดจตตตตต', 'fumina071.jpg', 'fumina071_thumb.jpg', '2016-05-22 14:51:06', null, '1', '0', '0', null);
+INSERT INTO gallery VALUES ('17', 'กิจกรรมถ่ายภาพ222', 'tssss', 'fumina19.jpg', 'fumina19_thumb.jpg', '2016-05-22 15:22:32', null, '1', '0', '0', null);
+INSERT INTO gallery VALUES ('18', 'sdsd', 'sdfsdfsd', 'fumina08.jpg', 'fumina08_thumb.jpg', '2016-05-22 16:17:39', null, '1', '0', '0', null);
+INSERT INTO gallery VALUES ('23', 'Image 234556', 'เเเพพพ', 'akiko02.jpg', 'akiko02_thumb.jpg', '2016-05-22 20:47:49', null, '1', '0', '0', null);
 
 -- ----------------------------
 -- Table structure for `news`

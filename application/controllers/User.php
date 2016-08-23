@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
 
-    public $layout_view = 'layout/home';
+    public $layout_view = 'layout/login';
 
     public function __construct() {
         parent::__construct();
@@ -13,7 +13,7 @@ class User extends CI_Controller {
     }
 
     public function login() {
-        $this->layout->view('user/login');
+      $this->layout->view('user/login');
     }
 
     public function validlogin() {

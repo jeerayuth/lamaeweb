@@ -31,7 +31,7 @@ class Gallery_model extends CI_Model {
         $post['description'] = $this->input->post('description');
 
         $config['upload_path'] = "./assets/gallery_uploads/";
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
         $config['max_width'] = "1024";
         $config['max_height'] = "768";
 
@@ -45,8 +45,8 @@ class Gallery_model extends CI_Model {
             $config['source_image'] = $config['upload_path'] . $data['file_name'];
             $config['create_thumb'] = TRUE;
             $config['maintain_ratio'] = TRUE;
-            $config['width'] = 250;
-            $config['height'] = 150;
+            $config['width'] = 100;
+            $config['height'] = 60;
             $this->load->library('image_lib', $config);
 
             $this->image_lib->resize();

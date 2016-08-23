@@ -11,6 +11,7 @@ class Gallery extends CI_Controller {
         parent::__construct();
         $this->load->library('layout');
         $this->load->model('Gallery_model', 'gallery');
+        $this->load->library('image_CRUD');
     }
 
     public function index() {
@@ -78,6 +79,21 @@ class Gallery extends CI_Controller {
             );
             redirect("gallery");
         }
+    }
+
+    public function manage_photo() {
+        $image_crud = new image_CRUD();
+        
+        $image_crud->set_primary_key_field('id');
+        $image_crud->set_url_field('url');
+        $image_crud->set_table('gallery_sub')
+                ->set_relation_field('gallery_id')
+                ->set_ordering_field('priority')
+                ->set_image_path('assets/gallery_sub_uploads');
+
+        $output = $image_crud->render();
+        
+        $this->load->view('gallery/manage_photo',$output);	
     }
 
 }

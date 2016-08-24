@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2016-08-23 09:57:25
+Date: 2016-08-24 11:17:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -316,19 +316,19 @@ CREATE TABLE `slideshow` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(200) CHARACTER SET utf8 NOT NULL,
   `filename` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT 'default.jpg',
-  `thumbnail` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT 'default.jpg',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified_date` timestamp NULL DEFAULT NULL,
   `visible` tinyint(1) NOT NULL DEFAULT '1',
   `order` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of slideshow
 -- ----------------------------
-INSERT INTO slideshow VALUES ('24', 'test99999', '10.jpg', 'default.jpg', '2016-08-03 09:51:05', '2016-08-15 11:44:29', '1', '1');
-INSERT INTO slideshow VALUES ('25', 'test2333333', '11.jpg', 'default.jpg', '2016-08-03 09:52:30', '2016-08-15 11:44:34', '1', '2');
+INSERT INTO slideshow VALUES ('38', 'test', '10.jpg', '2016-08-24 10:42:27', null, '1', '1');
+INSERT INTO slideshow VALUES ('39', 'test 2', '11.jpg', '2016-08-24 10:42:42', null, '1', '2');
+INSERT INTO slideshow VALUES ('40', 'test 3', '111.jpg', '2016-08-24 10:52:53', null, '1', '3');
 
 -- ----------------------------
 -- Table structure for `users`

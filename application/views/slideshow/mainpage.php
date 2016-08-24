@@ -54,7 +54,7 @@
                                         <tr >
                                             <td>
                                                 <div class="thumbnail">                          
-                                                    <img width = "100%" height="50%" src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo $row->filename; ?>" alt="Image 1">
+                                                    <img width = "40%" height="25%" src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo $row->filename; ?>" alt="Image 1">
                                                 </div>
 
                                             </td>

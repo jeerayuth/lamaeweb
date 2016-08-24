@@ -48,19 +48,19 @@ class Slideshow extends CI_Controller {
         $this->form_validation->set_rules("title", "ชื่อเรื่อง", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
 
         if ($this->form_validation->run() == true) {
-            $status = $this->gallery->save($id);
+            $status = $this->slideshow->save($id);
             if ($status) {
                 $this->session->set_flashdata(
                         array(
                             'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                 );
-                redirect("gallery");
+                redirect("slideshow");
             }
         }
 
-        $row = $this->gallery->find($id);
-        $this->layout->view("gallery/form", compact('row'));
+        $row = $this->slideshow->find($id);
+        $this->layout->view("slideshow/form", compact('row'));
     }
 
     public function confrm($id) {

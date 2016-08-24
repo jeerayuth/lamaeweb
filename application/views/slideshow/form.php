@@ -52,8 +52,10 @@
                         ภาพตัวอย่าง
                     </label>
                     <div>
-                        <img src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo isset($row->thumbnail) ? $row->thumbnail : 'default.jpg' ?>" alt="Image 1">  
-                    </div>                       
+                        <img width="50%" height="25%" src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo isset($row->filename) ? $row->filename : 'default.jpg' ?>" alt="Image 1"> 
+                       
+                    </div>   
+                    <br/>
                     <div><input type="file" name="filename" id="filename"></div>
                     <?php echo form_error("filename"); ?>
                     <p class="text-danger">

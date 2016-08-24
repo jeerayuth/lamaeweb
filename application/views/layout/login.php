@@ -14,10 +14,14 @@
         //หมวดหมู่เอกสาร
         $this->load->model('Categorie_model', 'doc_cat');
         
+        // Gallery ภาพกิจกรรม
+        $this->load->model('Gallery_model', 'gallery');
+        
         //หน้าเว็บเพจ
         $configs = $CI->configs->find(1);
         $news_cat = $CI->news_cat->all();
         $doc_cat = $CI->doc_cat->all();
+        $gallery = $CI->gallery->all(3, '', 'modified_date', 'desc');
 
         ?>
 
@@ -61,7 +65,7 @@
 
     </head>
 
-    <body>
+    <body class="boxed-layout container">
 
         <div class="wrapper">
             <!--=== Header v4 ===-->
@@ -236,29 +240,25 @@
                         <div class="row">
                             <!-- About -->
                             <div class="col-md-3 md-margin-bottom-40">
-                                <a href="index.html"><img id="logo-footer" class="footer-logo" src="assets/img/logo2-default.png" alt=""></a>
-                                <p>About Unify dolor sit amet, consectetur adipiscing elit. Maecenas eget nisl id libero tincidunt sodales.</p>
-                                <p>Duis eleifend fermentum ante ut aliquam. Cras mi risus, dignissim sed adipiscing ut, placerat non arcu.</p>
+                                <img id="logo-footer" class="footer-logo" src="<?php echo base_url(); ?>assets/configs_uploads/<?php echo $configs->filename; ?>" alt="">
+
+                                <p>เว็บไซต์นี้จัดทำขึ้นมาเพื่อใช้เป็นสื่อกลางในการเผยแพร่ข้อมูลข่าวสาร ประชาสัมพันธ์ทั้งภายในและภายนอกหน่วยงาน</p>
+                                <p>เพื่อให้เกิดประโยชน์สูงสุดต่อทั้งเจ้าหน้าที่ในหน่วยงานและผู้รับบริการ</p>
                             </div><!--/col-md-3-->
                             <!-- End About -->
 
                             <!-- Latest -->
                             <div class="col-md-3 md-margin-bottom-40">
                                 <div class="posts">
-                                    <div class="headline"><h2>Latest Posts</h2></div>
+                                    <div class="headline"><h2>ภาพกิจกรรม</h2></div>
                                     <ul class="list-unstyled latest-list">
+                                        <?php foreach ($gallery as $row) { ?>
                                         <li>
-                                            <a href="#">Incredible content</a>
-                                            <small>May 8, 2014</small>
+                                            <a href="#"><?php echo $row->title; ?></a>
+                                            <small><?php echo $row->modified_date; ?></small>
                                         </li>
-                                        <li>
-                                            <a href="#">Best shoots</a>
-                                            <small>June 23, 2014</small>
-                                        </li>
-                                        <li>
-                                            <a href="#">New Terms and Conditions</a>
-                                            <small>September 15, 2014</small>
-                                        </li>
+
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div><!--/col-md-3-->
@@ -285,7 +285,8 @@
                                     <?php echo $configs->address; ?><br />
                                     โทรศัพท์: <?php echo $configs->telephone; ?> <br />
                                     แฟกซ์: <?php echo $configs->fax; ?> <br />
-                                    อีเมล์: <a href="mailto:<?php echo $configs->email; ?>" class=""><?php echo $configs->email; ?></a>
+                                    อีเมล์: <a href="mailto:<?php echo $configs->email; ?>" class=""><?php echo $configs->email; ?></a><br />
+                                    facebook: <?php echo $configs->facebook; ?> 
                                 </address>
                             </div><!--/col-md-3-->
                             <!-- End Address -->
@@ -352,79 +353,8 @@
         </div><!--/wrapper-->
 
         <!--=== Style Switcher ===-->
-        <i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
-        <div class="style-switcher animated fadeInRight">
-            <div class="style-swticher-header">
-                <div class="style-switcher-heading">Style Switcher</div>
-                <div class="theme-close"><i class="icon-close"></i></div>
-            </div>
-
-            <div class="style-swticher-body">
-                <!-- Theme Colors -->
-                <div class="style-switcher-heading">Theme Colors</div>
-                <ul class="list-unstyled">
-                    <li class="theme-default theme-active" data-style="default" data-header="light"></li>
-                    <li class="theme-blue" data-style="blue" data-header="light"></li>
-                    <li class="theme-orange" data-style="orange" data-header="light"></li>
-                    <li class="theme-red" data-style="red" data-header="light"></li>
-                    <li class="theme-light" data-style="light" data-header="light"></li>
-                    <li class="theme-purple last" data-style="purple" data-header="light"></li>
-                    <li class="theme-aqua" data-style="aqua" data-header="light"></li>
-                    <li class="theme-brown" data-style="brown" data-header="light"></li>
-                    <li class="theme-dark-blue" data-style="dark-blue" data-header="light"></li>
-                    <li class="theme-light-green" data-style="light-green" data-header="light"></li>
-                    <li class="theme-dark-red" data-style="dark-red" data-header="light"></li>
-                    <li class="theme-teal last" data-style="teal" data-header="light"></li>
-                </ul>
-
-                <!-- Theme Skins -->
-                <div class="style-switcher-heading">Theme Skins</div>
-                <div class="row no-col-space margin-bottom-20 skins-section">
-                    <div class="col-xs-6">
-                        <button data-skins="default" class="btn-u btn-u-xs btn-u-dark btn-block active-switcher-btn handle-skins-btn">Light</button>
-                    </div>
-                    <div class="col-xs-6">
-                        <button data-skins="dark" class="btn-u btn-u-xs btn-u-dark btn-block skins-btn">Dark</button>
-                    </div>
-                </div>
-
-                <hr>
-
-                <!-- Layout Styles -->
-                <div class="style-switcher-heading">Layout Styles</div>
-                <div class="row no-col-space margin-bottom-20">
-                    <div class="col-xs-6">
-                        <a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block active-switcher-btn wide-layout-btn">Wide</a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a href="javascript:void(0);" class="btn-u btn-u-xs btn-u-dark btn-block boxed-layout-btn">Boxed</a>
-                    </div>
-                </div>
-
-                <hr>
-
-                <!-- Theme Type -->
-                <div class="style-switcher-heading">Theme Types and Versions</div>
-                <div class="row no-col-space margin-bottom-10">
-                    <div class="col-xs-6">
-                        <a href="E-Commerce/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">Shop UI <small class="dp-block">Template</small></a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a href="One-Pages/Classic/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">One Page <small class="dp-block">Template</small></a>
-                    </div>
-                </div>
-
-                <div class="row no-col-space">
-                    <div class="col-xs-6">
-                        <a href="Blog-Magazine/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">Blog <small class="dp-block">Template</small></a>
-                    </div>
-                    <div class="col-xs-6">
-                        <a href="RTL/index.html" class="btn-u btn-u-xs btn-u-dark btn-block">RTL <small class="dp-block">Version</small></a>
-                    </div>
-                </div>
-            </div>
-        </div><!--/style-switcher-->
-        <!--=== End Style Switcher ===-->
+        <a href="<?php echo base_url('user/login'); ?>"><i class="style-switcher-btn fa fa-cogs hidden-xs"></i></a>
+        
 
 
         <!-- JS Global Compulsory -->
@@ -447,8 +377,8 @@
 
         <script type="text/javascript">
             jQuery(document).ready(function () {
-                App.init();
-                StyleSwitcher.initStyleSwitcher();
+               // App.init();
+               // StyleSwitcher.initStyleSwitcher();
             });
         </script>
 

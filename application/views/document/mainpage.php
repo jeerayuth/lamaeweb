@@ -60,6 +60,9 @@
                                                     <a href="<?php echo base_url('document/edit/' . $row->id); ?>"><?php echo $row->topic; ?></a>
                                                     <br/>สร้างโดย: <?php echo $row->display_name;?><br/>
                                                     แก้ไขล่าสุด: <?php echo date('d/m/Y', strtotime($row->modified_date)); ?>
+                                                    <div>
+                                                    <a class="btn btn-info btn-xs" target="_blank" href="<?php echo base_url('assets/doc_uploads/' . $row->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> ไฟล์เอกสาร</a>
+                                                    </div>
                                             </td>
                                
                                             <td><?php echo $row->store; ?></td>
@@ -67,8 +70,8 @@
                                             <td><?php echo $row->name; ?></td>
                                             <td><?php echo $row->download; ?></td>
                                             <td>
-                                                <a class="btn btn-info btn-xs" href="<?php echo base_url('document/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>
-                                                <a class="btn btn-info btn-xs" target="_blank" href="<?php echo base_url('assets/doc_uploads/' . $row->filename); ?>" role="button"><i class="fa fa-fw  fa-file-text"></i> ไฟล์เอกสาร</a>
+                                                <a class="btn btn-info btn-xs" href="<?php echo base_url('document/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>
+                                                
                                                 <a class="btn btn-danger btn-xs" href="<?php echo base_url('document/confrm/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

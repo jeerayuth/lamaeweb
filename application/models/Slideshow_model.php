@@ -28,11 +28,12 @@ class Slideshow_model extends CI_Model {
     public function save($id = null) {
         $post['title'] = $this->input->post("title");
         $post['visible'] = $this->input->post('visible');
+        $post['order'] = $this->input->post('order');
 
         $config['upload_path'] = "./assets/slideshow_uploads/";
         $config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
-        $config['max_width'] = "1024";
-        $config['max_height'] = "768";
+        $config['max_width'] = "1950";
+        $config['max_height'] = "800";
 
         $this->load->library('upload', $config);
         if ($this->upload->do_upload("filename")) {
@@ -40,7 +41,7 @@ class Slideshow_model extends CI_Model {
             $post['filename'] = $data['file_name'];
 
             // create thumbnail
-            $config['image_library'] = 'gd2';
+           /* $config['image_library'] = 'gd2';
             $config['source_image'] = $config['upload_path'] . $data['file_name'];
             $config['create_thumb'] = TRUE;
             $config['maintain_ratio'] = TRUE;
@@ -51,7 +52,9 @@ class Slideshow_model extends CI_Model {
             $this->image_lib->resize();
 
             $post['thumbnail'] = str_replace($data['file_ext'], "_thumb" . $data['file_ext'], $data['file_name']);
-        }
+         */
+            }
+        
 
         if ($id) {
             $this->db->where("id", $id);
@@ -66,10 +69,8 @@ class Slideshow_model extends CI_Model {
     public function delete($id) {
         $row = $this->find($id);
         if (!empty($row)) {
-            if (file_exists("./assets/gallery_uploads/" . $row->filename))
-                unlink("./assets/gallery_uploads/" . $row->filename);
-            if (file_exists("./assets/gallery_uploads/" . $row->thumbnail))
-                unlink("./assets/gallery_uploads/" . $row->thumbnail);
+            if (file_exists("./assets/slideshow_uploads/" . $row->filename) && $row->filename != 'default.jpg')
+                unlink("./assets/slideshow_uploads/" . $row->filename);
         }
 
         $this->db->where("id", $id);

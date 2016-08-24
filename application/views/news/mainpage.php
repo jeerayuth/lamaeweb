@@ -63,7 +63,7 @@
                                             <td><?php echo $row->name; ?></td>
                                             <td><?php echo $row->view; ?></td>
                                             <td>
-                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('news/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>                               
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('news/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>                               
                                                 <a class="btn btn-danger btn-xs" href="<?php echo base_url('news/confrm/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

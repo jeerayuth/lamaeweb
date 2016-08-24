@@ -8,8 +8,16 @@
         $CI = & get_instance();
         // config ต่างๆ
         $this->load->model('Configs_model', 'configs');
+        
+          //หมวดข่าว
+        $this->load->model('News_Categorie_model', 'news_cat');
+        //หมวดหมู่เอกสาร
+        $this->load->model('Categorie_model', 'doc_cat');
+        
         //หน้าเว็บเพจ
         $configs = $CI->configs->find(1);
+        $news_cat = $CI->news_cat->all();
+        $doc_cat = $CI->doc_cat->all();
 
         ?>
 
@@ -97,9 +105,9 @@
                                     <img src="<?php echo base_url(); ?>assets/configs_uploads/<?php echo $configs->filename; ?>" >
 
                                 </div>
-                                <div class="col-md-10">
-                                    <a href="#"><img class="header-banner img-responsive" src="<?php echo base_url('themes/bootstrap'); ?>/img/banners/adds.jpg" width="1000" alt=""></a>
-                                </div>
+                              <!--  <div class="col-md-10">
+                                    <a href="#"><img class="header-banner img-responsive" src="<?php //echo base_url('themes/bootstrap'); ?>/img/banners/adds.jpg" width="1000" alt=""></a>
+                                </div> -->
                             </div>
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                                 <span class="full-width-menu">Menu Bar</span>

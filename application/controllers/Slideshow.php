@@ -66,37 +66,24 @@ class Slideshow extends CI_Controller {
     public function confrm($id) {
         $data = array
             (
-            'backlink' => 'gallery',
-            'deletelink' => 'gallery/delete/' . $id
+            'backlink' => 'slideshow',
+            'deletelink' => 'slideshow/delete/' . $id
         );
         $this->layout->view('confrm', $data);
     }
 
     public function delete($id) {
-        $status = $this->gallery->delete($id);
+        $status = $this->slideshow->delete($id);
         if ($status) {
             $this->session->set_flashdata(
                     array(
                         'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                     )
             );
-            redirect("gallery");
+            redirect("slideshow");
         }
     }
 
-    public function manage_photo() {
-        $image_crud = new image_CRUD();
-        
-        $image_crud->set_primary_key_field('id');
-        $image_crud->set_url_field('url');
-        $image_crud->set_table('gallery_sub')
-                ->set_relation_field('gallery_id')
-                ->set_ordering_field('priority')
-                ->set_image_path('assets/gallery_sub_uploads');
-
-        $output = $image_crud->render();
-        
-        $this->load->view('gallery/manage_photo',$output);	
-    }
+   
 
 }

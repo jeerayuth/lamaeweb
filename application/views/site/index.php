@@ -1,7 +1,8 @@
 <div class="col-md-9">
     <!-- Magazine Slider -->
     <div class="carousel slide carousel-v1 margin-bottom-40" id="myCarousel-1">
-        <div class="carousel-inner">
+        <div class="carousel-inner"> 
+            
             <div class="item active">
                 <img alt="" src="<?php echo base_url(); ?>assets/slideshow_uploads/10.jpg">
                 <div class="carousel-caption">
@@ -15,6 +16,7 @@
                     <p>ใส่หัวข้อๆๆๆๆๆๆ</p>
                 </div>
             </div>
+            
         </div>
 
         <div class="carousel-arrow">

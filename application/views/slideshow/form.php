@@ -56,6 +56,9 @@
                     </div>                       
                     <div><input type="file" name="filename" id="filename"></div>
                     <?php echo form_error("filename"); ?>
+                    <p class="text-danger">
+                        ภาพควรมีขนาด 1920x700 pixel
+                    </p>
                 </div>
               
               <div class="form-group">

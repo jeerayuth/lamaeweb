@@ -67,8 +67,8 @@
 
                                             </td>
                                             <td>
-                                                <a class="btn btn-info btn-xs" href="<?php echo site_url("gallery/manage_photo/" . $row->id) ?>" role="button" target="_blank"><i class="fa fa-fw fa-trash"></i> เพิ่มภาพ</a>
-                                                <a href="<?php echo site_url("gallery/update/" . $row->id) ?>" class="btn btn-info btn-xs"  role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>
+                                                <a class="btn btn-info btn-xs" href="<?php echo site_url("gallery/manage_photo/" . $row->id) ?>" role="button" target="_blank"><i class="fa fa-fw fa-plus"></i> เพิ่มภาพ</a>
+                                                <a href="<?php echo site_url("gallery/update/" . $row->id) ?>" class="btn btn-info btn-xs"  role="button"><i class="fa fa-fw fa-edit"></i> แก้ไข</a>
                                                 <a href="<?php echo site_url('gallery/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

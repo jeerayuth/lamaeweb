@@ -43,9 +43,9 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 20%;">&nbsp;</th>
+                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 70%;">&nbsp;</th>
                                         <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>                                 	
@@ -53,23 +53,21 @@
 
                                         <tr >
                                             <td>
-                                                <div class="thumbnail">
-                                                    <?php $thumbnail = empty($row->thumbnail) ? $row->filename : $row->thumbnail; ?>
-                                                    <img width="200px" src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo $thumbnail; ?>" alt="Image 1">
+                                                <div class="thumbnail">                          
+                                                    <img width = "100%" height="50%" src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo $row->filename; ?>" alt="Image 1">
                                                 </div>
 
                                             </td>
                                             <td>
-                                                <?php echo $row->title; ?>            
-                                                <div>สถานะ เผยแพร่</div>
+                                                <?php echo $row->title; ?>                  
                                                 <div>สร้างเมื่อ <?php echo $row->created_date; ?></div>
                                                 <div>แสดงผลลำดับที่ <?php echo $row->order; ?></div>
+                                                 <div>สถานะ <?php echo $row->visible; ?></div>
+                                                  <a href="<?php echo site_url("slideshow/update/" . $row->id) ?>" class="btn btn-info btn-xs"  role="button"><i class="fa fa-fw fa-edit"></i> แก้ไข</a>
+                                                <a href="<?php echo site_url('slideshow/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
 
                                             </td>
-                                            <td>
-                                                <a href="<?php echo site_url("slideshow/update/" . $row->id) ?>" class="btn btn-info btn-xs"  role="button"><i class="fa fa-fw fa-trash"></i> แก้ไข</a>
-                                                <a href="<?php echo site_url('slideshow/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
-                                            </td>
+                                           
                                         </tr>
 
                                     <?php endforeach; ?>

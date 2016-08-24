@@ -165,7 +165,7 @@
                         <i class="fa fa-fw fa-save">
                         </i>บันทึกข้อมูล
                     </button>
-                    <a class="btn btn-danger" href="<?php echo base_url('configs'); ?>" role="button">
+                    <a class="btn btn-danger" href="<?php echo base_url('configs/update'); ?>" role="button">
                         <i class="fa fa-fw fa-close">
                         </i>ยกเลิก
                     </a>

@@ -19,7 +19,7 @@
                 <h3 class="box-title">เพิ่มข้อมูล</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo  base_url('news_categorie/postdata'); ?>" method="post">
+            <form role="form" action="<?php echo  base_url('pages/postdata'); ?>" method="post">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อเพจ</label> <?php echo $this->session->flashdata('error_name'); ?>

@@ -2,7 +2,7 @@
 
 class Pages_model extends CI_Model {
     public $name;
-    public $description;
+    public $details;
     private $table = "pages";
 
     public function __construct() {
@@ -25,9 +25,9 @@ class Pages_model extends CI_Model {
     
     
     
-    public function entry_categorie($id) {
+    public function entry_page($id) {
         $this->name = $this->input->post('name');
-        $this->description = $this->input->post('description');
+        $this->details = $this->input->post('details');
         if ($id == NULL) {
             $this->db->insert($this->table, $this);
         } else {
@@ -35,7 +35,7 @@ class Pages_model extends CI_Model {
         }
     }
 
-    public function read_categorie($id) {
+    public function read_page($id) {
         $this->db->where('id', $id);
         $query = $this->db->get($this->table);
         if ($query->num_rows() > 0) {
@@ -44,7 +44,7 @@ class Pages_model extends CI_Model {
         return FALSE;
     }
 
-    public function remove_categorie($id) {
+    public function remove_page($id) {
         $this->db->delete($this->table, array('id' => $id));
     }
 

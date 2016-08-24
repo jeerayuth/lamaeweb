@@ -19,7 +19,7 @@ class Pages extends CI_Controller {
 
     
     public function newdata() {
-        $this->layout->view('news_categorie/newdata');
+        $this->layout->view('pages/newdata');
     }
 
     public function postdata() {

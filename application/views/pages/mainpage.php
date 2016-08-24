@@ -25,6 +25,7 @@
                         <div class="col-sm-6">
                            
                             <a class="btn btn-default" href="<?php echo  base_url('pages'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                            <a class="btn btn-info" href="<?php echo base_url('pages/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มเพจใหม่</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">

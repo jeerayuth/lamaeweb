@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('gallery'); ?>">
+                <a href="<?php echo base_url('pages'); ?>">
                     เพจเว็บไซต์
                 </a>
             </li>
@@ -50,7 +50,7 @@
                     <label>
                         รายละเอียด
                     </label>
-                    <?php echo form_textarea(array('name' => 'desc', 'id' => 'desc', 'value' => ((isset($row->details)) ? $row->details : ''), 'class' => "ckeditor")); ?>
+                    <?php echo form_textarea(array('name' => 'details', 'id' => 'details', 'value' => ((isset($row->details)) ? $row->details : ''), 'class' => "ckeditor")); ?>
 
                 </div>
 

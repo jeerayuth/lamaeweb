@@ -48,7 +48,7 @@
                                     <?php foreach ($query as $row): ?>  
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('pages/edit/'.$row->id); ?>"><?php echo  $row->name; ?></a>
+                                            <a href="<?php echo base_url('pages/update/'.$row->id); ?>"><?php echo  $row->name; ?></a>
                                             </td>
                                             <td>
                                                 <a class="btn btn-primary btn-xs" href="<?php echo base_url('pages/update/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>

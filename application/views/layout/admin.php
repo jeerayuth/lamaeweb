@@ -13,17 +13,16 @@
         <link href="<?php echo base_url('themes/admin') ?>/css/font-awesome.min.css" rel="stylesheet">
         <!-- ionicons-->
         <link href="<?php echo base_url('themes/admin') ?>/css/ionicons.min.css" rel="stylesheet">
-        
+
         <!--Theme style-->
         <link href="<?php echo base_url('themes/admin') ?>/assets/dist/css/AdminLTE.min.css" rel="stylesheet">
         <!--Theme skin -->
         <link href="<?php echo base_url('themes/admin') ?>/assets/dist/css/skins/skin-blue.min.css" rel="stylesheet">
         <!--Theme skin -->
         <link href="<?php echo base_url('themes/admin') ?>/assets/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet">
-               
+
         <!--My Custom-->
         <link href="<?php echo base_url('themes/admin') ?>/assets/dist/css/mycustom.css" rel="stylesheet">
-
 
         <!-- jQuery 2.1.4 -->
         <script src="<?php echo base_url('themes/admin'); ?>/assets/plugins/jQuery/jQuery-2.1.4.min.js" type="text/javascript">
@@ -35,8 +34,9 @@
         <script src="<?php echo base_url('themes/admin'); ?>/assets/dist/js/app.min.js" type="text/javascript">
         </script>
 
-        
-        
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckeditor/ckeditor.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>assets/ckfinder/ckfinder.js"></script>
+
     </head>
     <body class="skin-blue sidebar-mini">
         <div class="wrapper">
@@ -170,8 +170,8 @@
                         <li class="header">
                             MENU
                         </li>
-                        
-                         <li class="<?php echo activate_menu('config'); ?>">
+
+                        <li class="<?php echo activate_menu('config'); ?>">
                             <a href="<?php echo site_url('configs/update'); ?>">
                                 <i class="fa fa-link">
                                 </i>
@@ -180,8 +180,8 @@
                                 </span>
                             </a>
                         </li>
-                        
-                         <li class="<?php echo activate_menu('pages'); ?>">
+
+                        <li class="<?php echo activate_menu('pages'); ?>">
                             <a href="<?php echo site_url('pages'); ?>">
                                 <i class="fa fa-link">
                                 </i>
@@ -220,7 +220,7 @@
                                 </span>
                             </a>
                         </li>
-                        
+
                         <li class="<?php echo activate_menu('slideshow'); ?>">
                             <a href="<?php echo site_url('slideshow'); ?>">
                                 <i class="fa fa-link">
@@ -230,7 +230,7 @@
                                 </span>
                             </a>
                         </li>
-                        
+
                         <li class="<?php echo activate_menu('links'); ?>">
                             <a href="<?php echo site_url('links'); ?>">
                                 <i class="fa fa-link">

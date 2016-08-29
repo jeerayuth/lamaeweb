@@ -45,12 +45,13 @@
                     <input type="text" name="name" id="name" value="<?php echo isset($row->name) ? $row->name : '' ?>" class="form-control">
                     <?php echo form_error("name"); ?>
                 </div>
-             
+
                 <div class="form-group">
                     <label>
                         รายละเอียด
                     </label>
-                    <textarea rows="3" class="form-control" id="details" name="details"><?php echo isset($row->details) ? $row->details : '' ?></textarea>
+                    <?php echo form_textarea(array('name' => 'desc', 'id' => 'desc', 'value' => ((isset($row->details)) ? $row->details : ''), 'class' => "ckeditor")); ?>
+
                 </div>
 
                 <div class="form-group">

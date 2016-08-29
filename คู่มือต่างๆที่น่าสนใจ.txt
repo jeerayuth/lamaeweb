@@ -21,3 +21,7 @@ https://www.youtube.com/watch?v=_0T0Od5Kry4
 
 สอนระบบต่างๆใน codigniter ดีมากๆ
 https://www.formget.com/codeigniter-mvc/
+
+
+ทำระบบckeditor
+http://stackoverflow.com/questions/11814937/ckeditor-in-codeigniter

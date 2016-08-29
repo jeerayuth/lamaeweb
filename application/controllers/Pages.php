@@ -18,41 +18,45 @@ class Pages extends CI_Controller {
     }
 
     
-    public function newdata() {
-        $this->layout->view('pages/newdata');
-    }
+      public function newdata() {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("name", "ชื่อเรื่อง", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
 
-    public function postdata() {
-        if ($this->input->server('REQUEST_METHOD') == TRUE) {
-            $this->form_validation->set_rules('name', 'ชื่อเพจ', 'required', array('required' => 'ค่าห้ามว่าง!'));
-            if ($this->form_validation->run() == TRUE) {
+        if ($this->form_validation->run() == true) {
+            $status = $this->pages->save();
+            if ($status) {
                 $this->session->set_flashdata(
                         array(
                             'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                 );
-                $this->pages->entry_page($this->input->post('id'));
-                redirect('pages', 'refresh');
-            } else {
-                $data = array(
-                    'error_name' => form_error('name'),
-                    'name' => set_value('name'),
-                    'details' => set_value('details')
-                );
-                $this->session->set_flashdata($data);
-            }
-            if ($this->input->post('id') == NULL) {
-                redirect('pages/newdata');
-            } else {
-                redirect('pages/edit/' . $this->input->post('id'));
+                redirect("pages");
             }
         }
+
+        $this->layout->view("pages/form");
     }
 
-    public function edit($id) {
-        $data['result'] = $this->pages->read_page($id);
-        $this->layout->view('pages/edit', $data);
+    public function update($id) {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("name", "ชื่อเรื่อง", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
+
+        if ($this->form_validation->run() == true) {
+            $status = $this->pages->save($id);
+            if ($status) {
+                $this->session->set_flashdata(
+                        array(
+                            'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
+                        )
+                );
+                redirect("pages");
+            }
+        }
+
+        $row = $this->pages->find($id);
+        $this->layout->view("pages/form", compact('row'));
     }
+    
     
 
     public function confrm($id) {

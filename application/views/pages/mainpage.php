@@ -51,7 +51,7 @@
                                             <a href="<?php echo base_url('pages/edit/'.$row->id); ?>"><?php echo  $row->name; ?></a>
                                             </td>
                                             <td>
-                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('pages/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('pages/update/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('pages/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

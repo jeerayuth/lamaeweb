@@ -1,6 +1,7 @@
 <?php
 
 class Pages_model extends CI_Model {
+
     public $name;
     public $details;
     private $table = "pages";
@@ -22,9 +23,6 @@ class Pages_model extends CI_Model {
         return $this->db->get()->result();
     }
 
-    
-    
-    
     public function entry_page($id) {
         $this->name = $this->input->post('name');
         $this->details = $this->input->post('details');
@@ -32,6 +30,21 @@ class Pages_model extends CI_Model {
             $this->db->insert($this->table, $this);
         } else {
             $this->db->update($this->table, $this, array('id' => $id));
+        }
+    }
+
+    public function save($id = null) {
+        $post['name'] = $this->input->post("name");
+        $post['details'] = $this->input->post('details');
+        $post['visible'] = $this->input->post('visible');
+
+        if ($id) {
+            $this->db->where("id", $id);
+            $this->db->update($this->table, $post);
+            return $this->db->affected_rows();
+        } else {
+            $this->db->insert($this->table, $post);
+            return $this->db->insert_id();
         }
     }
 
@@ -46,6 +59,12 @@ class Pages_model extends CI_Model {
 
     public function remove_page($id) {
         $this->db->delete($this->table, array('id' => $id));
+    }
+
+    public function find($id) {
+        $this->db->where("id", $id);
+        $query = $this->db->get($this->table);
+        return $query->num_rows() ? $query->row() : null;
     }
 
 }

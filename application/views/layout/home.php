@@ -22,7 +22,7 @@
 
         //หน้าเว็บเพจ
         $configs = $CI->configs->find(1);
-        $pages = $CI->pages->all();
+        $pages = $CI->pages->all('',1);
         $news_cat = $CI->news_cat->all();
         $doc_cat = $CI->doc_cat->all();
         $links = $CI->links->all();

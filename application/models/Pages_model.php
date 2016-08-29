@@ -16,9 +16,12 @@ class Pages_model extends CI_Model {
         return $this->db->count_all_results();
     }
 
-    public function all($keyword = null) { /* function query ข้อมูล */
+    public function all($keyword = null, $config = null) { /* function query ข้อมูล */
         $this->db->select('*');
         $this->db->from($this->table);
+        if ($config != NULL) {
+            $this->db->where("visible", $config);
+        }
         $this->db->like('name', $keyword);
         return $this->db->get()->result();
     }

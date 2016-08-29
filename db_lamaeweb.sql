@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2016-08-24 11:17:49
+Date: 2016-08-29 09:53:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -294,19 +294,21 @@ CREATE TABLE `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `details` text,
+  `visible` tinyint(4) DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of pages
 -- ----------------------------
-INSERT INTO pages VALUES ('1', 'ข้อมูลพื้นฐาน', 'ใส่รายละเอียด');
-INSERT INTO pages VALUES ('2', 'ประวัติความเป็นมา', null);
-INSERT INTO pages VALUES ('3', 'วิสัยทัศน์ พันธกิจ', null);
-INSERT INTO pages VALUES ('4', 'ปรัชญา ค่านิยม', null);
-INSERT INTO pages VALUES ('5', 'ประเด็นยุทธศาสตร์', null);
-INSERT INTO pages VALUES ('6', 'เป้าหมาย', null);
-INSERT INTO pages VALUES ('7', 'คณะผู้บริหาร', null);
+INSERT INTO pages VALUES ('1', 'ข้อมูลพื้นฐาน', 'ใส่รายละเอียด', '1');
+INSERT INTO pages VALUES ('2', 'ประวัติความเป็นมา', null, '1');
+INSERT INTO pages VALUES ('3', 'วิสัยทัศน์ พันธกิจ', null, '1');
+INSERT INTO pages VALUES ('4', 'ปรัชญา ค่านิยม', null, '1');
+INSERT INTO pages VALUES ('5', 'ประเด็นยุทธศาสตร์', null, '1');
+INSERT INTO pages VALUES ('6', 'เป้าหมาย', null, '1');
+INSERT INTO pages VALUES ('7', 'คณะผู้บริหาร', null, '1');
+INSERT INTO pages VALUES ('14', 'test  999999 test0', 'ddddfff12456', '0');
 
 -- ----------------------------
 -- Table structure for `slideshow`
@@ -321,14 +323,15 @@ CREATE TABLE `slideshow` (
   `visible` tinyint(1) NOT NULL DEFAULT '1',
   `order` int(5) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of slideshow
 -- ----------------------------
-INSERT INTO slideshow VALUES ('38', 'test', '10.jpg', '2016-08-24 10:42:27', null, '1', '1');
+INSERT INTO slideshow VALUES ('38', 'test1', '10.jpg', '2016-08-24 10:42:27', null, '0', '1');
 INSERT INTO slideshow VALUES ('39', 'test 2', '11.jpg', '2016-08-24 10:42:42', null, '1', '2');
 INSERT INTO slideshow VALUES ('40', 'test 3', '111.jpg', '2016-08-24 10:52:53', null, '1', '3');
+INSERT INTO slideshow VALUES ('45', 'test4', 'default.jpg', '2016-08-29 08:07:44', null, '1', '4');
 
 -- ----------------------------
 -- Table structure for `users`

@@ -231,7 +231,7 @@
                                 <a href="#" class="list-group-item active">M E N U - K M. Hospital </a>
 
                                 <?php foreach ($pages as $row) { ?>
-                                    <a href="index.php?r=work/index&amp;id=1" class="list-group-item">  <img src="<?php echo base_url(); ?>assets/images/save2.png">  <?php echo $row->name; ?> </a>
+                                <a href="<?php echo site_url('site/read_page'); ?>/<?php echo $row->id;?>" class="list-group-item">  <img src="<?php echo base_url(); ?>assets/images/save2.png">  <?php echo $row->name; ?> </a>
                                 <?php } ?>
 
                             </div>

@@ -69,6 +69,8 @@ class Pages extends CI_Controller {
         $row = $this->pages->find($id);
         $this->layout->view("pages/form", compact('row'));
     }
+    
+        
 
     public function confrm($id) {
         $data = array

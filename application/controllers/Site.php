@@ -40,4 +40,9 @@ class Site extends CI_Controller {
         $this->layout->view('site/page', compact('result'));
     }
 
+    public function news($cat_id) { //อ่านหน้าเพจข่าวตามประเภทที่เลือก
+        $results = $this->news->all(10, '', 'modified_date', 'desc', $cat_id);
+        $this->layout->view('site/news', compact('results'));
+    }
+
 }

@@ -150,7 +150,7 @@
                                     <ul class="dropdown-menu">
                                         <?php foreach ($news_cat as $row) { ?>
                                             <li>
-                                                <a href="javascript:void(0);"><?php echo $row->name; ?></a>
+                                                <a href="<?php echo site_url('site'); ?>/news/<?php echo $row->id;?>"><?php echo $row->name; ?></a>
                                             </li>
                                         <?php } ?>
                                     </ul>

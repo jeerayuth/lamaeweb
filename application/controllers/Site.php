@@ -35,19 +35,32 @@ class Site extends CI_Controller {
         $this->layout->view('site/index', $data);
     }
 
-    public function read_page($id) { //อ่านหน้าเพจเว็บไซต์
+    public function read_page($id) { //อ่านรายละเอียดหน้าเพจเว็บไซต์
         $result = $this->pages->read_page($id);
         $this->layout->view('site/page', compact('result'));
     }
 
-    public function read_new($id) { //อ่านหน้าเพจเว็บไซต์
+    public function read_new($id) { //อ่านหน้ารายละเอียดข่าวสาร
         $result = $this->news->read_new($id);
         $this->layout->view('site/new', compact('result'));
     }
+    
+    public function read_doc($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด
+        $result = $this->document->read_document($id);
+        $this->layout->view('site/doc', compact('result'));
 
+    }
+
+    
     public function news($cat_id) { //อ่านหน้าเพจข่าวตามประเภทที่เลือก
-        $results = $this->news->all(10, '', 'modified_date', 'desc', $cat_id);
+        $results = $this->news->all(15, '', 'modified_date', 'desc', $cat_id);
         $this->layout->view('site/news', compact('results'));
+    }
+    
+     public function docs() { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
+        $results = $this->document->all(10, '', 'modified_date', 'desc');
+      // $this->layout->view('site/docs', compact('results'));
+        print_r($results);
     }
 
 }

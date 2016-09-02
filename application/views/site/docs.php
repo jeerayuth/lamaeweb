@@ -14,7 +14,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th align="center">วันที่โพสต์</th>
+                                <th align="center">วันที่อัพโหลดล่าสุด</th>
                                 <th>ชื่อรายการโหลด</th>
                                 <th>ประเภท</th>
                                 <th>จำนวนครั้ง</th>
@@ -25,10 +25,10 @@
                             <?php foreach ($results as $row) { ?>
                                 <tr>
                                     <td>#</td>
-                                    <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
+                                    <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->modified_date)); ?></td>
                                     <td><?php echo $row->topic; ?></td>
-                                    <td><?php echo $row->name; ?></td>
-                                    <td><?php echo $row->download; ?></td>
+                                    <td><?php //echo $row->name; ?></td>
+                                    <td><?php //echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
                                     <td>
                                         <span class="label pull-right rounded btn-primary">                              

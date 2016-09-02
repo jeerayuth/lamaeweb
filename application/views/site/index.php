@@ -150,7 +150,7 @@
                                 <tr>
                                     <td>#</td>
                                     <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
-                                    <td><?php echo $row->topic; ?></td>
+                                    <td><a href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
@@ -198,7 +198,7 @@
                                 <tr>
                                     <td>#</td>
                                     <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
-                                    <td><?php echo $row->topic; ?></td>
+                                    <td><a href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
@@ -219,7 +219,7 @@
     </div>
     <!-- End Magazine News -->
 
-    <div class="text-center">
+    <!--<div class="text-center">
         <ul class="pagination">
             <li><a href="#">«</a></li>
             <li><a href="#">1</a></li>
@@ -231,5 +231,6 @@
             <li><a href="#">7</a></li>
             <li><a href="#">»</a></li>
         </ul>
-    </div>
+    </div>-->
+    
 </div>

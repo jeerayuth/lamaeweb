@@ -23,12 +23,18 @@ class Document_model extends CI_Model {
         $this->db->from($this->table);
         $this->db->join('categories c', 'c.id=documents.categorie_id');
         $this->db->join('users u', 'u.id=documents.created_by');
+       //  if ($cat != null) {
+            $this->db->where('documents.categorie_id', 1);
+       // }
         $this->db->like('topic', $keryword);
         $this->db->order_by($field, $order);
         $this->db->limit($limit);
         $this->db->offset($this->uri->segment(3));
         return $this->db->get()->result();
     }
+    
+
+    
 
     public function entry_document($id, $filename = '') {
         $data = array(

@@ -77,16 +77,22 @@ class Gallery_model extends CI_Model {
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
-    
-    
-    public function find($id)
-	{
-		$this->db->where("id", $id);
-		$query = $this->db->get($this->table);
-		return $query->num_rows() ? $query->row() : null;
-	}
 
-    
-    
+    public function find($id) {
+        $this->db->where("id", $id);
+        $query = $this->db->get($this->table);
+        return $query->num_rows() ? $query->row() : null;
+    }
+
+    public function read_gallery($id) {
+        $this->db->select('gallery.*');
+        $this->db->from($this->table);
+        $this->db->where('gallery.id', $id);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->row();
+        }
+        return FALSE;
+    }
 
 }

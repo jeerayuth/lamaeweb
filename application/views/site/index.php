@@ -2,7 +2,7 @@
     <!-- Magazine Slider -->
     <div class="carousel slide carousel-v1 margin-bottom-40" id="myCarousel-1">
         <div class="carousel-inner"> 
-            
+
             <div class="item active">
                 <img alt="" src="<?php echo base_url(); ?>assets/slideshow_uploads/10.jpg">
                 <div class="carousel-caption">
@@ -16,7 +16,7 @@
                     <p>ใส่หัวข้อๆๆๆๆๆๆ</p>
                 </div>
             </div>
-            
+
         </div>
 
         <div class="carousel-arrow">
@@ -46,7 +46,7 @@
                         <a href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">อ่าน : <?php echo $row->view; ?></span>&nbsp;&nbsp;
-                          
+
                             <span class="label pull-right btn-default"><font color="#2f7086"><?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/no-image.gif" width="100" height="48">
                             <p class="list-group-item-text">
@@ -74,7 +74,7 @@
                         <a href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">อ่าน : <?php echo $row->view; ?></span>&nbsp;&nbsp;
-                           
+
                             <span class="label pull-right btn-default"><font color="#2f7086"><?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/no-image.gif" width="100" height="48">
                             <p class="list-group-item-text">
@@ -90,17 +90,17 @@
 
             <div class="col-sm-4 ">
                 <div class="list-group panel-danger">
-                    <a href="index.php?r=news/index&amp;type=1" class="list-group-item active">
+                    <a href="<?php echo site_url('site'); ?>/gallery" class="list-group-item active">
                         <span class="badge pull-right rounded btn-danger">อ่านทั้งหมด..</span>
                         <h4 class="list-group-item-heading">N E W S !!</h4>
                         <p class="list-group-item-text">กิจกรรมหน่วยงาน</p>
                     </a>
 
                     <?php foreach ($gallery as $row) { ?>
-                        <a href="index.php?r=news/views&amp;id=19" class="list-group-item ">
+                        <a href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->title; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">ผู้ชม : <?php echo $row->view; ?></span>&nbsp;&nbsp;
-                         
+
                             <span class="label pull-right btn-default"><font color="#2f7086"><?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $row->thumbnail; ?>" width="100" height="48">
                             <p class="list-group-item-text">
@@ -203,7 +203,7 @@
                                     <td><?php echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
                                     <td>                                    
-                                    <span class="label pull-right rounded btn-danger">                              
+                                        <span class="label pull-right rounded btn-danger">                              
                                             <a target="_blank" href="<?php echo base_url('assets/doc_uploads/' . $row->filename); ?>" role="button"> <img src="<?php echo base_url(); ?>assets/images/load2.png"> ดาวน์โหลด</a>
                                         </span>
                                     </td>
@@ -232,5 +232,5 @@
             <li><a href="#">»</a></li>
         </ul>
     </div>-->
-    
+
 </div>

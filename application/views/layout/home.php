@@ -160,7 +160,7 @@
 
                                 <!-- Portfolio -->
                                 <li>
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="<?php echo site_url('site'); ?>/gallery" >
                                         ภาพกิจกรรม
                                     </a>
 

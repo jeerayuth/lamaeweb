@@ -40,27 +40,35 @@ class Site extends CI_Controller {
         $this->layout->view('site/page', compact('result'));
     }
 
-    public function read_new($id) { //อ่านหน้ารายละเอียดข่าวสาร
-        $result = $this->news->read_new($id);
-        $this->layout->view('site/new', compact('result'));
-    }
-    
-    public function read_doc($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด
-        $result = $this->document->read_document($id);
-        $this->layout->view('site/doc', compact('result'));
-
-    }
-
-    
     public function news($cat_id) { //อ่านหน้าเพจข่าวตามประเภทที่เลือก
         $results = $this->news->all(15, '', 'modified_date', 'desc', $cat_id);
         $this->layout->view('site/news', compact('results'));
     }
-    
-     public function docs() { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
+
+    public function read_new($id) { //อ่านหน้ารายละเอียดข่าวสาร
+        $result = $this->news->read_new($id);
+        $this->layout->view('site/new', compact('result'));
+    }
+
+    public function docs() { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
         $results = $this->document->all(10, '', 'modified_date', 'desc');
-      // $this->layout->view('site/docs', compact('results'));
+        // $this->layout->view('site/docs', compact('results'));
         print_r($results);
+    }
+
+    public function read_doc($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด
+        $result = $this->document->read_document($id);
+        $this->layout->view('site/doc', compact('result'));
+    }
+
+    public function gallery() { //อ่านหน้า gallery ทั้งหมด
+        $results = $this->gallery->all(15, '', 'modified_date', 'desc');
+        $this->layout->view('site/gallerys', compact('results'));
+    }
+
+    public function read_gallery($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด
+        $result = $this->gallery->read_gallery($id);
+        $this->layout->view('site/gallery', compact('result'));
     }
 
 }

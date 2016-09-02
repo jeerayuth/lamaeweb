@@ -15,6 +15,8 @@ class Configs_model extends CI_Model {
         $post['director_position'] = $this->input->post('director_position');
         $post['email'] = $this->input->post('email');
         $post['facebook'] = $this->input->post('facebook');
+        $post['website'] = $this->input->post('website');
+        $post['google_map'] = $this->input->post('google_map');
 
         $config['upload_path'] = "./assets/configs_uploads/";
         $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';

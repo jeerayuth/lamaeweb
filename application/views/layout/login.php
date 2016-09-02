@@ -181,7 +181,7 @@
 
                                 <!-- Contact Us -->
                                 <li>
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="<?php echo site_url('site'); ?>/contact" >
                                         ติดต่อเรา
                                     </a>                              
                                 </li>

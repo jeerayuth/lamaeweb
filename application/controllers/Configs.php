@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Configs extends CI_Controller {
     public $layout_view = 'layout/admin';
-    private $limit = 5;
+    //private $limit = 5;
 
     public function __construct() {
         parent::__construct();

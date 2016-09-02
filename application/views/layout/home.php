@@ -185,7 +185,7 @@
 
                                 <!-- Contact Us -->
                                 <li>
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                    <a href="<?php echo site_url('site'); ?>/contact">
                                         ติดต่อเรา
                                     </a>                              
                                 </li>
@@ -405,14 +405,13 @@
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/back-to-top.js"></script>
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/smoothScroll.js"></script>
 
-
-
         <!-- JS Customization -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/custom.js"></script>
 
         <!-- JS Page Level -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/app.js"></script>
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/js/plugins/style-switcher.js"></script>
+
 
         <script type="text/javascript">
             jQuery(document).ready(function () {

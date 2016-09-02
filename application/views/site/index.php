@@ -43,7 +43,7 @@
                     </a>
 
                     <?php foreach ($news_general as $row) { ?>
-                        <a href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
+                        <a target="_blank" href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">อ่าน : <?php echo $row->view; ?></span>&nbsp;&nbsp;
 
@@ -64,14 +64,14 @@
 
             <div class="col-sm-4 ">
                 <div class="list-group panel-danger">
-                    <a href="<?php echo site_url('site'); ?>/news/2" class="list-group-item active">
+                    <a  href="<?php echo site_url('site'); ?>/news/2" class="list-group-item active">
                         <span class="badge pull-right rounded btn-danger">อ่านทั้งหมด..</span>
                         <h4 class="list-group-item-heading">N E W S !!</h4>
                         <p class="list-group-item-text">จัดซื้อจัดจ้าง</p>
                     </a>
 
                     <?php foreach ($news_budget as $row) { ?>
-                        <a href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
+                        <a target="_blank" href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">อ่าน : <?php echo $row->view; ?></span>&nbsp;&nbsp;
 
@@ -97,7 +97,7 @@
                     </a>
 
                     <?php foreach ($gallery as $row) { ?>
-                        <a href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>" class="list-group-item ">
+                        <a target="_blank" href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->title; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">ผู้ชม : <?php echo $row->view; ?></span>&nbsp;&nbsp;
 

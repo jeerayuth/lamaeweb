@@ -38,6 +38,7 @@
                     <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">หน่วยงาน</a></li>
                     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">โลโก้</a></li>
                     <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">ผู้อำนวยการ</a></li>
+                    <li role="presentation"><a href="#google_map" aria-controls="google_map" role="tab" data-toggle="tab">แผนที่หน่วยงาน</a></li>
                     
                 </ul>
 
@@ -92,6 +93,15 @@
                                 <input type="text" name="facebook" id="facebook" value="<?php echo isset($row->facebook) ? $row->facebook : '' ?>" class="form-control">
                                 <?php echo form_error("facebook"); ?>
                             </div>
+                            
+                             <div class="form-group">
+                                <label for="title">
+                                    เว็บไซต์
+                                </label>
+                                <input type="text" name="website" id="website" value="<?php echo isset($row->website) ? $row->website : '' ?>" class="form-control">
+                                <?php echo form_error("website"); ?>
+                            </div>
+                            
                         </div><!-- /.box-body -->
 
                     </div>
@@ -154,6 +164,24 @@
                                 <?php echo form_error("director_position"); ?>
                             </div>
                         </div><!-- /.box-body -->
+                    </div>
+                    
+                    
+                    <div role="tabpanel" class="tab-pane" id="google_map">
+                        <div role="tabpanel" class="tab-pane active" id="home">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="filename">
+                                        แนะนำให้ใช้ google map iframe
+                                    </label>
+                                    <div>
+                                        <input type="text" name="google_map" id="google_map" value="<?php echo isset($row->google_map) ? $row->google_map : '' ?>" class="form-control"> 
+                                    </div>
+                                        
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
 

@@ -52,9 +52,10 @@ class News_model extends CI_Model {
     }
 
     public function read_new($id) {
-        $this->db->select('news.*,nc.name');
+        $this->db->select('news.*,nc.name,us.display_name');
         $this->db->from($this->table);
         $this->db->join('news_categories nc', 'nc.id = news.news_categorie_id');
+        $this->db->join('users us', 'us.id = news.created_by');
         $this->db->where('news.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

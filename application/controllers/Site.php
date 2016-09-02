@@ -70,5 +70,13 @@ class Site extends CI_Controller {
         $result = $this->gallery->read_gallery($id);
         $this->layout->view('site/gallery', compact('result'));
     }
+    
+    
+    
+    
+    // static web page
+    public function contact() {
+        $this->layout->view('site/contact');
+    }
 
 }

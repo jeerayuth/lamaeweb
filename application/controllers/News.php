@@ -87,13 +87,7 @@ class News extends CI_Controller {
         $this->layout->view('news/edit', $data);
     }
 
-    /*
-      public function read($id) {
-      $data['result'] = $this->Document_model->read_document($id);
-      $this->load->view('template/frontheader');
-      $this->load->view('document/read', $data);
-      $this->load->view('template/frontfooter');
-      } */
+
 
     public function confrm($id) {
         $data = array

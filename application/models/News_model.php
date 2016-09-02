@@ -10,14 +10,14 @@ class News_model extends CI_Model {
         parent::__construct();
     }
 
-    public function all($limit = 10, $keryword, $field = null, $order = 'asc', $cat=null) { /* function query ข้อมูล */
+    public function all($limit = 10, $keryword, $field = null, $order = 'asc', $cat = null) { /* function query ข้อมูล */
         // param1 = limit, param2 = keyword search
         // param3 = field for order by, param4 = order by type
         $this->db->select('news.*,nc.name,us.display_name');
         $this->db->from($this->table);
         $this->db->join('news_categories nc', 'nc.id = news.news_categorie_id', 'left');
         $this->db->join('users us', 'us.id = news.created_by', 'left');
-        if($cat != null) {
+        if ($cat != null) {
             $this->db->where('news.news_categorie_id', $cat);
         }
         $this->db->like('topic', $keryword);
@@ -51,7 +51,7 @@ class News_model extends CI_Model {
         }
     }
 
-    public function read_news($id) {
+    public function read_new($id) {
         $this->db->select('news.*,nc.name');
         $this->db->from($this->table);
         $this->db->join('news_categories nc', 'nc.id = news.news_categorie_id');
@@ -63,9 +63,10 @@ class News_model extends CI_Model {
         return FALSE;
     }
 
+
+
     public function remove_news($id) {
         $this->db->delete($this->table, array('id' => $id));
     }
 
-    
 }

@@ -268,11 +268,11 @@
                             <div class="col-md-3 md-margin-bottom-40">
                                 <div class="headline"><h2>เมนูหลัก</h2></div>
                                 <ul class="list-unstyled link-list">
-                                    <li><a href="#">หน้าหลัก</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">ข่าวสาร</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">ภาพกิจกรรม</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="<?php echo site_url('site'); ?>">หน้าหลัก</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="<?php echo site_url('site'); ?>/news/1">ข่าวสารทั่วไป</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="<?php echo site_url('site'); ?>/gallery">ภาพกิจกรรม</a><i class="fa fa-angle-right"></i></li>
                                     <li><a href="#">ดาวน์โหลด</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="<?php echo site_url('site'); ?>/contact">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
                                 </ul>
                             </div><!--/col-md-3-->
                             <!-- End Link List -->

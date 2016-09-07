@@ -50,10 +50,10 @@ class Site extends CI_Controller {
         $this->layout->view('site/new', compact('result'));
     }
 
-    public function docs() { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
-        $results = $this->document->all('', '', 'modified_date', 'desc');
-        // $this->layout->view('site/docs', compact('results'));
-        print_r($results);
+    public function docs($cat_id) { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
+        $results = $this->document->all('', '', 'modified_date', 'desc', $cat_id);
+         $this->layout->view('site/docs', compact('results'));
+        
     }
 
     public function read_doc($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด

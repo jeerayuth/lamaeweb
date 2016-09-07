@@ -10,7 +10,7 @@ class News_model extends CI_Model {
         parent::__construct();
     }
 
-    public function all($limit = 10, $keryword, $field = null, $order = 'asc', $cat = null) { /* function query ข้อมูล */
+    public function all($limit = 10, $keryword = null, $field = null, $order = 'asc', $cat = null) { /* function query ข้อมูล */
         // param1 = limit, param2 = keyword search
         // param3 = field for order by, param4 = order by type
         $this->db->select('news.*,LEFT(news.description,100) as description,nc.name,us.display_name');

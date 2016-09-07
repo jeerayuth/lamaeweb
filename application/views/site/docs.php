@@ -27,8 +27,8 @@
                                     <td>#</td>
                                     <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->modified_date)); ?></td>
                                     <td><?php echo $row->topic; ?></td>
-                                    <td><?php //echo $row->name; ?></td>
-                                    <td><?php //echo $row->download; ?></td>
+                                    <td><?php echo $row->name; ?></td>
+                                    <td><?php echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
                                     <td>
                                         <span class="label pull-right rounded btn-primary">                              

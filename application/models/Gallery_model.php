@@ -10,8 +10,9 @@ class Gallery_model extends CI_Model {
     public function all($limit = 5, $keryword, $field = null, $order = 'asc') {
         // param1 = limit, param2 = keyword search
         // param3 = field for order by, param4 = order by type
-        $this->db->select('gallery.*');
+        $this->db->select('gallery.*,LEFT(gallery.description,100) as description, us.display_name');
         $this->db->from($this->table);
+         $this->db->join('users us', 'us.id = gallery.created_by', 'left');
         $this->db->like('title', $keryword);
         $this->db->order_by($field, $order);
         $this->db->limit($limit);
@@ -85,8 +86,9 @@ class Gallery_model extends CI_Model {
     }
 
     public function read_gallery($id) {
-        $this->db->select('gallery.*');
+        $this->db->select('gallery.*,us.display_name');
         $this->db->from($this->table);
+        $this->db->join('users us', 'us.id = gallery.created_by');
         $this->db->where('gallery.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

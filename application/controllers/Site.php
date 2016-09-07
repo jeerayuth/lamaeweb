@@ -41,7 +41,7 @@ class Site extends CI_Controller {
     }
 
     public function news($cat_id) { //อ่านหน้าเพจข่าวตามประเภทที่เลือก
-        $results = $this->news->all(15, '', 'modified_date', 'desc', $cat_id);
+        $results = $this->news->all('', '', 'modified_date', 'desc', $cat_id);
         $this->layout->view('site/news', compact('results'));
     }
 
@@ -51,7 +51,7 @@ class Site extends CI_Controller {
     }
 
     public function docs() { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
-        $results = $this->document->all(10, '', 'modified_date', 'desc');
+        $results = $this->document->all('', '', 'modified_date', 'desc');
         // $this->layout->view('site/docs', compact('results'));
         print_r($results);
     }
@@ -62,7 +62,7 @@ class Site extends CI_Controller {
     }
 
     public function gallery() { //อ่านหน้า gallery ทั้งหมด
-        $results = $this->gallery->all(15, '', 'modified_date', 'desc');
+        $results = $this->gallery->all('', '', 'modified_date', 'desc');
         $this->layout->view('site/gallerys', compact('results'));
     }
 
@@ -70,8 +70,6 @@ class Site extends CI_Controller {
         $result = $this->gallery->read_gallery($id);
         $this->layout->view('site/gallery', compact('result'));
     }
-    
-    
     
     
     // static web page

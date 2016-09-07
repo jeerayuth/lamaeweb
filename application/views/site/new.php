@@ -5,7 +5,7 @@
     <div>โดย: <?php echo $result->display_name ;?></div>
      <div>เข้าชม: <?php echo $result->view ;?></div>
      <div>วันที่ประกาศ: <?php echo $result->created_date ;?></div>
-     <div>ปรับปรุงประกาศล่าสุด: <?php echo $result->created_date ;?></div>
+     <div>ปรับปรุงประกาศล่าสุด: <?php echo $result->modified_date ;?></div>
      <?php if($result->filename != '') {?>
      [<a target="_blank" href="<?php echo base_url('assets/news_uploads/' . $result->filename); ?>" role="button">ดาวน์โหลดแฟ้มประกอบ</a>]
      <?php } ?>

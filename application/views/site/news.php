@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>#</td>
                                     <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->modified_date)); ?></td>
-                                    <td><?php echo $row->topic; ?></td>
+                                    <td><a target="_blank" href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->view; ?></td>
                            
@@ -43,6 +43,6 @@
         </div>
     </div>
     
-
+  
  
 </div>

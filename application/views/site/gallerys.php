@@ -17,6 +17,7 @@
                    
                                 <th>ชื่อกิจกรรม</th>
                                 <th>วันที่อัพโหลด</th>
+                                <th>อัพโหลดโดย</th>
                                 <th>จำนวนผู้เข้าชม</th>
                                 <th align="center">&nbsp;</th>
                             </tr>
@@ -26,8 +27,9 @@
                                 <tr>
                                     <td>#</td>
 
-                                    <td><?php echo $row->title; ?></td>
+                                    <td><a target="_blank" href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>"><?php echo $row->title; ?></a></td>
                                     <td><?php echo $row->modified_date; ?></td>
+                                    <td><?php echo $row->display_name; ?></td>
                                     <td><?php echo $row->view; ?></td>
                            
                        

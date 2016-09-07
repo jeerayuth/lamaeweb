@@ -100,8 +100,8 @@
                         <a target="_blank" href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->title; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">ผู้ชม : <?php echo $row->view; ?></span>&nbsp;&nbsp;
-
-                            <span class="label pull-right btn-default"><font color="#2f7086"><?php echo $row->modified_date; ?></font></span>
+                            <span class="label pull-right btn-default"><font color="#2f7086">โดย: <?php echo $row->display_name; ?></font></span>
+                            <span class="label pull-right btn-default"><font color="#2f7086">ข้อมูลล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $row->thumbnail; ?>" width="100" height="48">
                             <p class="list-group-item-text">
                                 <?php echo $row->description; ?> 

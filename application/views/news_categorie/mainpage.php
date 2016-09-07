@@ -39,9 +39,9 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อหมวดหมู่</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อหมวดหมู่</th>
+                                        <th  tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
+                                        <th  tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -43,8 +43,8 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 70%;">&nbsp;</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
+                                        <th tabindex="0"  rowspan="1" colspan="1" style="width: 70%;">&nbsp;</th>
+                                        <th tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
                                         
                                     </tr>
                                 </thead>

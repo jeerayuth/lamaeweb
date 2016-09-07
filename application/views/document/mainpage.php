@@ -42,12 +42,12 @@
                             <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                 <thead>
                                     <tr role="row">
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 70px;">รหัสเอกสาร</th>
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 200px;">ชื่อเอกสาร</th>             
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">แหล่งเก็บ</th>                               
-                                        <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">หมวดหมู่</th>
-                                         <th class="sorting" tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">ดาวน์โหลด</th>
-                                        <th class="sorting" tabindex="0" rowspan="1" colspan="1" style="width:  80px;">&nbsp;</th>
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 70px;">รหัสเอกสาร</th>
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 200px;">ชื่อเอกสาร</th>             
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">แหล่งเก็บ</th>                               
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">หมวดหมู่</th>
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">ดาวน์โหลด</th>
+                                        <th  tabindex="0" rowspan="1" colspan="1" style="width:  80px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>

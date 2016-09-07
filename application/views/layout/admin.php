@@ -180,6 +180,16 @@
                                 </span>
                             </a>
                         </li>
+                        
+                        <li class="<?php echo activate_menu('member'); ?>">
+                            <a href="<?php echo site_url('member'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    จัดการผู้ใช้งานระบบ
+                                </span>
+                            </a>
+                        </li>
 
                         <li class="<?php echo activate_menu('pages'); ?>">
                             <a href="<?php echo site_url('pages'); ?>">

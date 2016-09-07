@@ -12,7 +12,7 @@ class Gallery_model extends CI_Model {
         // param3 = field for order by, param4 = order by type
         $this->db->select('gallery.*,LEFT(gallery.description,100) as description, us.display_name');
         $this->db->from($this->table);
-         $this->db->join('users us', 'us.id = gallery.created_by', 'left');
+        $this->db->join('users us', 'us.id = gallery.created_by', 'left');
         $this->db->like('title', $keryword);
         $this->db->order_by($field, $order);
         $this->db->limit($limit);
@@ -92,6 +92,13 @@ class Gallery_model extends CI_Model {
         $this->db->where('gallery.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
+
+            // upate view field
+            $this->db->set('view', 'view+1', FALSE);
+            $this->db->where('id', $id);
+            $this->db->update($this->table);
+
+
             return $query->row();
         }
         return FALSE;

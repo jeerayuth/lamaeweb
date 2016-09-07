@@ -27,6 +27,7 @@
         $doc_cat = $CI->doc_cat->all();
         $links = $CI->links->all();
         $gallery = $this->gallery->all(3, '', 'modified_date', 'desc');
+        
         ?>
 
         <title><?php echo $configs->name; ?></title>

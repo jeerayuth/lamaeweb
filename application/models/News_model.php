@@ -59,12 +59,17 @@ class News_model extends CI_Model {
         $this->db->where('news.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
+            // upate view field
+            $this->db->set('view', 'view+1', FALSE);
+            $this->db->where('id', $id);
+            $this->db->update($this->table);
+
             return $query->row();
         }
+
+
         return FALSE;
     }
-
-    
 
     public function remove_news($id) {
         $this->db->delete($this->table, array('id' => $id));

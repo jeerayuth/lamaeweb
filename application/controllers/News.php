@@ -83,7 +83,7 @@ class News extends CI_Controller {
 
     public function edit($id) {
         $data['results'] = $this->news_cat->all();
-        $data['doc'] = $this->news->read_news($id);
+        $data['doc'] = $this->news->read_new($id);
         $this->layout->view('news/edit', $data);
     }
 
@@ -99,7 +99,7 @@ class News extends CI_Controller {
     }
 
     public function remove($id) {
-        $result = $this->news->read_news($id);
+        $result = $this->news->read_new($id);
         @unlink('./assets/news_uploads/' . $result->filename);
         $this->news->remove_news($id);
         redirect('news', 'refresh');

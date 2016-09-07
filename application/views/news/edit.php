@@ -77,7 +77,8 @@
 						<label>
 							รายละเอียด
 						</label>
-						<textarea rows="3" class="form-control" id="description" name="description"><?php echo $doc->description; ?></textarea>
+                                            <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'value' => ((isset($doc->description)) ? $doc->description : ''), 'class' => "ckeditor")); ?>
+						<!--<textarea rows="8" class="form-control" id="description" name="description"><?php //echo $doc->description; ?></textarea>-->
 					</div>
 				</div><!-- /.box-body -->
 

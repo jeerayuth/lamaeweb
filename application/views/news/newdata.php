@@ -50,7 +50,7 @@
                                 <option value="<?php echo $result->id; ?>">
                                     <?php echo $result->name; ?>
                                 </option>
-                                <?php }
+                            <?php }
                             ?>
                         </select>
                     </div>
@@ -73,7 +73,8 @@
                         <label>
                             รายละเอียด
                         </label>
-                        <textarea rows="3" class="form-control" id="description" name="description"><?php echo $this->session->flashdata('description'); ?></textarea>
+                        <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'value' => '', 'class' => "ckeditor")); ?>
+                        <!--<textarea rows="8" class="form-control" id="description" name="description" ><?php //echo $this->session->flashdata('description');  ?></textarea>-->
                     </div>
                 </div><!-- /.box-body -->
 

@@ -20,7 +20,7 @@ class Site extends CI_Controller {
 
         // param1 = limit, param2 = keyword search, param3 = field for order by, param4 = order by type
         // ดาวน์โหลดมาใหม่
-        $data['doc_new'] = $this->document->all(10, '', 'created_date', 'desc');
+        $data['doc_new'] = $this->document->all(10, '', 'modified_date', 'desc');
         // ดาวน์โหลดยอดนิยม
         $data['doc_hit'] = $this->document->all(10, '', 'download', 'desc');
         //ข่าวสารทั่วไป
@@ -30,7 +30,7 @@ class Site extends CI_Controller {
         //แกลอรี่กิจกรรม
         $data['gallery'] = $this->gallery->all(5, '', 'modified_date', 'desc');
         // Slideshow
-        $data['slideshow'] = $this->slideshow->all(30, '', 'order', 'asc');
+        $data['slideshow'] = $this->slideshow->all(15, '', 'order', 'asc');
 
         $this->layout->view('site/index', $data);
     }

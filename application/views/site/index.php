@@ -45,9 +45,9 @@
                     <?php foreach ($news_general as $row) { ?>
                         <a target="_blank" href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
-                            <span class="label pull-right rounded btn-success">อ่าน : <?php echo $row->view; ?></span>&nbsp;&nbsp;
-
-                            <span class="label pull-right btn-default"><font color="#2f7086"><?php echo $row->modified_date; ?></font></span>
+                            <span class="label pull-right rounded btn-success">อ่าน: <?php echo $row->view; ?></span>&nbsp;&nbsp;
+                            <span class="label pull-right btn-default"><font color="#2f7086">โดย: <?php echo $row->display_name; ?></font></span>
+                            <span class="label pull-right btn-default"><font color="#2f7086">ประกาศล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/no-image.gif" width="100" height="48">
                             <p class="list-group-item-text">
                                 <?php echo $row->description; ?> 
@@ -73,9 +73,9 @@
                     <?php foreach ($news_budget as $row) { ?>
                         <a target="_blank" href="<?php echo site_url('site'); ?>/read_new/<?php echo $row->id; ?>" class="list-group-item ">
                             <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
-                            <span class="label pull-right rounded btn-success">อ่าน : <?php echo $row->view; ?></span>&nbsp;&nbsp;
-
-                            <span class="label pull-right btn-default"><font color="#2f7086"><?php echo $row->modified_date; ?></font></span>
+                            <span class="label pull-right rounded btn-success">อ่าน: <?php echo $row->view; ?></span>&nbsp;&nbsp;
+                            <span class="label pull-right btn-default"><font color="#2f7086">โดย: <?php echo $row->display_name; ?></font></span>
+                            <span class="label pull-right btn-default"><font color="#2f7086">ประกาศล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/no-image.gif" width="100" height="48">
                             <p class="list-group-item-text">
                                 <?php echo $row->description; ?> 
@@ -141,7 +141,7 @@
                                 <th align="center">วันที่โพสต์</th>
                                 <th>ชื่อรายการโหลด</th>
                                 <th>ประเภท</th>
-                                <th>จำนวนครั้ง</th>
+                                <th>จำนวนดาวน์โหลด</th>
                                 <th align="center">&nbsp;</th>
                             </tr>
                         </thead>
@@ -150,7 +150,7 @@
                                 <tr>
                                     <td>#</td>
                                     <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
-                                    <td><a href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
+                                    <td><a target="_blank" href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
@@ -189,7 +189,7 @@
                                 <th align="center">วันที่โพสต์</th>
                                 <th>ชื่อรายการโหลด</th>
                                 <th>ประเภท</th>
-                                <th>จำนวนครั้ง</th>
+                                <th>จำนวนดาวน์โหลด</th>
                                 <th align="center">&nbsp;</th>
                             </tr>
                         </thead>
@@ -198,7 +198,7 @@
                                 <tr>
                                     <td>#</td>
                                     <td><img src="<?php echo base_url(); ?>assets/images/date.png">  <?php echo date('d/m/Y', strtotime($row->register_date)); ?></td>
-                                    <td><a href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
+                                    <td><a target="_blank" href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a></td>
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->download; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->

@@ -59,9 +59,10 @@ class Document_model extends CI_Model {
     }
 
     public function read_document($id) {
-        $this->db->select('documents.*,c.name');
+        $this->db->select('documents.*,c.name,us.display_name');
         $this->db->from($this->table);
         $this->db->join('categories c', 'c.id=documents.categorie_id');
+        $this->db->join('users us', 'us.id = documents.created_by');
         $this->db->where('documents.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

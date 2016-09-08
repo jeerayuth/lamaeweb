@@ -133,19 +133,19 @@
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
 
-                    <div class="collapse navbar-collapse navbar-responsive-collapse" style="background-color: #272727;">
+                    <div class="collapse navbar-collapse navbar-responsive-collapse" style="background-color: #6E6E6E;">
                         <div class="container" >
                             <ul class="nav navbar-nav" >
                                 <!-- Home -->
                                 <li class="">
-                                    <a href="<?php echo site_url('site'); ?>" >หน้าหลัก</a>                                                                    
+                                    <a href="<?php echo site_url('site'); ?>" ><font color="#ffffff">หน้าหลัก</font></a>                                                                    
                                 </li>
                                 <!-- End Pages -->
 
                                 <!-- Blog -->
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                        ข่าวสาร
+                                        <font color="#ffffff">ข่าวสาร</font>
                                     </a>
 
                                     <ul class="dropdown-menu">
@@ -162,7 +162,7 @@
                                 <!-- Portfolio -->
                                 <li>
                                     <a href="<?php echo site_url('site'); ?>/gallery" >
-                                        ภาพกิจกรรม
+                                        <font color="#ffffff">ภาพกิจกรรม</font>
                                     </a>
 
                                 </li>
@@ -171,7 +171,7 @@
                                 <!-- Features -->
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
-                                        ดาวน์โหลด
+                                        <font color="#ffffff">ดาวน์โหลด</font>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <?php foreach ($doc_cat as $row) { ?>
@@ -187,7 +187,7 @@
                                 <!-- Contact Us -->
                                 <li>
                                     <a href="<?php echo site_url('site'); ?>/contact">
-                                        ติดต่อเรา
+                                        <font color="#ffffff">ติดต่อเรา</font>
                                     </a>                              
                                 </li>
 

@@ -3,8 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Member_model extends CI_Model {
-   // public $name;
-  //  public $description;
+
     private $table = "users";
 
     public function __construct() {
@@ -24,38 +23,35 @@ class Member_model extends CI_Model {
         return $this->db->get()->result();
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public function entry_categorie($id) {
-        $this->name = $this->input->post('name');
-        $this->description = $this->input->post('description');
-        if ($id == NULL) {
-            $this->db->insert($this->table, $this);
+    public function save($id = null) {
+        $post['display_name'] = $this->input->post("display_name");
+        $post['email'] = $this->input->post("email");
+        $post['username'] = $this->input->post('username');
+        $post['visible'] = $this->input->post('visible');
+
+        if ($id) {
+            // query data limit 1
+            $row = $this->member->find($id);
+            if ($row->password == $this->input->post('password')) {
+                $post['password'] = $this->input->post('password');
+            } else {
+                $post['password'] = md5($this->input->post('password'));
+            }
+
+            $this->db->where("id", $id);
+            $this->db->update($this->table, $post);
+            return $this->db->affected_rows();
         } else {
-            $this->db->update($this->table, $this, array('id' => $id));
+            $post['password'] = md5($this->input->post('password'));
+            $this->db->insert($this->table, $post);
+            return $this->db->insert_id();
         }
     }
 
-    public function read_categorie($id) {
-        $this->db->where('id', $id);
+    public function find($id) {
+        $this->db->where("id", $id);
         $query = $this->db->get($this->table);
-        if ($query->num_rows() > 0) {
-            return $query->row();
-        }
-        return FALSE;
-    }
-
-    public function remove_categorie($id) {
-        $this->db->delete($this->table, array('id' => $id));
+        return $query->num_rows() ? $query->row() : null;
     }
 
 }

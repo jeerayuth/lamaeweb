@@ -7,7 +7,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="<?php echo base_url('member'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li class="active">ข่าวสาร</li>
+            <li class="active">ผู้ใช้งาน</li>
         </ol>
     </section>
     <!-- Top menu -->
@@ -52,12 +52,12 @@
                                     <?php foreach ($query as $row): ?>                                                               
                                         <tr role="row">                  
 
-                                            <td><?php echo $row->username; ?></td>
-                                            <td><?php echo $row->display_name; ?></td>
-                                            <td><?php echo $row->email; ?></td>
+                                            <td><?php if($row->visible!=0){ echo $row->username;}else{echo '<strike>'.$row->username.'</strike>';} ?></td>
+                                            <td><?php if($row->visible!=0){echo $row->display_name;}else{ echo '<strike>'.$row->display_name.'</strike>';} ?></td>
+                                            <td><?php if($row->visible!=0){echo $row->email;}else{echo '<strike>'.$row->email.'</strike>';} ?></td>
                                             <td>
-                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('member/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>                               
-                                                <a class="btn btn-danger btn-xs" href="<?php echo base_url('member/confrm/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('member/update/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>                               
+                                              
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -21,53 +21,52 @@ class Member extends CI_Controller {
     }
 
     public function newdata() {
-        $this->layout->view('member/newdata');
-    }
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("display_name", "ชื่อ-สกุล", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
+        $this->form_validation->set_rules("username", "ชื่อล็อกอิน", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
+        $this->form_validation->set_rules("password", "รหัสผ่าน", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
 
-    public function postdata() {
-        if ($this->input->server('REQUEST_METHOD') == TRUE) {
-            $this->form_validation->set_rules('name', 'ชื่อหมวดหมู่', 'required', array('required' => 'ค่าห้ามว่าง!'));
-            if ($this->form_validation->run() == TRUE) {
+        if ($this->form_validation->run() == true) {
+            $status = $this->member->save();
+            if ($status) {
                 $this->session->set_flashdata(
                         array(
                             'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
                         )
                 );
-                $this->categorie->entry_categorie($this->input->post('id'));
-                redirect('categorie', 'refresh');
-            } else {
-                $data = array(
-                    'error_name' => form_error('name'),
-                    'name' => set_value('name'),
-                    'description' => set_value('description')
-                );
-                $this->session->set_flashdata($data);
-            }
-            if ($this->input->post('id') == NULL) {
-                redirect('categorie/newdata');
-            } else {
-                redirect('categorie/edit/' . $this->input->post('id'));
+                redirect("member");
             }
         }
-    }
 
-    public function edit($id) {
-        $data['result'] = $this->categorie->read_categorie($id);
-        $this->layout->view('categorie/edit', $data);
+        $this->layout->view("member/form");
     }
+    
+    
+    
+    
+    public function update($id) {
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules("display_name", "ชื่อ-สกุล", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
+        $this->form_validation->set_rules("username", "ชื่อล็อกอิน", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
+        $this->form_validation->set_rules("password", "รหัสผ่าน", "trim|required", array('required' => 'ค่าห้ามว่าง!'));
 
-    public function confrm($id) {
-        $data = array
-            (
-            'backlink' => 'categorie',
-            'deletelink' => 'categorie/remove/' . $id
-        );
-        $this->layout->view('confrm', $data);
-    }
+        if ($this->form_validation->run() == true) {
+            $status = $this->member->save($id);
+            if ($status) {
+                $this->session->set_flashdata(
+                        array(
+                            'msginfo' => '<div class="pad margin no-print"><div style="margin-bottom: 0!important;" class="callout callout-info"><h4><i class="fa fa-info"></i> ข้อความจากระบบ</h4>ทำรายการสำเร็จ</div></div>'
+                        )
+                );
+                redirect("member");
+            }
+        }
 
-    public function remove($id) {
-        $this->categorie->remove_categorie($id);
-        redirect('categorie', 'refresh');
+        $row = $this->member->find($id);
+        $this->layout->view("member/form", compact('row'));
     }
+    
+    
+    
 
 }

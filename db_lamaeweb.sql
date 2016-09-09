@@ -10,10 +10,54 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2016-09-08 11:23:49
+Date: 2016-09-09 15:48:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+-- ----------------------------
+-- Table structure for `articles`
+-- ----------------------------
+DROP TABLE IF EXISTS `articles`;
+CREATE TABLE `articles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'ชื่อเอกสาร',
+  `description` text COLLATE utf8_unicode_ci,
+  `created_date` datetime NOT NULL COMMENT 'วันที่บันทึก',
+  `modified_date` datetime NOT NULL COMMENT 'วันที่แก้ไข',
+  `created_by` int(11) NOT NULL COMMENT 'ผู้สร้าง',
+  `modified_by` int(11) NOT NULL COMMENT 'ผู้แก้ไข',
+  `articles_categorie_id` int(11) NOT NULL COMMENT 'หมวดหมู่',
+  `view` int(11) DEFAULT '0',
+  `filename` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of articles
+-- ----------------------------
+INSERT INTO articles VALUES ('31', 'test8888', '<p>tes9998888</p>\r\n', '2016-09-09 06:43:26', '2016-09-09 06:45:32', '1', '1', '2', '2', '57d23deebea94');
+INSERT INTO articles VALUES ('32', 'test77777777', '<p>tes999777777777777777</p>\r\n', '2016-09-09 06:43:32', '2016-09-09 06:45:23', '1', '1', '2', '2', '57d23df452d42');
+
+-- ----------------------------
+-- Table structure for `articles_categories`
+-- ----------------------------
+DROP TABLE IF EXISTS `articles_categories`;
+CREATE TABLE `articles_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `description` text COLLATE utf8_unicode_ci NOT NULL,
+  `filename` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of articles_categories
+-- ----------------------------
+INSERT INTO articles_categories VALUES ('1', 'บทความทั่วไป', 'บทความทั่วไป', 'no-image.gif');
+INSERT INTO articles_categories VALUES ('2', 'บทความทางวิชาการ', 'บทความทางวิชาการ', 'no-image.gif');
+INSERT INTO articles_categories VALUES ('6', 'บทความงานคุณภาพ', 'บทความงานคุณภาพ', 'no-image.gif');
+INSERT INTO articles_categories VALUES ('7', 'บทความงานวิจัย', 'บทความงานวิจัย', 'no-image.gif');
+
 -- ----------------------------
 -- Table structure for `categories`
 -- ----------------------------
@@ -23,7 +67,7 @@ CREATE TABLE `categories` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of categories
@@ -31,6 +75,8 @@ CREATE TABLE `categories` (
 INSERT INTO categories VALUES ('1', 'เอกสารทางราชการทั่วไป', '														เอกสารทางราชการทั่วๆไป																									');
 INSERT INTO categories VALUES ('2', 'เอกสารคู่มือ-แบบฟอร์ม', '');
 INSERT INTO categories VALUES ('3', 'ไฟล์นำเสนอ', '');
+INSERT INTO categories VALUES ('4', 'เอกสารงานคุณภาพ', '');
+INSERT INTO categories VALUES ('5', 'เอกสารงานวิจัย', '');
 
 -- ----------------------------
 -- Table structure for `configs`
@@ -77,13 +123,15 @@ CREATE TABLE `documents` (
   `modified_by` int(11) NOT NULL COMMENT 'ผู้แก้ไข',
   `categorie_id` int(11) NOT NULL COMMENT 'หมวดหมู่',
   `download` int(11) DEFAULT '0',
+  `view` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of documents
 -- ----------------------------
-INSERT INTO documents VALUES ('18', 'aa', '2016-09-01 00:00:00', 'fff', 'dddrrr', 'dddd', '57d0db147d706.ppt', '', '2016-09-08 05:29:24', '2016-09-08 05:29:24', '1', '1', '3', null);
+INSERT INTO documents VALUES ('18', 'aa', '2016-09-01 00:00:00', 'fff', 'dddrrr', 'dddd', '57d0db147d706.ppt', '', '2016-09-08 05:29:24', '2016-09-08 05:29:24', '1', '1', '3', null, '7');
+INSERT INTO documents VALUES ('19', 'test', '2016-09-07 00:00:00', 'ff', 'ddd', 'dsfsd', '57d1032c8b5f4', 'dsfdsf', '2016-09-08 08:20:28', '2016-09-08 08:20:28', '1', '1', '1', '0', '4');
 
 -- ----------------------------
 -- Table structure for `example_1`
@@ -183,11 +231,12 @@ CREATE TABLE `gallery` (
   `created_by` int(11) NOT NULL,
   `modified_by` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of gallery
 -- ----------------------------
+INSERT INTO gallery VALUES ('31', 'test', 'test', '', 'default.jpg', '2016-09-08 13:23:35', '2016-09-08 13:23:35', '1', '0', '0', null);
 
 -- ----------------------------
 -- Table structure for `gallery_sub`
@@ -244,9 +293,9 @@ CREATE TABLE `news` (
 -- ----------------------------
 -- Records of news
 -- ----------------------------
-INSERT INTO news VALUES ('18', 'สอบราคาจ้าง จ้างเหมาบริการอาหารผู้ป่วยประจำปีงบประมาณ 2560', '<p>จังหวัดชุมพรมีความประสงค์จะสอบราคาจ้าง จ้างเหมาบริการอาหารผู้ป่วยประจำปีงบประมาณ 2560 จำนวน 12 เดือน<br />\r\nตั้งแต่วันที่ 1 ตุลาคม 2559 ถึงวันที่ 30 กันยายน 2560 ตามรายละเอียดไฟล์ที่แนบมาด้วยนี้</p>\r\n\r\n<p>กำหนดยื่นซองสอบราคา ในวันที่ 31 สิงหาคม 2559 ถึงวันที่ 15 กันยายน 2559 ตั้งแต่เวลา 8.30น. ถึงเวลา 16.00น.<br />\r\nณ ฝ่ายบริหารงานทั่วไป โรงพยาบาลละแม อำเภอละแม จังหวัดชุมพร และ<br />\r\nกำหนดเปิดซองใบเสนอราคา&nbsp; ในวันที่ 16 กันยายน 2559 ตั้งแต่เวลา 13.00น. เป็นต้นไป</p>\r\n\r\n<p>ผู้สนใจติดต่อขอรับเอกสารสอบราคา ได้ที่ งานพัสดุฝ่ายบริหารงานทั่วไป โรงพยาบาลละแม อำเภอละแม จังหวัดชุมพร<br />\r\nในวันที่ 31 สิงหาคม 2559 ถึงวันที่ 15 กันยายน 2559 ตั้งแต่เวลา 08.30น. ถึงเวลา 16.00น.<br />\r\nสามารถดูรายละเอียดได้ที่เว็บไซต์ www.cmpo.moph.go.th หรือ สอบถามทางโทรศัพท์หมายเลข 077-559116 ในวันและเวลาราชการ</p>\r\n', '2016-09-07 10:59:56', '2016-09-07 11:15:48', '1', '1', '2', '5', '57cfd70c5dd3f.jpg');
-INSERT INTO news VALUES ('22', 'test', '<p>test</p>\r\n', '2016-09-08 06:11:04', '2016-09-08 06:11:04', '1', '1', '1', '4', '57d0e4d8ea15f');
-INSERT INTO news VALUES ('23', 'testtesttest', '<p>test</p>\r\n', '2016-09-08 06:20:51', '2016-09-08 06:20:51', '1', '1', '1', '3', '57d0e7231f93e');
+INSERT INTO news VALUES ('18', 'สอบราคาจ้าง จ้างเหมาบริการอาหารผู้ป่วยประจำปีงบประมาณ 2560', '<p>จังหวัดชุมพรมีความประสงค์จะสอบราคาจ้าง จ้างเหมาบริการอาหารผู้ป่วยประจำปีงบประมาณ 2560 จำนวน 12 เดือน<br />\r\nตั้งแต่วันที่ 1 ตุลาคม 2559 ถึงวันที่ 30 กันยายน 2560 ตามรายละเอียดไฟล์ที่แนบมาด้วยนี้</p>\r\n\r\n<p>กำหนดยื่นซองสอบราคา ในวันที่ 31 สิงหาคม 2559 ถึงวันที่ 15 กันยายน 2559 ตั้งแต่เวลา 8.30น. ถึงเวลา 16.00น.<br />\r\nณ ฝ่ายบริหารงานทั่วไป โรงพยาบาลละแม อำเภอละแม จังหวัดชุมพร และ<br />\r\nกำหนดเปิดซองใบเสนอราคา&nbsp; ในวันที่ 16 กันยายน 2559 ตั้งแต่เวลา 13.00น. เป็นต้นไป</p>\r\n\r\n<p>ผู้สนใจติดต่อขอรับเอกสารสอบราคา ได้ที่ งานพัสดุฝ่ายบริหารงานทั่วไป โรงพยาบาลละแม อำเภอละแม จังหวัดชุมพร<br />\r\nในวันที่ 31 สิงหาคม 2559 ถึงวันที่ 15 กันยายน 2559 ตั้งแต่เวลา 08.30น. ถึงเวลา 16.00น.<br />\r\nสามารถดูรายละเอียดได้ที่เว็บไซต์ www.cmpo.moph.go.th หรือ สอบถามทางโทรศัพท์หมายเลข 077-559116 ในวันและเวลาราชการ</p>\r\n', '2016-09-07 10:59:56', '2016-09-07 11:15:48', '1', '1', '2', '9', '57cfd70c5dd3f.jpg');
+INSERT INTO news VALUES ('22', 'test', '<p>test</p>\r\n', '2016-09-08 06:11:04', '2016-09-08 06:11:04', '1', '1', '1', '5', '57d0e4d8ea15f');
+INSERT INTO news VALUES ('23', 'testtesttest', '<p>test</p>\r\n', '2016-09-08 06:20:51', '2016-09-08 08:18:24', '1', '1', '1', '10', '57d0e7231f93e');
 
 -- ----------------------------
 -- Table structure for `news_categories`

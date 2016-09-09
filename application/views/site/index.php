@@ -136,9 +136,9 @@
     <div class="magazine-news">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <!-- Default panel contents -->
-                    <div class="panel-heading"><font color="red">D O W N L O A D - D O C U M E N T-(เรื่องใหม่)</font>
+                    <div class="panel-heading"><font color="#ffffff"><b>DOWNLOAD DOCUMENT (เรื่องใหม่)</b></font>
                         <span class="badge pull-right"></span>
                     </div>
                     <!-- Table -->
@@ -180,9 +180,9 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-default">
+                <div class="panel panel-danger">
                     <!-- Default panel contents -->
-                    <div class="panel-heading"><font color="red">D O W N L O A D - D O C U M E N T- (ยอดนิยม)</font>
+                    <div class="panel-heading"><font color="red"><b>DOWNLOAD DOCUMENT (ยอดนิยม)</b></font>
                         <span class="badge pull-right"></span>
                     </div>
                     <!-- Table -->

@@ -87,9 +87,9 @@ class Articles extends CI_Controller {
     
     
     public function edit($id) {
-        $data['results'] = $this->news_cat->all();
-        $data['doc'] = $this->news->read_new($id);
-        $this->layout->view('news/edit', $data);
+        $data['results'] = $this->articles_cat->all();
+        $data['article'] = $this->articles->read_article($id);
+        $this->layout->view('articles/edit', $data);
     }
 
 

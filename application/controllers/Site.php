@@ -23,7 +23,7 @@ class Site extends CI_Controller {
         // ดาวน์โหลดมาใหม่
         $data['doc_new'] = $this->document->all(10, '', 'modified_date', 'desc');
         // ดาวน์โหลดยอดนิยม
-        $data['doc_hit'] = $this->document->all(10, '', 'download', 'desc');
+        $data['doc_hit'] = $this->document->all(10, '', 'view', 'desc');
         //ข่าวสารทั่วไป
         $data['news_general'] = $this->news->all(4, '', 'modified_date', 'desc', 1);
         //จัดซื้อจัดจ้าง
@@ -68,8 +68,11 @@ class Site extends CI_Controller {
 
     public function read_gallery($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด
         $result = $this->gallery->read_gallery($id);
-
-        $this->layout->view('site/gallery', compact('result'));
+        
+        print_r($result);
+        //$this->layout->view('site/gallery', compact('result'));
+        
+        
     }
 
     function simple_photo_gallery() {

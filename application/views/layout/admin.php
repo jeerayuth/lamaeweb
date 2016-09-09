@@ -180,7 +180,7 @@
                                 </span>
                             </a>
                         </li>
-                        
+
                         <li class="<?php echo activate_menu('member'); ?>">
                             <a href="<?php echo site_url('member'); ?>">
                                 <i class="fa fa-link">
@@ -217,6 +217,16 @@
                                 </i>
                                 <span>
                                     ระบบเอกสารดาวน์โหลด
+                                </span>
+                            </a>
+                        </li>
+
+                        <li class="<?php echo activate_menu('articles'); ?>">
+                            <a href="<?php echo site_url('articles'); ?>">
+                                <i class="fa fa-link">
+                                </i>
+                                <span>
+                                    ระบบบทความ-คลังความรู้
                                 </span>
                             </a>
                         </li>

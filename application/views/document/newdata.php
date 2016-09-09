@@ -103,7 +103,7 @@
                     </div>
                     <div class="form-group">
                         <label>
-                            รายละเอียด
+                            อธิบายรายละเอียดเกี่ยวกับไฟล์ที่บริการให้ดาวน์โหลด
                         </label>
                         <textarea rows="3" class="form-control" id="description" name="description"><?php echo $this->session->flashdata('description'); ?></textarea>
                     </div>

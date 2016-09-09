@@ -40,7 +40,7 @@
                         <label for="exampleInputEmail1">
                             หมวดหมู่บทความ
                         </label> <?php echo $this->session->flashdata('err_categorie_id'); ?>
-                        <select class="form-control" name="news_categorie_id">
+                        <select class="form-control" name="articles_categorie_id">
                             <option value="">
                                 เลือกหมวดหมู่
                             </option>
@@ -57,18 +57,12 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">
-                            หัวข้อประกาศ
+                            หัวข้อบทความ
                         </label> <?php echo $this->session->flashdata('err_topic'); ?>
                         <input type="text" id="topic" class="form-control" name="topic" value="<?php echo $this->session->flashdata('topic'); ?>">
                     </div>
-
-
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">
-                            อัพโหลดไฟล์เอกสารแนบ
-                        </label> <?php echo $this->session->flashdata('err_filename'); ?>
-                        <input type="file" name="userfile" id="userfile" >
-                    </div>
+                    
+                    
                     <div class="form-group">
                         <label>
                             รายละเอียด
@@ -76,6 +70,14 @@
                         <?php echo form_textarea(array('name' => 'description', 'id' => 'description', 'value' => '', 'class' => "ckeditor")); ?>
                         <!--<textarea rows="8" class="form-control" id="description" name="description" ><?php //echo $this->session->flashdata('description');  ?></textarea>-->
                     </div>
+                    
+                       <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            อัพโหลดไฟล์เอกสารแนบ
+                        </label> <?php echo $this->session->flashdata('err_filename'); ?>
+                        <input type="file" name="userfile" id="userfile" >
+                    </div>
+                    
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">

@@ -33,14 +33,14 @@ class Articles_model extends CI_Model {
         return $this->db->count_all_results();
     }
 
-    public function entry_news($id, $filename = '') {
+    public function entry_articles($id, $filename = '') {
         $data = array(
             'topic' => $this->input->post('topic'),
             'description' => $this->input->post('description'),
             'filename' => $filename,
             'modified_date' => date('Y-m-d H:i:s'),
             'modified_by' => $this->session->userdata('login_id'),
-            'news_categorie_id' => $this->input->post('news_categorie_id'),
+            'articles_categorie_id' => $this->input->post('articles_categorie_id'),
         );
         if ($id == NULL) {
             $data['created_by'] = $this->session->userdata('login_id');
@@ -50,13 +50,14 @@ class Articles_model extends CI_Model {
             $this->db->update($this->table, $data, array('id' => $id));
         }
     }
+    
 
-    public function read_new($id) {
-        $this->db->select('news.*,nc.name,us.display_name');
+    public function read_article($id) {
+        $this->db->select('articles.*,nc.name,us.display_name');
         $this->db->from($this->table);
-        $this->db->join('news_categories nc', 'nc.id = news.news_categorie_id');
-        $this->db->join('users us', 'us.id = news.created_by');
-        $this->db->where('news.id', $id);
+        $this->db->join('articles_categories nc', 'nc.id = articles.articles_categorie_id');
+        $this->db->join('users us', 'us.id = articles.created_by');
+        $this->db->where('articles.id', $id);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
             // upate view field
@@ -71,7 +72,7 @@ class Articles_model extends CI_Model {
     }
     
 
-    public function remove_news($id) {
+    public function remove_articles($id) {
         $this->db->delete($this->table, array('id' => $id));
     }
 

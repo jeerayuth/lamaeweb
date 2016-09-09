@@ -27,26 +27,19 @@ class Articles extends CI_Controller {
         $data['results'] = $this->articles_cat->all();
         $this->layout->view('articles/newdata', $data);
     }
-
-    
-    
-    
-    
-    
-    
-    
+       
     
     public function postdata() {
         if ($this->input->server('REQUEST_METHOD') == TRUE) {
-            $config['upload_path'] = './assets/news_uploads/';
-            $config['allowed_types'] = 'jpg|jpeg|doc|docx|xls|xlsx|pdf|zip|rar';
-            $config['max_size'] = 1024 * 20;
+            $config['upload_path'] = './assets/articles_uploads/';
+            $config['allowed_types'] = 'jpg|jpeg|doc|docx|xls|xlsx|ppt|pptx|pdf|zip|rar';
+            $config['max_size'] = 1024 * 60;
             $config['overwrite'] = TRUE;
             $config['file_name'] = ($this->input->post('datafile') == '') ? uniqid() : $this->input->post('datafile');
             $this->load->library('upload', $config);
 
-            $this->form_validation->set_rules('news_categorie_id', 'หมวดหมู่ข่าวประกาศ', 'required', array('required' => 'ค่าห้ามว่าง!'));
-            $this->form_validation->set_rules('topic', 'ชื่อข่าว', 'required', array('required' => 'ค่าห้ามว่าง!'));
+            $this->form_validation->set_rules('articles_categorie_id', 'หมวดหมู่บทความ', 'required', array('required' => 'ค่าห้ามว่าง!'));
+            $this->form_validation->set_rules('topic', 'ชื่อบทความ', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $no_file_error = "<p>You did not select a file to upload.</p>";
            
             if (!$this->upload->do_upload('userfile') && $this->upload->display_errors() != $no_file_error) {
@@ -64,13 +57,13 @@ class Articles extends CI_Controller {
 
                 $data = $this->upload->data();
                 $datafile = ($this->input->post('datafile') == '') ? $data['file_name'] : $this->input->post('datafile');
-                $this->news->entry_news($this->input->post('id'), $datafile);
-                redirect('news', 'refresh');
+                $this->articles->entry_articles($this->input->post('id'), $datafile);
+                redirect('articles', 'refresh');
             } else {
                 $data = array(
                     'err_topic' => form_error('topic'),
                     'err_filename' => form_error('filename'),
-                    'err_categorie_id' => form_error('news_categorie_id'),
+                    'err_categorie_id' => form_error('articles_categorie_id'),
                     'err_filename' => $this->upload->display_errors(),
                     'topic' => set_value('topic'), // set_value ทำให้ค่าที่อยู่ในฟอร์มยังค้างอยู่
                     'description' => set_value('description'),
@@ -79,18 +72,20 @@ class Articles extends CI_Controller {
                     'created_by' => set_value('created_by'),
                     'modified_by' => set_value('modified_by'),
                     'filename' => set_value('filename'),
-                    'news_categorie_id' => set_value('news_categorie_id'),
+                    'articles_categorie_id' => set_value('articles_categorie_id'),
                 );
                 $this->session->set_flashdata($data);
             }
             if ($this->input->post('id') == NULL) {
-                redirect('news/newdata');
+                redirect('articles/newdata');
             } else {
-                redirect('news/edit/' . $this->input->post('id'));
+                redirect('articles/edit/' . $this->input->post('id'));
             }
         }
     }
 
+    
+    
     public function edit($id) {
         $data['results'] = $this->news_cat->all();
         $data['doc'] = $this->news->read_new($id);
@@ -102,17 +97,17 @@ class Articles extends CI_Controller {
     public function confrm($id) {
         $data = array
             (
-            'backlink' => 'news',
-            'deletelink' => 'news/remove/' . $id
+            'backlink' => 'articles',
+            'deletelink' => 'articles/remove/' . $id
         );
         $this->layout->view('confrm', $data);
     }
 
     public function remove($id) {
-        $result = $this->news->read_new($id);
-        @unlink('./assets/news_uploads/' . $result->filename);
-        $this->news->remove_news($id);
-        redirect('news', 'refresh');
+        $result = $this->articles->read_article($id);
+        @unlink('./assets/articles_uploads/' . $result->filename);
+        $this->articles->remove_articles($id);
+        redirect('articles', 'refresh');
     }
 
     /*

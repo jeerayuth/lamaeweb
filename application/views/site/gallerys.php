@@ -28,7 +28,7 @@
                                     <td>#</td>
 
                                     <td><a target="_blank" href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>"><?php echo $row->title; ?></a></td>
-                                    <td><?php echo $row->modified_date; ?></td>
+                                    <td><?php echo $row->created_date; ?></td>
                                     <td><?php echo $row->display_name; ?></td>
                                     <td><?php echo $row->view; ?></td>
                            

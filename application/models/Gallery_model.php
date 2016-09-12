@@ -56,10 +56,14 @@ class Gallery_model extends CI_Model {
         }
 
         if ($id) {
+            $post['modified_date'] = date('Y-m-d');
+            $post['modified_by'] = $this->session->userdata('login_id');
             $this->db->where("id", $id);
             $this->db->update($this->table, $post);
             return $this->db->affected_rows();
         } else {
+            $post['created_date'] = date('Y-m-d');
+            $post['created_by'] = $this->session->userdata('login_id');
             $this->db->insert($this->table, $post);
             return $this->db->insert_id();
         }

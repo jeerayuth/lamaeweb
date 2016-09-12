@@ -62,7 +62,7 @@
                                             <td>
                                                 <?php echo $row->title; ?>
                                                 <div>จำนวนผู้ชม <?php echo $row->view; ?></div>
-                                                <div>สถานะ <?php echo $row->visible; ?></div>
+                                               
                                                 <div>สร้างเมื่อ <?php echo $row->created_date; ?></div>
 
                                             </td>

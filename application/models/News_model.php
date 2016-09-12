@@ -38,13 +38,13 @@ class News_model extends CI_Model {
             'topic' => $this->input->post('topic'),
             'description' => $this->input->post('description'),
             'filename' => $filename,
-            'modified_date' => date('Y-m-d H:i:s'),
+            'modified_date' => date('Y-m-d'),
             'modified_by' => $this->session->userdata('login_id'),
             'news_categorie_id' => $this->input->post('news_categorie_id'),
         );
         if ($id == NULL) {
             $data['created_by'] = $this->session->userdata('login_id');
-            $data['created_date'] = date('Y-m-d H:i:s');
+            $data['created_date'] = date('Y-m-d');
             $this->db->insert($this->table, $data);
         } else {
             $this->db->update($this->table, $data, array('id' => $id));

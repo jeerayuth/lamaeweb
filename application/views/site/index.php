@@ -99,8 +99,8 @@
             <div class="col-sm-4 ">
                 <div class="list-group panel-danger">
                     <a href="<?php echo site_url('site'); ?>/gallery" class="list-group-item active">
-                        <span class="badge pull-right rounded btn-danger">อ่านทั้งหมด..</span>
-                        <h4 class="list-group-item-heading">N E W S !!</h4>
+                        <span class="badge pull-right rounded btn-danger">ดูทั้งหมด..</span>
+                        <h4 class="list-group-item-heading">Gallery !!</h4>
                         <p class="list-group-item-text">กิจกรรมหน่วยงาน</p>
                     </a>
 
@@ -110,7 +110,7 @@
                             <span class="label pull-right rounded btn-success">ผู้ชม : <?php echo $row->view; ?></span>&nbsp;&nbsp;
                             <span class="label pull-right btn-default"><font color="#2f7086">โดย: <?php echo $row->display_name; ?></font></span>
                             <span class="label pull-right btn-default"><font color="#2f7086">ข้อมูลล่าสุด: <?php echo $row->modified_date; ?></font></span>
-                            <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $row->thumbnail; ?>" width="100" height="48">
+                            <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $row->thumbnail; ?>" width="100" height="65">
                             <p class="list-group-item-text">
                                 <?php echo $row->description; ?> 
                             </p> 
@@ -179,7 +179,7 @@
                             <span class="label pull-right rounded btn-success">อ่าน: <?php echo $row->view; ?></span>&nbsp;&nbsp;
                             <span class="label pull-right btn-default"><font color="#2f7086">โดย: <?php echo $row->display_name; ?></font></span>
                             <span class="label pull-right btn-default"><font color="#2f7086">โพสต์ล่าสุด: <?php echo $row->modified_date; ?></font></span>
-                            <img src="<?php echo base_url(); ?>assets/images/no-image.gif" width="100" height="48">
+                            <img src="<?php echo base_url(); ?>assets/images/articles.jpg" width="60" height="60">
                             <p class="list-group-item-text">
                                 <?php echo $row->description; ?> 
                             </p> 
@@ -201,11 +201,11 @@
 
                     <?php foreach ($articles_ha as $row) { ?>
                         <a target="_blank" href="<?php echo site_url('site'); ?>/read_article/<?php echo $row->id; ?>" class="list-group-item ">
-                            <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->title; ?></font></b></h5>
+                            <h5 class="list-group-item-heading"><b><font color="#3775dd"><?php echo $row->topic; ?></font></b></h5>
                             <span class="label pull-right rounded btn-success">ผู้ชม : <?php echo $row->view; ?></span>&nbsp;&nbsp;
                             <span class="label pull-right btn-default"><font color="#2f7086">โดย: <?php echo $row->display_name; ?></font></span>
                             <span class="label pull-right btn-default"><font color="#2f7086">โพสต์ล่าสุด: <?php echo $row->modified_date; ?></font></span>
-                            <img src="<?php echo base_url(); ?>assets/images/no-image.gif" width="100" height="48">
+                            <img src="<?php echo base_url(); ?>assets/images/articles.jpg" width="60" height="60">
                             <p class="list-group-item-text">
                                 <?php echo $row->description; ?> 
                             </p> 

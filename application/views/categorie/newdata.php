@@ -27,7 +27,8 @@
                     </div>
                     <div class="form-group">
                         <label>รายละเอียด</label>
-                        <textarea rows="3" class="form-control" id="description" name="description"><?php echo $this->session->flashdata('description'); ?></textarea>
+            
+                        <input type="text" id="description" class="form-control" name="description" value="<?php echo  $this->session->flashdata('description'); ?>">
                     </div>
                 </div><!-- /.box-body -->
 

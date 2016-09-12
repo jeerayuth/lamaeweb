@@ -2,12 +2,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            หมวดหมู่ข่าวสาร
-            <small>หมวดหมู่ข่าวสารประชาสัมพันธ์แยกออกเป็นหมวดหมู่</small>
+            หมวดหมู่บทความ
+            <small>หมวดหมู่บทความแยกออกเป็นหมวดหมู่</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('categorie'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li class="active">หมวดหมู่ข่าวสาร</li>
+            <li><a href="<?php echo  base_url('articles_categorie'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li class="active">หมวดหมู่บทความ</li>
         </ol>
     </section>
     <!-- Top menu -->
@@ -17,14 +17,14 @@
         <!-- Your Page Content Here -->
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">จัดการหมวดหมู่ข่าวสาร</h3>
+                <h3 class="box-title">จัดการหมวดหมู่บทความ</h3>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                     <div class="row">
                         <div class="col-sm-6">
                            
-                            <a class="btn btn-default" href="<?php echo  base_url('categorie'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
+                            <a class="btn btn-default" href="<?php echo  base_url('articles_categorie'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> Refresh Data</a>
                         </div>
                         <div class="col-sm-6">
                             <div id="" class="dataTables_filter">
@@ -48,12 +48,12 @@
                                     <?php foreach ($query as $row): ?>  
                                         <tr role="row">
                                             <td>
-                                            <a href="<?php echo base_url('news_categorie/edit/'.$row->id); ?>"><?php echo  $row->name; ?></a>
+                                            <a href="<?php echo base_url('articles_categorie/edit/'.$row->id); ?>"><?php echo  $row->name; ?></a>
                                             </td>
                                             <td><?php echo $row->description; ?></td>
                                             <td>
-                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('news_categorie/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a> 
-                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('news_categorie/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('articles_categorie/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a> 
+                                            	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('articles_categorie/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>
                                       <?php endforeach; ?>

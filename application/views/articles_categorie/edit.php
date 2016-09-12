@@ -2,21 +2,21 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            หมวดหมู่ข่าว
+            หมวดหมู่บทความ
             <small>
-                หมวดหมู่ข่าวแยกเป็นหมวดหมู่
+                หมวดบทความแยกเป็นหมวดหมู่
             </small>
         </h1>
         <ol class="breadcrumb">
             <li>
-                <a href="<?php echo base_url('news_categorie'); ?>">
+                <a href="<?php echo base_url('articles_categorie'); ?>">
                     <i class="fa fa-dashboard">
                     </i>หน้าแรก
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('news_categorie'); ?>">
-                    หมวดหมู่ข่าวประชาสัมพันธ์
+                <a href="<?php echo base_url('articles_categorie'); ?>">
+                    หมวดหมู่บทความ
                 </a>
             </li>
             <li class="active">
@@ -34,7 +34,7 @@
                 </h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo base_url('news_categorie/postdata'); ?>" method="post">
+            <form role="form" action="<?php echo base_url('articles_categorie/postdata'); ?>" method="post">
                 <input type="hidden" name="id" value="<?php echo $result->id ?>">
                 <div class="box-body">
                     <div class="form-group">
@@ -58,7 +58,7 @@
                         <i class="fa fa-fw fa-save">
                         </i>บันทึกข้อมูล
                     </button>
-                    <a class="btn btn-danger" href="<?php echo base_url('news_categorie'); ?>" role="button">
+                    <a class="btn btn-danger" href="<?php echo base_url('articles_categorie'); ?>" role="button">
                         <i class="fa fa-fw fa-close">
                         </i>ยกเลิก
                     </a>

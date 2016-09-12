@@ -41,7 +41,7 @@
                                     <tr role="row">
                                         <th  tabindex="0"  rowspan="1" colspan="1" style="width: 30%;">ชื่อหมวดหมู่</th>
                                         <th  tabindex="0" rowspan="1" colspan="1">รายละเอียด</th>
-                                        <th  tabindex="0" rowspan="1" colspan="1" style="width:  60px;">&nbsp;</th>
+                                        <th  tabindex="0" rowspan="1" colspan="1" style="width:  160px;">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,6 +53,7 @@
                                             </td>
                                             <td><?php echo $row->description; ?></td>
                                             <td>
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('categorie/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('categorie/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
                                             </td>
                                         </tr>

@@ -2,12 +2,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            หมวดหมู่ข่าวสาร
-            <small>หมวดหมู่ข่าวสารแยกตามหมวด</small>
+            หมวดหมู่บทความ
+            <small>หมวดหมู่บทความแยกตามหมวด</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="<?php echo  base_url('categorie'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
-            <li><a href="<?php echo  base_url('categorie'); ?>">หมวดหมู่ข่าวสาร</a></li>
+            <li><a href="<?php echo  base_url('articles_categorie'); ?>"><i class="fa fa-dashboard"></i> หน้าแรก</a></li>
+            <li><a href="<?php echo  base_url('articles_categorie'); ?>">หมวดหมู่บทความ</a></li>
             <li class="active">เพิ่มข้อมูลใหม่</li>
         </ol>
     </section>
@@ -19,7 +19,7 @@
                 <h3 class="box-title">เพิ่มข้อมูล</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo  base_url('news_categorie/postdata'); ?>" method="post">
+            <form role="form" action="<?php echo  base_url('articles_categorie/postdata'); ?>" method="post">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">ชื่อหมวดหมู่</label> <?php echo $this->session->flashdata('error_name'); ?>
@@ -27,14 +27,14 @@
                     </div>
                     <div class="form-group">
                         <label>รายละเอียด</label>
+                  
                         <input type="text" id="description" class="form-control" name="description" value="<?php echo  $this->session->flashdata('description'); ?>">
-                     
                     </div>
                 </div><!-- /.box-body -->
 
                 <div class="box-footer">
                     <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-save"></i> บันทึกข้อมูล</button>
-                    <a class="btn btn-danger" href="<?php echo  base_url('news_categorie'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
+                    <a class="btn btn-danger" href="<?php echo  base_url('articles_categorie'); ?>" role="button"><i class="fa fa-fw fa-close"></i> ยกเลิก</a>
                 </div>
             </form>
         </div>

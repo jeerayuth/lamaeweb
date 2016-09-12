@@ -12,6 +12,7 @@ class Site extends CI_Controller {
         $this->load->library('layout');
         $this->load->model('Document_model', 'document');
         $this->load->model('News_model', 'news');
+        $this->load->model('Articles_model', 'articles');
         $this->load->model('Gallery_model', 'gallery');
         $this->load->model('Slideshow_model', 'slideshow');
         $this->load->model('Pages_model', 'pages');
@@ -25,13 +26,20 @@ class Site extends CI_Controller {
         // ดาวน์โหลดยอดนิยม
         $data['doc_hit'] = $this->document->all(10, '', 'view', 'desc');
         //ข่าวสารทั่วไป
-        $data['news_general'] = $this->news->all(4, '', 'modified_date', 'desc', 1);
+        $data['news_general'] = $this->news->all(3, '', 'modified_date', 'desc', 1);
         //จัดซื้อจัดจ้าง
-        $data['news_budget'] = $this->news->all(4, '', 'modified_date', 'desc', 2);
+        $data['news_budget'] = $this->news->all(3, '', 'modified_date', 'desc', 2);
         //แกลอรี่กิจกรรม
-        $data['gallery'] = $this->gallery->all(4, '', 'modified_date', 'desc');
+        $data['gallery'] = $this->gallery->all(3, '', 'modified_date', 'desc');
         // Slideshow
         $data['slideshow'] = $this->slideshow->all(15, '', 'order', 'asc');
+        
+        //บทความทั่วไป
+        $data['articles_general'] = $this->articles->all(3, '', 'modified_date', 'desc', 1);
+        //บทความวิชาการ
+        $data['articles_technical'] = $this->articles->all(3, '', 'modified_date', 'desc', 2);
+        //บทความงานคุณภาพ
+        $data['articles_ha'] = $this->articles->all(3, '', 'modified_date', 'desc', 3);
 
         $this->layout->view('site/index', $data);
     }
@@ -50,6 +58,18 @@ class Site extends CI_Controller {
         $result = $this->news->read_new($id);
         $this->layout->view('site/new', compact('result'));
     }
+    
+    
+     public function articles($cat_id) { //อ่านหน้าเพจบทความตามประเภทที่เลือก
+        $results = $this->articles->all('', '', 'modified_date', 'desc', $cat_id);
+        $this->layout->view('site/articles', compact('results'));
+    }
+    
+     public function read_article($id) { //อ่านหน้ารายละเอียดบทความ
+        $result = $this->articles->read_article($id);
+        $this->layout->view('site/article', compact('result'));
+    }
+    
 
     public function docs($cat_id) { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
         $results = $this->document->all('', '', 'modified_date', 'desc', $cat_id);

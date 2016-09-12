@@ -17,13 +17,16 @@
         //ระบบลิงค์
         $this->load->model('Links_model', 'links');
         // Gallery ภาพกิจกรรม
-        $this->load->model('Gallery_model', 'gallery');
+        $this->load->model('Gallery_model', 'gallery');     
+        // หมวดหมู่บทความ
+        $this->load->model('Articles_Categorie_model', 'articles_cat');
 
 
         //หน้าเว็บเพจ
         $configs = $CI->configs->find(1);
         $pages = $CI->pages->all('',1);
         $news_cat = $CI->news_cat->all();
+        $articles_cat = $CI->articles_cat->all();
         $doc_cat = $CI->doc_cat->all();
         $links = $CI->links->all();
         $gallery = $this->gallery->all(3, '', 'modified_date', 'desc');
@@ -152,6 +155,24 @@
                                         <?php foreach ($news_cat as $row) { ?>
                                             <li>
                                                 <a href="<?php echo site_url('site'); ?>/news/<?php echo $row->id;?>"><?php echo $row->name; ?></a>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+
+                                </li>
+                                <!-- End Blog -->
+                                
+                                
+                                <!-- Blog -->
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                                        <font color="#ffffff">บทความ</font>
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <?php foreach ($articles_cat as $row) { ?>
+                                            <li>
+                                                <a href="<?php echo site_url('site'); ?>/articles/<?php echo $row->id;?>"><?php echo $row->name; ?></a>
                                             </li>
                                         <?php } ?>
                                     </ul>

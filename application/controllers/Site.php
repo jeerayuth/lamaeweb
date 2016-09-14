@@ -33,7 +33,7 @@ class Site extends CI_Controller {
         $data['gallery'] = $this->gallery->all(5, '', 'modified_date', 'desc');
         // Slideshow
         $data['slideshow'] = $this->slideshow->all(15, '', 'order', 'asc');
-        
+
         //บทความทั่วไป
         $data['articles_general'] = $this->articles->all(3, '', 'modified_date', 'desc', 1);
         //บทความวิชาการ
@@ -58,18 +58,16 @@ class Site extends CI_Controller {
         $result = $this->news->read_new($id);
         $this->layout->view('site/new', compact('result'));
     }
-    
-    
-     public function articles($cat_id) { //อ่านหน้าเพจบทความตามประเภทที่เลือก
+
+    public function articles($cat_id) { //อ่านหน้าเพจบทความตามประเภทที่เลือก
         $results = $this->articles->all('', '', 'modified_date', 'desc', $cat_id);
         $this->layout->view('site/articles', compact('results'));
     }
-    
-     public function read_article($id) { //อ่านหน้ารายละเอียดบทความ
+
+    public function read_article($id) { //อ่านหน้ารายละเอียดบทความ
         $result = $this->articles->read_article($id);
         $this->layout->view('site/article', compact('result'));
     }
-    
 
     public function docs($cat_id) { //อ่านหน้าไฟล์เอกสารตามประเภทที่เลือก
         $results = $this->document->all('', '', 'modified_date', 'desc', $cat_id);
@@ -88,33 +86,12 @@ class Site extends CI_Controller {
 
     public function read_gallery($id) { //อ่านหน้ารายละเอียดเอกสารดาวน์โหลด
         $result = $this->gallery->read_gallery($id);
-        
-        print_r($result);
-        //$this->layout->view('site/gallery', compact('result'));
-        
-        
+        $result_sub = $this->gallery->read_gallery_sub($id);
+              
+        $this->layout->view('site/gallery', compact('result','result_sub'));
     }
 
-    function simple_photo_gallery() {
-        $image_crud = new image_CRUD();
-
-        $image_crud->unset_upload();
-        $image_crud->unset_delete();
-
-        $image_crud->set_primary_key_field('id');
-        $image_crud->set_url_field('url');
-        $image_crud->set_table('example_4')
-                ->set_image_path('assets/uploads');
-
-        $output = $image_crud->render();
-
-        $this->_example_output($output);
-    }
-
-    function _example_output($output = null) {
-        $this->load->view('example.php', $output);
-    }
-
+  
     // static web page
     public function contact() {
         $this->layout->view('site/contact');

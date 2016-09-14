@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class Gallery_model extends CI_Model {
 
     private $table = "gallery";
+    private $table_sub = "gallery_sub";
 
     public function all($limit = 5, $keryword, $field = null, $order = 'asc') {
         // param1 = limit, param2 = keyword search
@@ -62,6 +63,7 @@ class Gallery_model extends CI_Model {
             $this->db->update($this->table, $post);
             return $this->db->affected_rows();
         } else {
+            $post['modified_date'] = date('Y-m-d');
             $post['created_date'] = date('Y-m-d');
             $post['created_by'] = $this->session->userdata('login_id');
             $this->db->insert($this->table, $post);
@@ -74,7 +76,7 @@ class Gallery_model extends CI_Model {
         if (!empty($row)) {
             if (file_exists("./assets/gallery_uploads/" . $row->filename))
                 unlink("./assets/gallery_uploads/" . $row->filename);
-            if (file_exists("./assets/gallery_uploads/" . $row->thumbnail))
+            if (file_exists("./assets/gallery_uploads/" . $row->thumbnail) && $row->thumbnail != 'default.jpg')
                 unlink("./assets/gallery_uploads/" . $row->thumbnail);
         }
 
@@ -89,14 +91,13 @@ class Gallery_model extends CI_Model {
         return $query->num_rows() ? $query->row() : null;
     }
 
-    
     public function read_gallery($id) {
         $this->db->select('gallery.*,us.display_name');
         $this->db->from($this->table);
         $this->db->join('users us', 'us.id = gallery.created_by');
         $this->db->where('gallery.id', $id);
         $query = $this->db->get();
-        
+
         if ($query->num_rows() > 0) {
             // upate view field
             $this->db->set('view', 'view+1', FALSE);
@@ -104,8 +105,16 @@ class Gallery_model extends CI_Model {
             $this->db->update($this->table);
             return $query->row();
         }
-        
+
         return FALSE;
+    }
+
+    public function read_gallery_sub($gallery_id = null) {
+
+        $this->db->select('gallery_sub.*');
+        $this->db->from($this->table_sub);
+        $this->db->where('gallery_id', $gallery_id);
+        return $this->db->get()->result();
     }
 
 }

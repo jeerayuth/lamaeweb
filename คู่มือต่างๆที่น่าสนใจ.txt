@@ -15,6 +15,10 @@ Image Gallery ใช้ตัวนี้นะ เจ๋งและง่ายดี
 http://www.grocerycrud.com/image-crud
 
 
+ทำ Image Slide Show ด้วย jquery light box
+http://www.thaicreate.com/php/forum/061517.html
+
+
 วิดีโอสอนออกแบบระบบ layout 
 https://www.youtube.com/watch?v=_0T0Od5Kry4
 

@@ -47,6 +47,10 @@
         <!-- Web Fonts -->
         <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
 
+        <!-- CSS Colorbox Slideshow -->
+        <link media="screen" rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/plugins/colorbox/colorbox.css" />
+        
+        
         <!-- CSS Global Compulsory -->
         <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo base_url('themes/bootstrap'); ?>/css/style.css" rel="stylesheet">
@@ -423,6 +427,11 @@
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/jquery/jquery-migrate.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/bootstrap/js/bootstrap.min.js"></script>
 
+        
+        <!-- JS Implementing Colorbox slideshow Plugins -->
+        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/colorbox/jquery.colorbox.js"></script>
+        
+        
         <!-- JS Implementing Plugins -->
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/back-to-top.js"></script>
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/smoothScroll.js"></script>

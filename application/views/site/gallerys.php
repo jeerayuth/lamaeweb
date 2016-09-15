@@ -13,8 +13,7 @@
                     <table class="table table-hover">
                         <thead>
                             <tr>
-                                <th>#</th>
-                   
+                                <th>&nbsp;</th>
                                 <th>ชื่อกิจกรรม</th>
                                 <th>วันที่อัพโหลด</th>
                                 <th>อัพโหลดโดย</th>
@@ -25,7 +24,11 @@
                         <tbody>
                             <?php foreach ($results as $row) { ?>
                                 <tr>
-                                    <td>#</td>
+                                    <td>
+                                        
+                                        <?php $thumbnail = empty($row->thumbnail) ? $row->filename : $row->thumbnail; ?>
+                                                    <img width="120px" src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $thumbnail; ?>" alt="Image 1">
+                                    </td>
 
                                     <td><a target="_blank" href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>"><?php echo $row->title; ?></a></td>
                                     <td><?php echo $row->created_date; ?></td>

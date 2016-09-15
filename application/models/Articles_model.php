@@ -13,7 +13,7 @@ class Articles_model extends CI_Model {
     public function all($limit = 10, $keryword = null, $field = null, $order = 'asc', $cat = null) { /* function query ข้อมูล */
         // param1 = limit, param2 = keyword search
         // param3 = field for order by, param4 = order by type
-        $this->db->select('articles.*,CONCAT(LEFT(articles.description,120)," อ่านต่อ..") as description,ac.name,us.display_name');
+        $this->db->select('articles.*,CONCAT(LEFT(articles.description,120)," ") as description,ac.name,us.display_name');
         $this->db->from($this->table);
         $this->db->join('articles_categories ac', 'ac.id = articles.articles_categorie_id', 'left');
         $this->db->join('users us', 'us.id = articles.created_by', 'left');

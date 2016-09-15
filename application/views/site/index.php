@@ -33,7 +33,7 @@
                             <span class="label pull-right btn-default"><font color="#2f7086">ประกาศล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/news.jpg" width="80" height="80">
                             <p class="list-group-item-text">
-                                <?php echo $row->description; ?> 
+                                <?php echo $row->description; ?> <font color="blue">...อ่านต่อ</font>
                             </p> 
                         </a>
 
@@ -61,7 +61,7 @@
                             <span class="label pull-right btn-default"><font color="#2f7086">ประกาศล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/news.jpg" width="80" height="80">
                             <p class="list-group-item-text">
-                                <?php echo $row->description; ?> 
+                                <?php echo $row->description; ?><font color="blue">...อ่านต่อ</font>
                             </p> 
                         </a>
 
@@ -87,7 +87,7 @@
                             <span class="label pull-right btn-default"><font color="#2f7086">ข้อมูลล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/gallery_uploads/<?php echo $row->thumbnail; ?>" width="100" height="65">
                             <p class="list-group-item-text">
-                                <?php echo $row->description; ?> 
+                                <?php echo $row->description; ?> <font color="blue">...ดูภาพกิจกรรม</font>
                             </p> 
                         </a>
 
@@ -128,7 +128,7 @@
                             <span class="label pull-right btn-default"><font color="#2f7086">โพสต์ล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/articles.jpg" width="60" height="60">
                             <p class="list-group-item-text">
-                                <?php echo $row->description; ?> 
+                                <?php echo $row->description; ?> <font color="blue">...อ่านต่อ</font>
                             </p> 
                         </a>
 
@@ -156,7 +156,7 @@
                             <span class="label pull-right btn-default"><font color="#2f7086">โพสต์ล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/articles.jpg" width="60" height="60">
                             <p class="list-group-item-text">
-                                <?php echo $row->description; ?> 
+                                <?php echo $row->description; ?> <font color="blue">...อ่านต่อ</font>
                             </p> 
                         </a>
 
@@ -182,7 +182,7 @@
                             <span class="label pull-right btn-default"><font color="#2f7086">โพสต์ล่าสุด: <?php echo $row->modified_date; ?></font></span>
                             <img src="<?php echo base_url(); ?>assets/images/articles.jpg" width="60" height="60">
                             <p class="list-group-item-text">
-                                <?php echo $row->description; ?> 
+                                <?php echo $row->description; ?> <font color="blue">...อ่านต่อ</font>
                             </p> 
                         </a>
 

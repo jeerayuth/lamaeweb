@@ -14,5 +14,8 @@
     
 </div>
     
+      <br/>
+    <center><a target="_blank" href = "http://www.facebook.com/sharer.php?u=<?php echo site_url('site'); ?>/read_new/<?php echo $result->id; ?>"><img src="<?php echo base_url(); ?>assets/images/share.jpg" ></a></center>
+    <br/>
  
 </div>

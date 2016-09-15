@@ -19,6 +19,10 @@ http://www.grocerycrud.com/image-crud
 http://www.thaicreate.com/php/forum/061517.html
 
 
+ทำ slider ที่หน้าแรกของเว็บเพจ
+http://flexslider.woothemes.com/index.html
+
+
 วิดีโอสอนออกแบบระบบ layout 
 https://www.youtube.com/watch?v=_0T0Od5Kry4
 

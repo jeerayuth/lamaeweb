@@ -1,41 +1,16 @@
 <div class="col-md-9">
     <!-- Magazine Slider -->
-    <div class="carousel slide carousel-v1 margin-bottom-40" id="myCarousel-1">
-        <div class="carousel-inner"> 
-    
-  
-                
-                <div class="item active">
-                    <img alt="" src="<?php echo base_url(); ?>assets/slideshow_uploads/1.jpg">
-                    <div class="carousel-caption">
-                        <p>...</p>
-                    </div>
-                </div>
-            
-                <div class="item ">
-                    <img alt="" src="<?php echo base_url(); ?>assets/slideshow_uploads/2.jpg">
-                    <div class="carousel-caption">
-                        <p>...</p>
-                    </div>
-                </div>
-            
-
-
-
-
-
-
-        </div>
-
-        <div class="carousel-arrow">
-            <a data-slide="prev" href="#myCarousel-1" class="left carousel-control">
-                <i class="fa fa-angle-left"></i>
-            </a>
-            <a data-slide="next" href="#myCarousel-1" class="right carousel-control">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        </div>
+    <div class="flexslider">        
+        <ul class="slides">       
+            <li>
+                <img  src="<?php echo base_url(); ?>assets/slideshow_uploads/1.jpg">
+            </li>         
+            <li>
+                <img  src="<?php echo base_url(); ?>assets/slideshow_uploads/2.jpg">
+            </li>
+        </ul>
     </div>
+
     <!-- End Magazine Slider -->
 
     <!-- Magazine News -->
@@ -130,10 +105,10 @@
         </div>
     </div>
     <!-- End Magazine News -->
-    
-    
-    
-    
+
+
+
+
     <div class="magazine-news">
         <div class="row">
 
@@ -225,12 +200,12 @@
         </div>
     </div>
     <!-- End Magazine News -->
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 
     <!-- Magazine News -->
@@ -251,7 +226,7 @@
                                 <th>ชื่อรายการโหลด</th>
                                 <th>ประเภท</th>
                                 <th>จำนวนผู้เข้าชม</th>
-                            
+
                             </tr>
                         </thead>
                         <tbody>
@@ -263,7 +238,7 @@
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->view; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
-                            
+
                                 </tr>
 
                             <?php } ?>
@@ -295,7 +270,7 @@
                                 <th>ชื่อรายการโหลด</th>
                                 <th>ประเภท</th>
                                 <th>จำนวนผู้เข้าชม</th>
-                      
+
                             </tr>
                         </thead>
                         <tbody>
@@ -307,7 +282,7 @@
                                     <td><?php echo $row->name; ?></td>
                                     <td><?php echo $row->view; ?></td>
                                    <!-- <td><span class="label rounded label-success">1</span></td>-->
-                                   
+
                                 </tr>
                             <?php } ?>
                         </tbody>
@@ -335,3 +310,10 @@
     </div>-->
 
 </div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        $(.flexslider).flexslider();
+        //alert('hello');
+    };
+</script>

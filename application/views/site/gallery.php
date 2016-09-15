@@ -44,9 +44,19 @@
         <div>วันที่โพสต์: <?php echo $result->created_date; ?></div>
         <div>ปรับปรุงข้อมูลล่าสุด: <?php echo $result->modified_date; ?></div>
         <div><?php echo $result->description; ?></div>
+        <div>
+            <a target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo site_url('site'); ?>/read_gallery/<?php echo $result->id; ?>">แชร์ไปยัง facebook!!</a>  
+           
+        </div>
     </div>  
 
+    
+    
     <center>
+        
+        <br/>
+        <a target="_blank" href = "http://www.facebook.com/sharer.php?u=<?php echo site_url('site'); ?>/read_gallery/<?php echo $result->id; ?>"><img src="<?php echo base_url(); ?>assets/images/share.jpg" ></a>
+        <br/>
         <table border="0" >
             <tr>
                 <td colspan = "4">
@@ -94,3 +104,5 @@
 </script>
 
 
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Loader" type="text/javascript"></script>  
+<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script> 

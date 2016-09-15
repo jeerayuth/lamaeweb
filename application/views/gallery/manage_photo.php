@@ -28,4 +28,6 @@ a:hover
 </style>
 
 <h3>ระบบอัพโหลดแกลอรี่รูปภาพ</h3>
+<font color="red" size=2px">หมายเหตุ: ต้องมีการ resize ขนาดภาพมาก่อนทำการอัพโหลด (ขนาดภาพที่เหมาะสม 600x400 pixel)</font>
 <div class="alert alert-success" role="alert"><?php echo $output; ?></div>
+

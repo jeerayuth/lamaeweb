@@ -1,13 +1,37 @@
 <style type="text/css">
     table { 
-        border-spacing: 10px;
+        border-spacing: 15px;
         border-collapse: separate;
-
-        body{font:12px/1.2 Verdana, sans-serif; padding:0 10px;}
-        a:link, a:visited{text-decoration:none; color:#416CE5; border-bottom:1px solid #416CE5;}
-        h2{font-size:13px; margin:15px 0 0 0;}
-
     }
+
+ 
+    .photo {  
+        margin: -10px;  
+        position: relative;  
+        width: 180px;  
+        height: 130px;  
+        float: left;  
+    }  
+    .photo img {  
+        background: #fff;  
+        border: solid 1px #ccc;  
+        padding: 4px;  
+    }  
+    .photo span {  
+        width: 20px;  
+        height: 18px;  
+        display: block;  
+        position: absolute;  
+        top: 12px;  
+        left: 12px;  
+       // background: url(images/digg-style.gif) no-repeat;  
+    }  
+    .photo a {  
+        text-decoration: none;  
+    }  
+
+    
+
 
 </style>
 
@@ -23,37 +47,39 @@
     </div>  
 
     <center>
-    <table border="0" >
-        <tr>
-            <td colspan = "4">
-                <h3>คลิกที่ภาพเพื่อดูภาพแบบ slide show</h3>
-            </td>
-        </tr>
-        <tr>
+        <table border="0" >
+            <tr>
+                <td colspan = "4">
+                    <h5>คลิกที่ภาพเพื่อดูภาพแบบ slide show</h5>
+                </td>
+            </tr>
+            <tr>
 
-            <?php
-            $intRows = 0;
-            ?>
-
-            <?php foreach ($result_sub as $row): ?>
                 <?php
-                echo "<td>";
-                $intRows++;
+                $intRows = 0;
                 ?>
-            <center>
-                <a href="<?php echo base_url(); ?>assets/gallery_sub_uploads/<?php echo $row->url; ?>" class="galery" title="<?php echo $row->url; ?>">
-                    <img  width = "150" height="120" src ="<?php echo base_url(); ?>assets/gallery_sub_uploads/<?php echo $row->url; ?>" />
-                </a>
-            </center>
-            <?php
-            echo"</td>";
-            if (($intRows) % 4 == 0) {
-                echo"</tr>";
-            }
-            ?>
 
-        <?php endforeach; ?>
-        </tr></table>
+                <?php foreach ($result_sub as $row): ?>
+                    <?php
+                    echo "<td>";
+                    $intRows++;
+                    ?>
+                <center>
+                    <div class="photo ">  
+                    <a href="<?php echo base_url(); ?>assets/gallery_sub_uploads/<?php echo $row->url; ?>" class="galery" title="<?php echo $row->url; ?>">
+                        <img  width = "150" height="120" src ="<?php echo base_url(); ?>assets/gallery_sub_uploads/<?php echo $row->url; ?>" />
+                    </a>
+                    </div>
+                </center>
+                <?php
+                echo"</td>";
+                if (($intRows) % 4 == 0) {
+                    echo"</tr>";
+                }
+                ?>
+
+            <?php endforeach; ?>
+            </tr></table>
     </center>
 
 </div>
@@ -62,7 +88,7 @@
 <script type="text/javascript">
 
     window.onload = function () {
-        $(".galery").colorbox({rel: 'galery',slideshow:true,transition:"none", width:"75%", height:"75%"});
+        $(".galery").colorbox({rel: 'galery', slideshow: true, transition: "none", width: "75%", height: "75%"});
     }
 
 </script>

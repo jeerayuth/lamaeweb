@@ -9,15 +9,13 @@
         </div>
 
         <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="<?php echo base_url(); ?>assets/slideshow_uploads/002.jpg" />
-                <div data-u="caption" data-t="0" style="position: absolute; top: 320px; left: 30px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">โรงพยาบาลละแม</div>
-            </div>
 
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="<?php echo base_url(); ?>assets/slideshow_uploads/003.jpg" />
-                <div data-u="caption" data-t="1" data-3d="1" style="position: absolute; top: -50px; left: 125px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;">โครงการพัฒนา รพ. ตามมาตรฐานงานคุณภาพ</div>
-            </div>
+            <?php foreach ($slideshow as $row) { ?>
+                <div data-p="112.50" style="display: none;">
+                    <img data-u="image" src="<?php echo base_url(); ?>assets/slideshow_uploads/<?php echo $row->filename; ?>" />
+                    <div data-u="caption" data-t="0" style="position: absolute; top: 320px; left: 30px; width: 350px; height: 30px; background-color: rgba(235,81,0,0.5); font-size: 20px; color: #ffffff; line-height: 30px; text-align: center;"><?php echo $row->title; ?></div>
+                </div>          
+            <?php } ?>
 
         </div>
 

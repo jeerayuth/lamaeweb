@@ -20,7 +20,7 @@ http://www.thaicreate.com/php/forum/061517.html
 
 
 ทำ slider ที่หน้าแรกของเว็บเพจ
-http://flexslider.woothemes.com/index.html
+http://www.jssor.com/
 
 
 วิดีโอสอนออกแบบระบบ layout 

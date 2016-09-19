@@ -49,12 +49,7 @@
 
         <!-- CSS Colorbox Slideshow -->
         <link media="screen" rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/plugins/colorbox/colorbox.css" />
-        
-        
-         <!-- CSS flex Slider -->
-        <link media="screen" rel="stylesheet" href="<?php echo base_url('themes/bootstrap'); ?>/plugins/flexslider/flexslider.css" />
-        
-        
+               
         <!-- CSS Global Compulsory -->
         <link href="<?php echo base_url('themes/bootstrap'); ?>/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo base_url('themes/bootstrap'); ?>/css/style.css" rel="stylesheet">
@@ -436,8 +431,8 @@
         <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/colorbox/jquery.colorbox.js"></script>
         
         
-          <!-- JS Implementing flex slider Plugins -->
-        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/flexslider/jquery.flexslider.js"></script>
+         <!-- JS Implementing Jssor slider Plugins -->
+        <script type="text/javascript" src="<?php echo base_url('themes/bootstrap'); ?>/plugins/jssor-slider/js/jssor.slider-21.1.5.mini.js"></script>
         
         
         <!-- JS Implementing Plugins -->

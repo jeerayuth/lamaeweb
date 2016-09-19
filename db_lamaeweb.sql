@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50532
 File Encoding         : 65001
 
-Date: 2016-09-19 11:29:47
+Date: 2016-09-19 11:42:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -136,7 +136,7 @@ CREATE TABLE `documents` (
 -- ----------------------------
 -- Records of documents
 -- ----------------------------
-INSERT INTO documents VALUES ('18', 'aa', '2016-09-01 00:00:00', 'fff', 'dddrrr', 'dddd', '57d0db147d706.ppt', '', '2016-09-08', '2016-09-08', '1', '1', '3', null, '11');
+INSERT INTO documents VALUES ('18', 'aa', '2016-09-01 00:00:00', 'fff', 'dddrrr', 'dddd', '57d0db147d706.ppt', '', '2016-09-08', '2016-09-08', '1', '1', '3', null, '12');
 INSERT INTO documents VALUES ('19', 'test', '2016-09-07 00:00:00', 'ff', 'ddd', 'dsfsd', '57d1032c8b5f4', 'dsfdsf', '2016-09-08', '2016-09-08', '1', '1', '1', '0', '7');
 INSERT INTO documents VALUES ('20', 'A001', '2016-09-12 00:00:00', '', 'แบบฟอร์มใบลา', 'ธุรการ', '57d66dc4bb880', '', '2016-09-12', '2016-09-12', '1', '1', '2', '0', '4');
 INSERT INTO documents VALUES ('21', 'A002', '2016-09-12 00:00:00', '', 'แบบฟอร์มแจ้งซ่อม', 'ธุรการ', '57d66ddc9f4ce', '', '2016-09-12', '2016-09-12', '1', '1', '2', '0', '0');
@@ -379,7 +379,7 @@ CREATE TABLE `slideshow` (
 -- Records of slideshow
 -- ----------------------------
 INSERT INTO slideshow VALUES ('38', 'โรงพยาบาลละแม', '001.jpg', '2016-08-24 10:42:27', null, '1', '1');
-INSERT INTO slideshow VALUES ('39', 'test 2', '002.jpg', '2016-08-24 10:42:42', null, '1', '2');
+INSERT INTO slideshow VALUES ('39', 'ทดสอบภาพ slideshow', '002.jpg', '2016-08-24 10:42:42', null, '1', '2');
 
 -- ----------------------------
 -- Table structure for `users`

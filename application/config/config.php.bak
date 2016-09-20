@@ -35,7 +35,7 @@ $config['base_url'] = 'http://192.168.1.252:8080/lamaeweb/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = '';
+$config['index_page'] = 'index.php';
 
 /*
 |--------------------------------------------------------------------------

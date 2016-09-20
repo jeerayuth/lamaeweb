@@ -1,0 +1,18 @@
+########## ขั้นตอนการติดตั้งฐานข้อมูล ##############
+1. แตกไฟล์ h11381.rar ออกมา
+2. สร้างฐานข้อมูลชื่อ db_lamaeweb เป็นแบบ utf8
+3. นำเข้าฐานข้อมูลจากไฟล์  db_lamaeweb.sql ที่แนบมาให้
+
+
+########### ขั้นตอนการติดตั้ง script โปรแกรม #############
+1. copy ทั้งโฟลเดอร์  h11381 ไปวางใน web server
+2. แก้ไขไฟล์  h11381\application\config\database.php ในหัวข้อดังนี้
+	-hostname => 'ระบุ IP Database Server'
+	-username => 'ชื่อบัญชีผู้ใช้ฐานข้อมูล'
+	-password => 'รหัสผ่านผู้ใช้ฐานข้อมูล'
+	-database => 'ชื่อฐานข้อมูล'
+
+
+3. แก้ไขไฟล์ h11381\application\config\config.php ที่หัวข้อด้านล่างนี้
+
+$config['base_url'] = 'ระบุ url เว็บไซต์ เช่น http://www.lmh.moph.go.th/h11381/';

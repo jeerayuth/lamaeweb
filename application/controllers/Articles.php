@@ -12,6 +12,14 @@ class Articles extends CI_Controller {
         $this->load->library('layout');
         $this->load->model('Articles_Categorie_model', 'articles_cat');
         $this->load->model('Articles_Model', 'articles');
+
+        // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if(!isset($userData["username"])){
+           redirect('/user/login', 'refresh');
+        }
+       
+        
     }
 
     public function index() {
@@ -21,14 +29,11 @@ class Articles extends CI_Controller {
         $this->layout->view('articles/mainpage', compact('query', 'results', 'links'));
     }
 
-    
-    
     public function newdata() {
         $data['results'] = $this->articles_cat->all();
         $this->layout->view('articles/newdata', $data);
     }
-       
-    
+
     public function postdata() {
         if ($this->input->server('REQUEST_METHOD') == TRUE) {
             $config['upload_path'] = './assets/articles_uploads/';
@@ -41,13 +46,13 @@ class Articles extends CI_Controller {
             $this->form_validation->set_rules('articles_categorie_id', 'หมวดหมู่บทความ', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $this->form_validation->set_rules('topic', 'ชื่อบทความ', 'required', array('required' => 'ค่าห้ามว่าง!'));
             $no_file_error = "<p>You did not select a file to upload.</p>";
-           
+
             if (!$this->upload->do_upload('userfile') && $this->upload->display_errors() != $no_file_error) {
                 $checkfile = FALSE;
             } else {
                 $checkfile = TRUE;
             }
-            
+
             if ($this->form_validation->run() == TRUE && $checkfile == TRUE) {
                 $this->session->set_flashdata(
                         array(
@@ -84,15 +89,11 @@ class Articles extends CI_Controller {
         }
     }
 
-    
-    
     public function edit($id) {
         $data['results'] = $this->articles_cat->all();
         $data['article'] = $this->articles->read_article($id);
         $this->layout->view('articles/edit', $data);
     }
-
-
 
     public function confrm($id) {
         $data = array

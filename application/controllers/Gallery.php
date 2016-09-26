@@ -12,6 +12,12 @@ class Gallery extends CI_Controller {
         $this->load->library('layout');
         $this->load->model('Gallery_model', 'gallery');
         $this->load->library('image_CRUD');
+        
+            // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
     }
 
     public function index() {

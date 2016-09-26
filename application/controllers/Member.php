@@ -11,6 +11,13 @@ class Member extends CI_Controller {
         parent::__construct();
         $this->load->library('layout');
         $this->load->model('Member_model', 'member');
+        
+            // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
+        
     }
 
     public function index() {

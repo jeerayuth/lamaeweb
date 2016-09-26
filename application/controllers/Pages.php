@@ -20,9 +20,16 @@ class Pages extends CI_Controller {
         $this->ckeditor->config['language'] = 'en';
         $this->ckeditor->config['width'] = '800px';
         $this->ckeditor->config['height'] = '300px';
-        
+
         //Add Ckfinder to Ckeditor
-        $this->ckfinder->SetupCKEditor($this->ckeditor,'../../assets/ckfinder/'); 
+        $this->ckfinder->SetupCKEditor($this->ckeditor, '../../assets/ckfinder/');
+
+        // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
+        
     }
 
     public function index() {
@@ -69,8 +76,6 @@ class Pages extends CI_Controller {
         $row = $this->pages->find($id);
         $this->layout->view("pages/form", compact('row'));
     }
-    
-        
 
     public function confrm($id) {
         $data = array

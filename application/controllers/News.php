@@ -12,6 +12,12 @@ class News extends CI_Controller {
         $this->load->library('layout');
         $this->load->model('News_Categorie_model', 'news_cat');
         $this->load->model('News_Model', 'news');
+        
+            // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
     }
 
     public function index() {

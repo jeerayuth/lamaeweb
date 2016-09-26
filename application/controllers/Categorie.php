@@ -9,6 +9,13 @@ class Categorie extends CI_Controller {
         parent::__construct();
         $this->load->library('layout');
         $this->load->model('Categorie_model', 'categorie');
+        
+            // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
+        
     }
 
     public function index() {

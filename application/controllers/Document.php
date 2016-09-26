@@ -12,6 +12,12 @@ class Document extends CI_Controller {
         $this->load->library('layout');
         $this->load->model('Categorie_model', 'categorie');
         $this->load->model('Document_model', 'document'); //โหลด model และตั้งชื่อเล่นให้ model
+        
+            // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
     }
 
     public function index() {

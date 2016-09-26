@@ -9,3 +9,5 @@ function GenerateFileName($fileName = 'default.jpg') {
     $fileName =  date('d_m_Y_H_i_s') .'.' . $exp[count($exp) - 1];
     return $fileName;
 }
+
+

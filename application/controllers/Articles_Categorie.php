@@ -3,12 +3,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Articles_Categorie extends CI_Controller {
+
     public $layout_view = 'layout/admin';
 
     public function __construct() {
         parent::__construct();
         $this->load->library('layout');
         $this->load->model('Articles_Categorie_model', 'articles_cat');
+
+        // Check Login all method in controller
+        $userData = $this->session->all_userdata();
+        if (!isset($userData["username"])) {
+            redirect('/user/login', 'refresh');
+        }
     }
 
     public function index() {
@@ -17,8 +24,6 @@ class Articles_Categorie extends CI_Controller {
         $this->layout->view('articles_categorie/mainpage', compact('query', 'results'));
     }
 
-    
-    
     public function newdata() {
         $this->layout->view('articles_categorie/newdata');
     }

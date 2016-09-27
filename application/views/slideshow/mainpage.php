@@ -64,8 +64,15 @@
                                                 <div>แสดงผลลำดับที่ <?php echo $row->order; ?></div>
                                                  <div>สถานะ <?php echo $row->visible; ?></div>
                                                   <a href="<?php echo site_url("slideshow/update/" . $row->id) ?>" class="btn btn-info btn-xs"  role="button"><i class="fa fa-fw fa-edit"></i> แก้ไข</a>
+                                                  
+                                                     <?php
+                                                $userData = $this->session->all_userdata();
+                                                if ($userData["permission"] == 2) {
+                                                    ?>
                                                 <a href="<?php echo site_url('slideshow/confrm/' . $row->id); ?>" class="btn btn-danger btn-xs" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
-
+                                                      <?php
+                                                }
+                                                ?>
                                             </td>
                                            
                                         </tr>

@@ -30,7 +30,7 @@ class Site extends CI_Controller {
         //จัดซื้อจัดจ้าง
         $data['news_budget'] = $this->news->all(3, '', 'modified_date', 'desc', 2);
         //แกลอรี่กิจกรรม
-        $data['gallery'] = $this->gallery->all(5, '', 'modified_date', 'desc');
+        $data['gallery'] = $this->gallery->all(3, '', 'modified_date', 'desc');
         // Slideshow
         $data['slideshow'] = $this->slideshow->all(15, '', 'order', 'asc');
 

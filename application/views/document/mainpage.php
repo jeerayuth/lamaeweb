@@ -25,9 +25,18 @@
                         <div class="col-sm-8">
                             <a class="btn btn-default" href="<?php echo base_url('document'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> รายการไฟล์</a>
                             <a class="btn btn-info" href="<?php echo base_url('document/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มไฟล์</a>
+                           
+                               <?php
+                        $userData = $this->session->all_userdata();
+                        if ($userData["permission"] == 2) { ?>
                             <a class="btn btn-info" href="<?php echo base_url('categorie'); ?>" role="button"><i class="fa fa-fw fa-info-circle"></i> รายการหมวดหมู่</a>
+                            
+                          
                             <a class="btn btn-info" href="<?php echo base_url('categorie/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มหมวดหมู่</a>
-
+   <?php
+                        }
+                        ?>
+                            
                         </div>
                         <div class="col-sm-4">
                             <div id="" class="dataTables_filter">
@@ -71,8 +80,14 @@
                                             <td><?php echo $row->download; ?></td>
                                             <td>
                                                 <a class="btn btn-info btn-xs" href="<?php echo base_url('document/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>
-                                                
+                                                     <?php
+                                                $userData = $this->session->all_userdata();
+                                                if ($userData["permission"] == 2) {
+                                                    ?>
                                                 <a class="btn btn-danger btn-xs" href="<?php echo base_url('document/confrm/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                                 <?php
+                                                }
+                                                ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

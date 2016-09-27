@@ -21,7 +21,7 @@ class User extends CI_Controller {
         if ($this->input->server('REQUEST_METHOD') == TRUE) {
             if ($this->User_model->record_count($this->input->post('username'), $this->input->post('password')) == 1) {
                 $result = $this->User_model->fetch_user_login($this->input->post('username'), $this->input->post('password'));
-                $this->session->set_userdata(array('login_id' => $result->id, 'username' => $result->username, 'display_name' => $result->display_name));
+                $this->session->set_userdata(array('login_id' => $result->id, 'username' => $result->username, 'display_name' => $result->display_name, 'permission' => $result->permission));
                 redirect('news');
             } else {
                 $this->session->set_flashdata(array('msgerr' => '<p class="login-box-msg" style="color:red;">ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด!</p>'));

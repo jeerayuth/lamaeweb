@@ -52,8 +52,15 @@
                                             </td>
                                             <td><?php echo $row->description; ?></td>
                                             <td>
+                                                   <?php
+                        $userData = $this->session->all_userdata();
+                        if ($userData["permission"] == 2) { ?>
                                                 <a class="btn btn-primary btn-xs" href="<?php echo base_url('articles_categorie/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a> 
+                                                
                                             	<a class="btn btn-danger btn-xs" href="<?php echo  base_url('articles_categorie/confrm/'.$row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                             <?php
+                        }
+                        ?>
                                             </td>
                                         </tr>
                                       <?php endforeach; ?>

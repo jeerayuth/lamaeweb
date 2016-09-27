@@ -317,7 +317,7 @@
                                     <ul class="list-unstyled latest-list">
                                         <?php foreach ($gallery as $row) { ?>
                                         <li>
-                                            <a href="#"><?php echo $row->title; ?></a>
+                                            <a target="_blank" href="<?php echo site_url('site'); ?>/read_gallery/<?php echo $row->id; ?>"><?php echo $row->title; ?></a>
                                             <small><?php echo $row->modified_date; ?></small>
                                         </li>
 
@@ -334,7 +334,7 @@
                                     <li><a href="<?php echo site_url('site'); ?>">หน้าหลัก</a><i class="fa fa-angle-right"></i></li>
                                     <li><a href="<?php echo site_url('site'); ?>/news/1">ข่าวสารทั่วไป</a><i class="fa fa-angle-right"></i></li>
                                     <li><a href="<?php echo site_url('site'); ?>/gallery">ภาพกิจกรรม</a><i class="fa fa-angle-right"></i></li>
-                                    <li><a href="#">ดาวน์โหลด</a><i class="fa fa-angle-right"></i></li>
+                                    <li><a href="<?php echo site_url('site'); ?>/docs/1">ดาวน์โหลด</a><i class="fa fa-angle-right"></i></li>
                                     <li><a href="<?php echo site_url('site'); ?>/contact">ติดต่อเรา</a><i class="fa fa-angle-right"></i></li>
                                 </ul>
                             </div><!--/col-md-3-->

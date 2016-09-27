@@ -70,6 +70,14 @@
                 </div>
                 
                 
+                 <div class="form-group">
+                    <label>
+                        ระดับสิทธิ์
+                    </label>
+                    <?php echo form_dropdown("permission", array(1 => "ผู้ใช้ทั่วไป", 2 => "ผู้ดูแลระบบ"), isset($row->permission) ? $row->permission : '', 'class="form-control"'); ?>
+                </div>
+                
+                
                 <div class="form-group">
                     <label>
                         สถานะ

@@ -171,6 +171,11 @@
                             MENU
                         </li>
 
+                        
+                          <?php
+                        $userData = $this->session->all_userdata();
+                        if ($userData["permission"] == 2) { ?>
+                        
                         <li class="<?php echo activate_menu('config'); ?>">
                             <a href="<?php echo site_url('configs/update'); ?>">
                                 <i class="fa fa-link">
@@ -181,15 +186,21 @@
                             </a>
                         </li>
 
-                        <li class="<?php echo activate_menu('member'); ?>">
-                            <a href="<?php echo site_url('member'); ?>">
-                                <i class="fa fa-link">
-                                </i>
-                                <span>
-                                    จัดการผู้ใช้งานระบบ
-                                </span>
+                      
+
+                            <li class = "<?php echo activate_menu('member'); ?>">
+                            <a href = "<?php echo site_url('member'); ?>">
+                            <i class = "fa fa-link">
+                            </i>
+                            <span>
+                            จัดการผู้ใช้งานระบบ
+                            </span>
                             </a>
-                        </li>
+                            </li>
+                            <?php
+                        }
+                        ?>
+
 
                         <li class="<?php echo activate_menu('pages'); ?>">
                             <a href="<?php echo site_url('pages'); ?>">
@@ -251,6 +262,11 @@
                             </a>
                         </li>
 
+                                   
+                              <?php
+                        $userData = $this->session->all_userdata();
+                        if ($userData["permission"] == 2) { ?>
+                        
                         <li class="<?php echo activate_menu('links'); ?>">
                             <a href="<?php echo site_url('links'); ?>">
                                 <i class="fa fa-link">
@@ -260,6 +276,10 @@
                                 </span>
                             </a>
                         </li>
+                        
+                         <?php
+                        }
+                        ?>
 
                     </ul><!-- /.sidebar-menu -->
                 </section>
@@ -268,7 +288,7 @@
 
 
             <!-- display content -->
-            <?php echo $content_for_layout; ?>
+<?php echo $content_for_layout; ?>
 
 
             <!-- Main Footer -->

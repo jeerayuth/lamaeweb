@@ -26,9 +26,17 @@
                         <div class="col-sm-8">
                             <a class="btn btn-default" href="<?php echo base_url('articles'); ?>" role="button"><i class="fa fa-fw fa-refresh"></i> รายการบทความ</a>
                             <a class="btn btn-info" href="<?php echo base_url('articles/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มบทความใหม่</a>
+                            
+                             <?php
+                        $userData = $this->session->all_userdata();
+                        if ($userData["permission"] == 2) { ?>
                             <a class="btn btn-info" href="<?php echo base_url('articles_categorie'); ?>" role="button"><i class="fa fa-fw fa-info-circle"></i> รายการหมวดหมู่</a>
+                             
                             <a class="btn btn-info" href="<?php echo base_url('articles_categorie/newdata'); ?>" role="button"><i class="fa fa-fw fa-plus-circle"></i> เพิ่มหมวดหมู่</a>
-
+  <?php
+                        }
+                        ?>
+                            
                         </div>
                         <div class="col-sm-4">
                             <div id="" class="dataTables_filter">
@@ -64,8 +72,17 @@
                                             <td><?php echo $row->name; ?></td>
                                             <td><?php echo $row->view; ?></td>
                                             <td>
-                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('articles/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>                               
+                                                <a class="btn btn-primary btn-xs" href="<?php echo base_url('articles/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>  
+                                                
+                                                 <?php
+                                                $userData = $this->session->all_userdata();
+                                                if ($userData["permission"] == 2) {
+                                                    ?>
                                                 <a class="btn btn-danger btn-xs" href="<?php echo base_url('articles/confrm/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-trash"></i> ลบข้อมูล</a>
+                                            <?php
+                                                }
+                                                ?>
+                                            
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

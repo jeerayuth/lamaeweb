@@ -27,6 +27,7 @@ class Member_model extends CI_Model {
         $post['display_name'] = $this->input->post("display_name");
         $post['email'] = $this->input->post("email");
         $post['username'] = $this->input->post('username');
+        $post['permission'] = $this->input->post('permission');
         $post['visible'] = $this->input->post('visible');
 
         if ($id) {

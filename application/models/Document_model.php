@@ -33,6 +33,24 @@ class Document_model extends CI_Model {
         return $this->db->get()->result();
     }
     
+    
+      public function select_cat($limit = 10, $field = null, $order = 'asc', $cat = null) { /* function query ข้อมูล */
+        // param1 = limit, param2 = keyword search
+        // param3 = field for order by, param4 = order by type
+        $this->db->select('documents.*,c.name,u.display_name');
+        $this->db->from($this->table);
+        $this->db->join('categories c', 'c.id=documents.categorie_id');
+        $this->db->join('users u', 'u.id=documents.created_by');
+         if ($cat != null) {
+            $this->db->where('documents.categorie_id', $cat);
+      }
+     
+        $this->db->order_by($field, $order);
+        $this->db->limit($limit);
+     
+        return $this->db->get()->result();
+    }
+    
 
     
 

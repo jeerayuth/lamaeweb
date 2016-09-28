@@ -20,7 +20,8 @@
         $this->load->model('Gallery_model', 'gallery');     
         // หมวดหมู่บทความ
         $this->load->model('Articles_Categorie_model', 'articles_cat');
-
+         // เอกสารดาวน์โหลด
+        $this->load->model('Document_model', 'document');
 
         //หน้าเว็บเพจ
         $configs = $CI->configs->find(1);
@@ -30,6 +31,8 @@
         $doc_cat = $CI->doc_cat->all();
         $links = $CI->links->all();
         $gallery = $this->gallery->all(3, '', 'modified_date', 'desc');
+        $doc_ha = $this->document->select_cat(12,  'modified_date', 'desc',4);
+        $doc_research = $this->document->select_cat(12,  'modified_date', 'desc',5);
         
         ?>
 
@@ -270,15 +273,13 @@
                         </div>
                         <!-- End Magazine Posts -->
 
-
-                        <!-- Quick Links -->
                         <div class="magazine-sb-categories margin-bottom-20">
-                            <div class="headline"><h2 class="heading-sm">ระบบงานที่เกี่ยวข้อง</h2></div>
+                            <div class="headline"><h2 class="heading-sm">เอกสารงานคุณภาพ</h2></div>
                             <div class="row">
                                 <ul class="list-unstyled col-xs-12">
-                                    <?php foreach ($links as $row) { ?>
+                                    <?php foreach ($doc_ha as $row) { ?>
                                         <li>
-                                            &nbsp;&nbsp;<a href="<?php echo $row->link; ?>" target="_blank">  <?php echo $row->name; ?> </a>
+                                            &nbsp;&nbsp;- <a target="_blank" href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a>
                                         <?php } ?>    
                                     </li>
                                 </ul>
@@ -286,6 +287,39 @@
                             </div>
                         </div>
                         <!-- End Quick Links -->
+                        
+                        <div class="magazine-sb-categories margin-bottom-20">
+                            <div class="headline"><h2 class="heading-sm">เอกสารงานวิจัย</h2></div>
+                            <div class="row">
+                                <ul class="list-unstyled col-xs-12">
+                                    <?php foreach ($doc_research as $row) { ?>
+                                        <li>
+                                            &nbsp;&nbsp;- <a target="_blank" href="<?php echo site_url('site'); ?>/read_doc/<?php echo $row->id; ?>"><?php echo $row->topic; ?></a>
+                                        <?php } ?>    
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <!-- End Quick Links -->
+                        
+                        <!-- Quick Links -->
+                        <div class="magazine-sb-categories margin-bottom-20">
+                            <div class="headline"><h2 class="heading-sm">ระบบงานที่เกี่ยวข้อง</h2></div>
+                            <div class="row">
+                                <ul class="list-unstyled col-xs-12">
+                                    <?php foreach ($links as $row) { ?>
+                                        <li>
+                                            &nbsp;&nbsp;- <a href="<?php echo $row->link; ?>" target="_blank">  <?php echo $row->name; ?> </a>
+                                        <?php } ?>    
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <!-- End Quick Links -->
+                        
+                        
 
 
 

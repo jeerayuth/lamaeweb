@@ -17,12 +17,13 @@
         // Gallery ภาพกิจกรรม
         $this->load->model('Gallery_model', 'gallery');
         
+        
         //หน้าเว็บเพจ
         $configs = $CI->configs->find(1);
         $news_cat = $CI->news_cat->all();
         $doc_cat = $CI->doc_cat->all();
         $gallery = $CI->gallery->all(3, '', 'modified_date', 'desc');
-
+    
         ?>
 
         <title><?php echo $configs->name; ?></title>

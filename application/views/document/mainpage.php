@@ -55,7 +55,7 @@
                                         <th  tabindex="0"  rowspan="1" colspan="1" style="width: 200px;">ชื่อเอกสาร</th>             
                                         <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">แหล่งเก็บ</th>                               
                                         <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">หมวดหมู่</th>
-                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">ดาวน์โหลด</th>
+                                        <th  tabindex="0"  rowspan="1" colspan="1" style="width: 100px;">ผู้ชม</th>
                                         <th  tabindex="0" rowspan="1" colspan="1" style="width:  80px;">&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -77,7 +77,7 @@
                                             <td><?php echo $row->store; ?></td>
                                       
                                             <td><?php echo $row->name; ?></td>
-                                            <td><?php echo $row->download; ?></td>
+                                            <td><?php echo $row->view; ?></td>
                                             <td>
                                                 <a class="btn btn-info btn-xs" href="<?php echo base_url('document/edit/' . $row->id); ?>" role="button"><i class="fa fa-fw fa-edit"></i> แก้ไขข้อมูล</a>
                                                      <?php

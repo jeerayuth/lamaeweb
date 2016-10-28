@@ -11,6 +11,7 @@ class Configs_model extends CI_Model {
         $post['name'] = $this->input->post("name");
         $post['address'] = $this->input->post('address');
         $post['telephone'] = $this->input->post('telephone');
+        $post['fax'] = $this->input->post('fax');
         $post['director_name'] = $this->input->post('director_name');
         $post['director_position'] = $this->input->post('director_position');
         $post['email'] = $this->input->post('email');
